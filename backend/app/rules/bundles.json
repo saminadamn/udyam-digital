@@ -1,0 +1,269 @@
+{
+  "pricing_rule": "micro at catalogue price_min (very price-sensitive); prof, multi and mfg at the midpoint of price_min and price_max, rounded to the rupee. Contract = longest min_contract_months in the bundle.",
+  "bundles": [
+    {
+      "segment": "Micro retail & services",
+      "key": "micro",
+      "name": "Dukaan Digital",
+      "basis": "P07 in 100% and P01 in 92% of activated micro bundles; median 2 SIMs. Add-ons are the next three products, each bought by 30-34%.",
+      "profiles": [
+        {
+          "label": "typical: 3 staff, 1 site, tier 1, active GSTIN",
+          "city_tier": 1,
+          "employees": 3,
+          "sites": 1,
+          "gst_status": "Active"
+        },
+        {
+          "label": "harder case: 2 staff, 1 site, tier 2, no GSTIN",
+          "city_tier": 2,
+          "employees": 2,
+          "sites": 1,
+          "gst_status": "None"
+        }
+      ],
+      "core": [
+        [
+          "P01",
+          1
+        ],
+        [
+          "P07",
+          2
+        ]
+      ],
+      "addons": [
+        [
+          "P19",
+          1
+        ],
+        [
+          "P22",
+          1
+        ],
+        [
+          "P23",
+          1
+        ]
+      ],
+      "gstin_only_addons": [
+        [
+          "P15",
+          1
+        ]
+      ],
+      "fallback": {
+        "when": "fibre not feasible at the site",
+        "swap": [
+          "P01",
+          "P04"
+        ]
+      },
+      "per_user": [
+        "P07"
+      ]
+    },
+    {
+      "segment": "Professional offices",
+      "key": "prof",
+      "name": "Office Pro",
+      "basis": "P16 in 100% (median 7 seats), P08 52% (median 3), P20 49% (median 6), P02 44% (most-bought fibre), P17 41%. Add-ons are 26-30% products.",
+      "profiles": [
+        {
+          "label": "typical: 13 staff, 1 site, tier 2, active GSTIN",
+          "city_tier": 2,
+          "employees": 13,
+          "sites": 1,
+          "gst_status": "Active"
+        },
+        {
+          "label": "small clinic: 4 staff, 1 site, tier 1, active GSTIN",
+          "city_tier": 1,
+          "employees": 4,
+          "sites": 1,
+          "gst_status": "Active"
+        }
+      ],
+      "core": [
+        [
+          "P02",
+          1
+        ],
+        [
+          "P08",
+          3
+        ],
+        [
+          "P16",
+          7
+        ],
+        [
+          "P20",
+          6
+        ],
+        [
+          "P17",
+          1
+        ]
+      ],
+      "addons": [
+        [
+          "P12",
+          3
+        ],
+        [
+          "P11",
+          1
+        ]
+      ],
+      "gstin_only_addons": [],
+      "tier1_upgrade": {
+        "swap": [
+          "P02",
+          "P03"
+        ],
+        "note": "Biz Fibre 1G is tier 1 only and needs 5+ staff and an active GSTIN"
+      },
+      "per_user": [
+        "P08",
+        "P16",
+        "P20"
+      ]
+    },
+    {
+      "segment": "Small multi-site businesses",
+      "key": "multi",
+      "name": "Chain Connect",
+      "basis": "P08 in 100% (median 4), P09 57%, P01 52%, P19 52%, all one per site. Add-ons are 31-46% products. Quantities scale with site count (median 7 sites).",
+      "profiles": [
+        {
+          "label": "typical: 61 staff, 7 sites, tier 2, active GSTIN",
+          "city_tier": 2,
+          "employees": 61,
+          "sites": 7,
+          "gst_status": "Active"
+        },
+        {
+          "label": "small chain: 12 staff, 3 sites, tier 1, active GSTIN",
+          "city_tier": 1,
+          "employees": 12,
+          "sites": 3,
+          "gst_status": "Active"
+        }
+      ],
+      "per_site": [
+        "P01",
+        "P09",
+        "P19",
+        "P10",
+        "P22"
+      ],
+      "core": [
+        [
+          "P01",
+          7
+        ],
+        [
+          "P09",
+          7
+        ],
+        [
+          "P19",
+          7
+        ],
+        [
+          "P08",
+          4
+        ]
+      ],
+      "addons": [
+        [
+          "P10",
+          7
+        ],
+        [
+          "P23",
+          10
+        ],
+        [
+          "P22",
+          7
+        ],
+        [
+          "P13",
+          1
+        ],
+        [
+          "P15",
+          1
+        ]
+      ],
+      "gstin_only_addons": [],
+      "per_user": [
+        "P08"
+      ]
+    },
+    {
+      "segment": "Small manufacturers",
+      "key": "mfg",
+      "name": "Factory Line",
+      "basis": "P08 and P16 in 100% (median 4 and 11), P05 51%, P20 43% (median 8.5). Add-ons are 32-38% products. Static IP (35%) is left out: it needs fibre, not a leased line.",
+      "profiles": [
+        {
+          "label": "typical: 74 staff, 1 site, tier 2, active GSTIN",
+          "city_tier": 2,
+          "employees": 74,
+          "sites": 1,
+          "gst_status": "Active"
+        },
+        {
+          "label": "small unit: 12 staff, 1 site, tier 1, active GSTIN",
+          "city_tier": 1,
+          "employees": 12,
+          "sites": 1,
+          "gst_status": "Active"
+        }
+      ],
+      "core": [
+        [
+          "P05",
+          1
+        ],
+        [
+          "P08",
+          4
+        ],
+        [
+          "P16",
+          11
+        ],
+        [
+          "P20",
+          9
+        ]
+      ],
+      "addons": [
+        [
+          "P21",
+          1
+        ],
+        [
+          "P23",
+          5
+        ],
+        [
+          "P24",
+          10
+        ]
+      ],
+      "gstin_only_addons": [],
+      "per_user": [
+        "P08",
+        "P16",
+        "P20",
+        "P24"
+      ]
+    }
+  ],
+  "quantity_rule": "Per-site products = number of sites. Per-user products = min(segment median quantity, employees). Everything else = segment median quantity."
+}

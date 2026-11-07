@@ -1,0 +1,17 @@
+voice: 6 answers spoken in Hindi (recognition lang hi-IN), conversation channel=voice
+  read aloud (40 chars): आपके व्यवसाय में कितने लोग काम करते हैं?
+  read aloud (28 chars): आपका व्यवसाय किस शहर में है?
+  read aloud (59 chars): क्या आपके पास GST नंबर है? यहाँ लिखें, या कोई विकल्प चुनें।
+  read aloud (52 chars): अभी व्यवसाय के लिए कौन सा इंटरनेट इस्तेमाल करते हैं?
+  read aloud (62 chars): आप क्या करना चाहते हैं? जितने चाहें चुनें, फिर "हो गया" दबाएँ।
+  read aloud (35 chars): धन्यवाद! आपके लिए मेरा सुझाव यह है।
+whatsapp: quote_ready sent via mock-wa-2242b6061b: Accel Business: आपका ऑर्डर UD-2611-0003 हो गया है: ₹2,395 हर महीने। अगला कदम: अपने दस्तावेज़ भेजें। http://localhost:3000/order/ord_01a1b67dcbf77e2a90976d19d38d7ae0/consent
+metric lead_to_activation: Lead-to-activation |  | 0.0% |  | baseline 7.4% → target 11.0% |  | 0 of 6 app leads live
+metric days_to_activate: Days from lead to live |  | — |  | baseline 17.6 d → target 8.0 d |  | No app customer is live yet
+metric cac_per_activation: CAC per activation |  | — |  | baseline Rs 15,053 → target Rs 8,000 |  | No activations yet
+metric churn_6m: 6-month churn |  | — |  | baseline 15.2% → target 11.0% |  | Needs live customers
+metric chase_calls_per_customer: Status-chase calls per customer |  | 0 |  | baseline 3.01 → target 0.5 |  | 0 'talk to a person' requests on 3 orders
+call: L04343 (High, score 0.895) called from the dashboard -> call_logs ('mock', 'interested', 180, None), lead ('2026-11-07T14:51:01+00:00', 'contacted')
+'Advisor could not close': 3 rows on screen, first: 'Office (still in the advisor)\nL-APP-56103385 · — · App\n\t••••••9575\tProfessional offices\tContacted\nHanded to a person\n\tAs'
+page errors: none
+360px layout problems: none

@@ -1,0 +1,10 @@
+K02: consent stored ('kyc_verification', 'kyc-v1.0', '2026-11-07T11:34:44+00:00'); order CONSENT_GIVEN
+K02 GSTIN card: ✓ Found in the GST registry |  | 19•••••••••1ZL |  | Harmony Dental Care · West Bengal · Active
+K02: verdict verified, order KYC_VERIFIED, escalations []
+K11 address tile on upload: ! Address proof |  | Electricity, phone or water bill from the last 90 days |  | Your bill is dated 2025-10-31, 257 days ago. Please upload a bill from the last 90 days. |  | Upload again
+K11: verdict reupload, order KYC_FLAGGED, escalations [('kyc_flag', 'P3', 'kyc')]
+K11 fix list: Your bill is dated 2025-10-31, 257 days ago. Please upload a bill from the last 90 days. |  | Re-upload · Address proof
+K06 (Hindi): verdict review, order HUMAN_REVIEW, escalations [('kyc_flag', 'P1', 'kyc')]
+K06 banner: ['एक विशेषज्ञ इसे जाँचेंगे', '', 'हमारी KYC टीम से Priya आपको 09:05 PM तक कॉल करेंगे।']
+page errors: none
+layout/masking problems: none

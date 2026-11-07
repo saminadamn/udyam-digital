@@ -1,0 +1,2157 @@
+[
+ {
+  "verdict": "blocked",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1270.8 (min 50), OCR confidence 86.2% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 945.6 (min 50), OCR confidence 93.5% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1861.7 (min 50), OCR confidence 94.5% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1026.1 (min 50), OCR confidence 90.3% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 37•••••••••1ZS (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZS: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZS found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "fail",
+    "severity": "blocking",
+    "reason": "registry status Cancelled",
+    "customer": "Your GST registration is cancelled. Some items in your plan need an active GSTIN, so our team will call you to change the plan.",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 37 = Andhra Pradesh; registry state Andhra Pradesh",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "fail",
+    "severity": "mismatch",
+    "reason": "registration number is blank on the certificate; no record for this name in Visakhapatnam, same name exists in Hyderabad (different business)",
+    "customer": "The Udyam registration number is blank on your certificate. Our team will confirm it with you.",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Vindhya Tours & Travels'; GST certificate legal name 'Vindhya Tours & Travels'; Udyam certificate 'Vindhya Tours & Travels' vs GST registry 'Vindhya Tours & Travels'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Vindhya Tours & Travels', registry business 'Vindhya Tours & Travels'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 1, Tech Park Road, Visakhapatnam, A ndhra Pradesh - 118383' vs GST registry Visakhapatnam, Andhra Pradesh",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-06-26, 19 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "37•••••••••1ZS",
+  "udyam": null,
+  "applicant": "K01",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 86.2,
+    "sharpness": 1270.8,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 93.5,
+    "sharpness": 945.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.5,
+    "sharpness": 1861.7,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.3,
+    "sharpness": 1026.1,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1258.8 (min 50), OCR confidence 89.7% (min 55), straightened +7 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 973.0 (min 50), OCR confidence 88.0% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1822.5 (min 50), OCR confidence 94.7% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 990.8 (min 50), OCR confidence 90.2% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 19•••••••••1ZL (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "19•••••••••1ZL: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "19•••••••••1ZL found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 19 = West Bengal; registry state West Bengal",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-WB-00-•••3330 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Harmony Dental Care' vs Udyam registry 'Harmony Dental Care'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Harmony Dental Care'; GST certificate legal name 'Harmony Dental Care'; Udyam certificate 'Harmony Dental Care' vs GST registry 'Harmony Dental Care'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Harmony Dental Care', registry business 'Harmony Dental Care'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 199, Station Road, Kolkata, West Be ngal - 347550' vs GST registry Kolkata, West Bengal",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-05-22, 54 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "19•••••••••1ZL",
+  "udyam": "UDYAM-WB-00-•••3330",
+  "applicant": "K02",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 89.7,
+    "sharpness": 1258.8,
+    "skew": 7.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 88.0,
+    "sharpness": 973.0,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.7,
+    "sharpness": 1822.5,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.2,
+    "sharpness": 990.8,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1224.6 (min 50), OCR confidence 87.6% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 983.1 (min 50), OCR confidence 92.8% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1794.6 (min 50), OCR confidence 93.9% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 976.0 (min 50), OCR confidence 90.4% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 27•••••••••1ZP (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "27•••••••••1ZP: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "27•••••••••1ZP found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 27 = Maharashtra; registry state Maharashtra",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-MH-00-•••6696 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Ganesh Woodcraft' vs Udyam registry 'Ganesh Woodcraft'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Ganesh Woodcraft'; GST certificate legal name 'Ganesh Woodcraft'; Udyam certificate 'Ganesh Woodcraft' vs GST registry 'Ganesh Woodcraft'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Ganesh Woodcraft', registry business 'Ganesh Woodcraft'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 80, Civil Lines, Nagpur, Maharashtr a- 411231' vs GST registry Nagpur, Maharashtra",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-05-30, 46 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "27•••••••••1ZP",
+  "udyam": "UDYAM-MH-00-•••6696",
+  "applicant": "K03",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 87.6,
+    "sharpness": 1224.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 92.8,
+    "sharpness": 983.1,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 93.9,
+    "sharpness": 1794.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.4,
+    "sharpness": 976.0,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "reupload",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "fail",
+    "severity": "unreadable",
+    "reason": "gst_certificate: sharpness 1.0 (min 50), OCR confidence 43.8% (min 55), straightened +0 deg",
+    "customer": "GST certificate is too blurry to read. Please take a new photo in good light, holding the phone steady.",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 974.8 (min 50), OCR confidence 92.7% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1834.6 (min 50), OCR confidence 94.7% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1007.6 (min 50), OCR confidence 92.2% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-MH-00-•••1836 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Saffron Dental Care LLP' vs Udyam registry 'Saffron Dental Care LLP'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "Udyam certificate 'Saffron Dental Care LLP' vs Udyam registry 'Saffron Dental Care LLP'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Saffron Dental Care LLP', registry business 'Saffron Dental Care LLP'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 75, Lake View Colony, Nagpur, Mahar ashtra - 137452' vs Udyam registry Nagpur, Maharashtra",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-05-28, 48 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": null,
+  "udyam": "UDYAM-MH-00-•••1836",
+  "applicant": "K04",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 43.8,
+    "sharpness": 1.0,
+    "skew": 0.0,
+    "readable": false
+   },
+   "udyam_certificate": {
+    "confidence": 92.7,
+    "sharpness": 974.8,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.7,
+    "sharpness": 1834.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 92.2,
+    "sharpness": 1007.6,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "reupload",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1181.4 (min 50), OCR confidence 89.5% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "fail",
+    "severity": "missing_document",
+    "reason": "udyam_certificate: not uploaded",
+    "customer": "Udyam certificate is missing. Please upload it.",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1768.6 (min 50), OCR confidence 94.8% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 955.1 (min 50), OCR confidence 91.8% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 32•••••••••1Z1 (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "32•••••••••1Z1: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "32•••••••••1Z1 found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 32 = Kerala; registry state Kerala",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Balaji Realty LLP' vs GST registry 'Balaji Realty LLP'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Balaji Realty LLP', registry business 'Balaji Realty LLP'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 38, Civil Lines, Kochi, Kerala - 75 2083' vs GST registry Kochi, Kerala",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-06-11, 34 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "32•••••••••1Z1",
+  "udyam": null,
+  "applicant": "K05",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 89.5,
+    "sharpness": 1181.4,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": null,
+   "signatory_id": {
+    "confidence": 94.8,
+    "sharpness": 1768.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 91.8,
+    "sharpness": 955.1,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "review",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1224.9 (min 50), OCR confidence 89.2% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 954.0 (min 50), OCR confidence 92.6% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1797.2 (min 50), OCR confidence 94.8% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 978.6 (min 50), OCR confidence 91.1% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "fail",
+    "severity": "mismatch",
+    "reason": "certificate GSTIN reads 63•••••••••120; registry GSTIN for 'Saffron Unisex Salon' is 08•••••••••1ZO; the difference is not an OCR look-alike, so the number on the certificate is not this business's GSTIN",
+    "customer": "The GSTIN on your certificate doesn't match our records for your business. Our team will check it and call you.",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "08•••••••••1ZO: 15 characters, PAN block and check digit valid (matched by business name)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "08•••••••••1ZO found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 08 = Rajasthan; registry state Rajasthan",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-RJ-00-•••7157 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Saffron Unisex Salon' vs Udyam registry 'Saffron Unisex Salon'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Saffron Unisex Salon'; GST certificate legal name 'Saffron Unisex Salon'; Udyam certificate 'Saffron Unisex Salon' vs GST registry 'Saffron Unisex Salon'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Saffron Unisex Salon', registry business 'Saffron Unisex Salon'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 71, Market Yard, Jaipur, Rajasthan - 194057' vs GST registry Jaipur, Rajasthan",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-06-11, 34 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "08•••••••••1ZO",
+  "udyam": "UDYAM-RJ-00-•••7157",
+  "applicant": "K06",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 89.2,
+    "sharpness": 1224.9,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 92.6,
+    "sharpness": 954.0,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.8,
+    "sharpness": 1797.2,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 91.1,
+    "sharpness": 978.6,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "review",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1218.4 (min 50), OCR confidence 91.4% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 939.6 (min 50), OCR confidence 91.1% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1861.7 (min 50), OCR confidence 94.6% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 976.0 (min 50), OCR confidence 90.5% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 07•••••••••1ZT (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "07•••••••••1ZT: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "07•••••••••1ZT found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 07 = Delhi; registry state Delhi",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-DL-00-•••5547 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Neelgiri Physio Clinic' vs Udyam registry 'Neelgiri Physio Clinic'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "fail",
+    "severity": "mismatch",
+    "reason": "differs: GST certificate legal name 'Shri Physio Clinic' vs GST registry 'Neelgiri Physio Clinic'",
+    "customer": "The business name isn't the same on your GST certificate, Udyam certificate and the registry (Neelgiri Physio Clinic). Our team will check it and call you.",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Neelgiri Physio Clinic', registry business 'Neelgiri Physio Clinic'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 52, Transport Nagar, Delhi, Delhi - 334596' vs GST registry Delhi, Delhi",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-07-05, 10 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "07•••••••••1ZT",
+  "udyam": "UDYAM-DL-00-•••5547",
+  "applicant": "K07",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 91.4,
+    "sharpness": 1218.4,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 91.1,
+    "sharpness": 939.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.6,
+    "sharpness": 1861.7,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.5,
+    "sharpness": 976.0,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1274.1 (min 50), OCR confidence 90.5% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 981.7 (min 50), OCR confidence 93.0% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1909.7 (min 50), OCR confidence 94.7% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1009.0 (min 50), OCR confidence 90.8% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 24•••••••••1Z3 (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "24•••••••••1Z3: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "24•••••••••1Z3 found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 24 = Gujarat; registry state Gujarat",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-GJ-00-•••7445 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Green Leaf Legal Associates' vs Udyam registry 'Green Leaf Legal Associates'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Green Leaf Legal Associates'; GST certificate legal name 'Green Leaf Legal Associates'; Udyam certificate 'Green Leaf Legal Associates' vs GST registry 'Green Leaf Legal Associates'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Green Leaf Legal Associates', registry business 'Green Leaf Legal Associates'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 238, Ring Road, Vadodara, Gujarat - 348176' vs GST registry Vadodara, Gujarat",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-05-26, 50 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "24•••••••••1Z3",
+  "udyam": "UDYAM-GJ-00-•••7445",
+  "applicant": "K08",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 90.5,
+    "sharpness": 1274.1,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 93.0,
+    "sharpness": 981.7,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.7,
+    "sharpness": 1909.7,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.8,
+    "sharpness": 1009.0,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1286.3 (min 50), OCR confidence 89.0% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 1007.8 (min 50), OCR confidence 92.3% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1922.5 (min 50), OCR confidence 94.8% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1025.1 (min 50), OCR confidence 86.9% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 37•••••••••1ZB (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZB: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZB found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 37 = Andhra Pradesh; registry state Andhra Pradesh",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-AP-00-•••1562 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Kaveri Insurance Advisors' vs Udyam registry 'Kaveri Insurance Advisors'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Kaveri Insurance Advisors'; GST certificate legal name 'Kaveri Insurance Advisors'; Udyam certificate 'Kaveri Insurance Advisors' vs GST registry 'Kaveri Insurance Advisors'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Kaveri Insurance Advisors', registry business 'Kaveri Insurance Advisors'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 217, Civil Lines, Visakhapatnam, An dhra Pradesh - 405337' vs GST registry Visakhapatnam, Andhra Pradesh",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-07-10, 5 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "37•••••••••1ZB",
+  "udyam": "UDYAM-AP-00-•••1562",
+  "applicant": "K09",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 89.0,
+    "sharpness": 1286.3,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 92.3,
+    "sharpness": 1007.8,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.8,
+    "sharpness": 1922.5,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 86.9,
+    "sharpness": 1025.1,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1196.6 (min 50), OCR confidence 91.3% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 957.9 (min 50), OCR confidence 87.7% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1766.6 (min 50), OCR confidence 94.8% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 969.4 (min 50), OCR confidence 91.9% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 27•••••••••1ZL (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "27•••••••••1ZL: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "27•••••••••1ZL found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 27 = Maharashtra; registry state Maharashtra",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-MH-00-•••3141 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Kaveri Stays LLP' vs Udyam registry 'Kaveri Stays LLP'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Kaveri Stays LLP'; Udyam certificate 'Kaveri Stays LLP' vs GST registry 'Kaveri Stays LLP'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Kaveri Stays LLP', registry business 'Kaveri Stays LLP'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 21, Sector 14, Mumbai, Maharashtra - 570043' vs GST registry Mumbai, Maharashtra",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-06-18, 27 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "27•••••••••1ZL",
+  "udyam": "UDYAM-MH-00-•••3141",
+  "applicant": "K10",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 91.3,
+    "sharpness": 1196.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 87.7,
+    "sharpness": 957.9,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.8,
+    "sharpness": 1766.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 91.9,
+    "sharpness": 969.4,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "reupload",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1261.9 (min 50), OCR confidence 88.2% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 969.3 (min 50), OCR confidence 93.4% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1858.2 (min 50), OCR confidence 94.7% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1014.0 (min 50), OCR confidence 91.6% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 03•••••••••1ZZ (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "03•••••••••1ZZ: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "03•••••••••1ZZ found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 03 = Punjab; registry state Punjab",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-PB-00-•••9478 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Trinity Bake House Pvt Ltd' vs Udyam registry 'Trinity Bake House Pvt Ltd'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Trinity Bake House Pvt Ltd'; Udyam certificate 'Trinity Bake House Pvt Ltd' vs GST registry 'Trinity Bake House Pvt Ltd'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Trinity Bake House Pvt Ltd', registry business 'Trinity Bake House Pvt Ltd'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 188, Industrial Area Phase 2, Ludhi ana, Punjab - 541498' vs GST registry Ludhiana, Punjab",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "fail",
+    "severity": "stale",
+    "reason": "bill dated 2025-10-31, 257 days before 2026-07-15 (limit 90)",
+    "customer": "Your bill is dated 2025-10-31, 257 days ago. Please upload a bill from the last 90 days.",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "03•••••••••1ZZ",
+  "udyam": "UDYAM-PB-00-•••9478",
+  "applicant": "K11",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 88.2,
+    "sharpness": 1261.9,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 93.4,
+    "sharpness": 969.3,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.7,
+    "sharpness": 1858.2,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 91.6,
+    "sharpness": 1014.0,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ },
+ {
+  "verdict": "verified",
+  "checks": [
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: uploaded",
+    "customer": "GST certificate uploaded",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "gst_certificate: sharpness 1245.7 (min 50), OCR confidence 88.8% (min 55), straightened +0 deg",
+    "customer": "GST certificate is clear",
+    "doc_type": "gst_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: uploaded",
+    "customer": "Udyam certificate uploaded",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "udyam_certificate: sharpness 984.1 (min 50), OCR confidence 90.1% (min 55), straightened +0 deg",
+    "customer": "Udyam certificate is clear",
+    "doc_type": "udyam_certificate"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: uploaded",
+    "customer": "Signatory ID uploaded",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "signatory_id: sharpness 1786.6 (min 50), OCR confidence 94.6% (min 55), straightened +0 deg",
+    "customer": "Signatory ID is clear",
+    "doc_type": "signatory_id"
+   },
+   {
+    "code": "DOCUMENT_PRESENT",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: uploaded",
+    "customer": "Address proof uploaded",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "DOCUMENT_READABLE",
+    "result": "pass",
+    "severity": null,
+    "reason": "address_proof: sharpness 1009.1 (min 50), OCR confidence 90.3% (min 55), straightened +0 deg",
+    "customer": "Address proof is clear",
+    "doc_type": "address_proof"
+   },
+   {
+    "code": "GSTIN_MATCHES_CERTIFICATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate shows 37•••••••••1ZU (read with look-alike characters fixed), checksum valid and in registry",
+    "customer": "GSTIN on the certificate is yours",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_FORMAT",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZU: 15 characters, PAN block and check digit valid (read with look-alike characters fixed)",
+    "customer": "GSTIN is valid",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "37•••••••••1ZU found in GST registry",
+    "customer": "GSTIN found in the GST registry",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_ACTIVE",
+    "result": "pass",
+    "severity": null,
+    "reason": "registry status Active",
+    "customer": "GST registration is active",
+    "doc_type": null
+   },
+   {
+    "code": "GSTIN_STATE_CODE",
+    "result": "pass",
+    "severity": null,
+    "reason": "state code 37 = Andhra Pradesh; registry state Andhra Pradesh",
+    "customer": "GSTIN state matches",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_EXISTS",
+    "result": "pass",
+    "severity": null,
+    "reason": "UDYAM-AP-00-•••6772 found in Udyam registry",
+    "customer": "Udyam number found",
+    "doc_type": null
+   },
+   {
+    "code": "UDYAM_NAME_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "certificate 'Star Electronics' vs Udyam registry 'Star Electronics'",
+    "customer": "Udyam name matches",
+    "doc_type": null
+   },
+   {
+    "code": "NAMES_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "GST certificate trade name 'Star Electronics'; GST certificate legal name 'Star Electronics'; Udyam certificate 'Star Electronics' vs GST registry 'Star Electronics'",
+    "customer": "Business name matches on all documents",
+    "doc_type": null
+   },
+   {
+    "code": "SIGNATORY_FOR_BUSINESS",
+    "result": "pass",
+    "severity": null,
+    "reason": "ID card is for 'Star Electronics', registry business 'Star Electronics'",
+    "customer": "ID card is for your business",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_MATCH",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill address 'Shop/Unit 216, Nehru Nagar, Visakhapatnam, An dhra Pradesh - 762071' vs GST registry Visakhapatnam, Andhra Pradesh",
+    "customer": "Address matches your registered city",
+    "doc_type": null
+   },
+   {
+    "code": "ADDRESS_PROOF_DATE",
+    "result": "pass",
+    "severity": null,
+    "reason": "bill dated 2026-07-06, 9 days before 2026-07-15 (limit 90)",
+    "customer": "Address proof is recent",
+    "doc_type": "address_proof"
+   }
+  ],
+  "gstin": "37•••••••••1ZU",
+  "udyam": "UDYAM-AP-00-•••6772",
+  "applicant": "K12",
+  "ocr": {
+   "gst_certificate": {
+    "confidence": 88.8,
+    "sharpness": 1245.7,
+    "skew": 0.0,
+    "readable": true
+   },
+   "udyam_certificate": {
+    "confidence": 90.1,
+    "sharpness": 984.1,
+    "skew": 0.0,
+    "readable": true
+   },
+   "signatory_id": {
+    "confidence": 94.6,
+    "sharpness": 1786.6,
+    "skew": 0.0,
+    "readable": true
+   },
+   "address_proof": {
+    "confidence": 90.3,
+    "sharpness": 1009.1,
+    "skew": 0.0,
+    "readable": true
+   }
+  }
+ }
+]

@@ -1,0 +1,12 @@
+UD-2611-0016: tracker after KYC ['done', 'current', 'upcoming', 'upcoming']; 2 |  | Installation booked |  | Technician visit on 12 Nov, 4-6 pm
+UD-2611-0016: made 30 h late in the simulator; waiting for the SLA job (no manual scan)
+UD-2611-0016: auto-escalated after 2 s; tracker says: 'Sanjay from Accel will call you by 9 Nov, 11 am.'
+UD-2611-0016: delay banner: '⚠ Your installation is running late. Sorry about that.'
+UD-2611-0016: escalation row ('sla_breach', 'P1', 'install', 'Sanjay Das', '["bn", "hi", "en"]'); reason 'Installation overdue. Technician visit on 5 Nov, 4-6 pm. Late by 30 h'
+agent Sanjay: case shows business, chat, plan, order timeline and KYC; customer was told “Sanjay from Accel will call you by 9 Nov, 11 am.”
+agent view chat 'Summary: Shop or small service · 3 people · Lucknow, Uttar Pradesh · no GST · now on Mobile hotspot · wants UPI and billing'
+UD-2611-0016: after rebook: 2 |  | Installation booked |  | Technician visit on 9 Nov, 4-6 pm
+UD-2611-0016: talk to a person -> 'Sanjay from Accel will call you by 9 Nov, 1 pm.'
+UD-2611-0016: in Hindi -> 'Accel से Sanjay आपको 9 नव, 13:00 तक कॉल करेंगे।'
+page errors: none
+layout/masking problems: none

@@ -1,0 +1,58 @@
+%%{init: {"theme": "base", "flowchart": {"curve": "linear", "nodeSpacing": 26, "rankSpacing": 54, "htmlLabels": true, "wrappingWidth": 260}, "themeVariables": {"fontFamily": "Inter, Arial, sans-serif", "fontSize": "15px", "lineColor": "#6f6d66", "clusterBkg": "#faf9f6", "clusterBorder": "#d9d6cd"}}}%%
+flowchart LR
+  subgraph U["People"]
+    direction TB
+    OWN["<b>Business owner</b><br/>mobile · text + voice · 8 languages"]
+    STAFF["<b>Staff</b><br/>agents · admin"]
+    WA["<b>WhatsApp</b><br/>opt-in updates"]
+  end
+
+  subgraph FE["Frontend · Next.js"]
+    direction TB
+    APP["<b>Customer app</b><br/>advisor · quote · consent · KYC · tracker<br/><i>shows masked IDs only</i>"]
+    CON["<b>Admin console</b><br/>leads · escalations · outbox<br/><i>views audit-logged</i>"]
+  end
+
+  GW["<b>API · FastAPI</b><br/>HTTPS · JWT roles · rate limits<br/><i>masks IDs in responses and logs</i>"]
+
+  subgraph SV["Services"]
+    direction TB
+    ADV["<b>Advisor</b><br/>LLM explains · rules engine decides"]
+    PRI["<b>Pricing</b><br/>one monthly price"]
+    KYC["<b>Smart KYC</b><br/>consent → GSTIN/Udyam → OCR → checks<br/><i>encrypts documents and IDs</i>"]
+    ORD["<b>Orders & tracker</b><br/>dates · SLA escalation job"]
+    NOT["<b>Notifications</b><br/>WhatsApp templates"]
+    ADM["<b>Admin analytics</b><br/>propensity model · live metrics"]
+  end
+
+  Q["<b>Agent queue</b><br/>humans step in: KYC review,<br/>late install, advisor stuck"]
+
+  subgraph D["Data"]
+    direction TB
+    DB[("<b>SQLite</b><br/>encrypted PII columns<br/>hashed phone · audit log")]
+    FS[("<b>Document store</b><br/>encrypted · auto-deleted")]
+  end
+
+  X["<b>Swappable providers</b><br/>LLM · GSTIN/Udyam (mock)<br/>Twilio · Sarvam/Bhashini"]
+
+  OWN --> APP
+  STAFF --> CON
+  APP --> GW
+  CON --> GW
+  GW --> SV
+  SV -- "read / write" --> D
+  SV -.-> X
+  SV -- "flag · late · stuck" --> Q
+  Q -- "full context" --> CON
+  X -. "updates" .-> WA
+
+  classDef core fill:#ffffff,stroke:#9a978e,color:#141414;
+  classDef pii fill:#fff5f6,stroke:#c8102e,stroke-width:2px,stroke-dasharray:6 3,color:#141414;
+  classDef human fill:#fff3df,stroke:#b8780a,stroke-width:2px,color:#3d2a00;
+  classDef ext fill:#f3f1eb,stroke:#aaa79e,stroke-dasharray:3 3,color:#4d4c48;
+  classDef user fill:#eaf2fc,stroke:#2a78d6,color:#0d2f5c;
+  class OWN,WA,STAFF user;
+  class APP,CON,ADV,PRI,ORD,NOT,ADM core;
+  class GW,KYC,DB,FS pii;
+  class Q human;
+  class X ext;

@@ -1,0 +1,20 @@
+stateDiagram-v2
+    [*] --> QUOTE_ACCEPTED: POST /quotes/{id}/accept
+    QUOTE_ACCEPTED --> CONSENT_GIVEN: POST /consent
+    QUOTE_ACCEPTED --> CANCELLED: user cancels / quote expires
+    CONSENT_GIVEN --> KYC_SUBMITTED: POST /kyc/{case}/submit
+    KYC_SUBMITTED --> KYC_VERIFIED: all checks pass
+    KYC_SUBMITTED --> KYC_FLAGGED: any check fails
+    KYC_FLAGGED --> KYC_SUBMITTED: user re-uploads and resubmits
+    KYC_FLAGGED --> HUMAN_REVIEW: mismatch or needs_review severity
+    KYC_FLAGGED --> QUOTE_ACCEPTED: blocked GSTIN, user picks non-GST bundle (new quote)
+    HUMAN_REVIEW --> KYC_VERIFIED: agent approves
+    HUMAN_REVIEW --> KYC_FLAGGED: agent asks customer to fix
+    HUMAN_REVIEW --> CANCELLED: agent rejects (fraud / unverifiable)
+    KYC_VERIFIED --> INSTALL_BOOKED: slot booked (auto)
+    INSTALL_BOOKED --> INSTALLED: technician marks done (simulator)
+    INSTALL_BOOKED --> INSTALL_BOOKED: rebooked by agent
+    INSTALLED --> LIVE: first payment + service check
+    CONSENT_GIVEN --> CANCELLED: consent withdrawn
+    LIVE --> [*]
+    CANCELLED --> [*]

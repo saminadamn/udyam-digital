@@ -1,0 +1,16 @@
+{
+ "_prefix": "Accel Business: ",
+ "quote_ready": "మీ ఆర్డర్ {display_id} నమోదైంది: నెలకు ₹{total}. తర్వాత, మీ పత్రాలు పంపండి. {link}",
+ "kyc_reminder_24h.QUOTE_ACCEPTED": "ఆర్డర్ {display_id}: మీ పత్రాల కోసం ఎదురుచూస్తున్నాం. 2 నిమిషాల్లో పూర్తి చేయండి: {link}",
+ "kyc_reminder_24h.CONSENT_GIVEN": "ఆర్డర్ {display_id}: మీ 4 పత్రాలు అప్‌లోడ్ చేయాలి. ఇక్కడ చేయండి: {link}",
+ "kyc_reminder_24h.KYC_FLAGGED": "ఆర్డర్ {display_id}: ఒక పత్రాన్ని సరిచేయాలి. ఇక్కడ చేయండి: {link}",
+ "kyc_verified": "ఆర్డర్ {display_id}: మీ పత్రాలు ధృవీకరించబడ్డాయి. ఇప్పుడు ఇన్‌స్టాలేషన్ బుక్ చేస్తున్నాం.",
+ "kyc_fix_needed": "ఆర్డర్ {display_id}: ఒక పత్రాన్ని సరిచేయాలి. {fix} {link}",
+ "kyc_review": "ఆర్డర్ {display_id}: మా KYC నిపుణులు మీ పత్రాలను చూస్తున్నారు. {message}",
+ "install_booked": "ఆర్డర్ {display_id}: ఇన్‌స్టాలేషన్ బుక్ అయింది. {slot}. {link}",
+ "delay_escalated": "ఆర్డర్ {display_id} ఆలస్యమవుతోంది, క్షమించండి. {message}",
+ "agent_assigned": "ఆర్డర్ {display_id}: {message}",
+ "agent_assigned.no_order": "{message}",
+ "live": "ఆర్డర్ {display_id}: మీ Accel Business సేవ ప్రారంభమైంది. స్వాగతం!",
+ "advisor_link": "మాతో మాట్లాడినందుకు ధన్యవాదాలు. మీ ప్లాన్‌ను ఇక్కడ పూర్తి చేయండి: {link}"
+}

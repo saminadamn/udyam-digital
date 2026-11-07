@@ -1,0 +1,11 @@
+Quote opened: Rs 6055/month
+Toggled 'Add Static IP': total 6055 -> 6305 on screen after 18 ms (measured in the browser) while the server reply was held back 1.5 s
+After server confirmed: Rs 6305 (matches instant value: True)
+Tried to remove the locked connection -> shown: 'Needed by Static IP.'
+Email seats +1: total 6305 -> 6443 instantly
+Compare line: Compared with what you pay now  ₹3,943 more than today's ₹2,500  Your plan also includes services you don't have today.  Change
+Accepted: order UD-2611-0002 shown on screen
+JS errors: none
+DB order row: state=QUOTE_ACCEPTED, quote status=accepted, monthly=6443 (screen showed 6443)
+DB selected quote_items: [('P02', 1, 1649), ('P08', 3, 2097), ('P16', 8, 1104), ('P20', 6, 744), ('P17', 1, 599), ('P11', 1, 250)]
+DB order_events: [(None, 'QUOTE_ACCEPTED', 'user')]

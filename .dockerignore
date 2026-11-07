@@ -1,0 +1,11 @@
+**/node_modules
+**/.next
+**/__pycache__
+**/*.db
+**/.env
+**/.env.local
+backend/storage
+backend/test_storage
+docs
+frontend
+analysis

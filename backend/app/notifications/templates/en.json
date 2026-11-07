@@ -1,0 +1,16 @@
+{
+ "_prefix": "Accel Business: ",
+ "quote_ready": "Your order {display_id} is placed: Rs {total} a month. Next, share your documents: {link}",
+ "kyc_reminder_24h.QUOTE_ACCEPTED": "Order {display_id}: your order is waiting for your documents. It takes 2 minutes: {link}",
+ "kyc_reminder_24h.CONSENT_GIVEN": "Order {display_id}: your 4 documents still need uploading. Do it here: {link}",
+ "kyc_reminder_24h.KYC_FLAGGED": "Order {display_id}: one document still needs a fix. Do it here: {link}",
+ "kyc_verified": "Order {display_id}: your documents are verified. We're booking your installation now.",
+ "kyc_fix_needed": "Order {display_id}: a document needs a fix. {fix} {link}",
+ "kyc_review": "Order {display_id}: a KYC specialist is checking your documents. {message}",
+ "install_booked": "Order {display_id}: installation booked. {slot}. {link}",
+ "delay_escalated": "Order {display_id} is running late. Sorry about that. {message}",
+ "agent_assigned": "Order {display_id}: {message}",
+ "agent_assigned.no_order": "{message}",
+ "live": "Order {display_id}: your Accel Business service is live. Welcome!",
+ "advisor_link": "Thanks for talking to us. Finish your plan here: {link}"
+}

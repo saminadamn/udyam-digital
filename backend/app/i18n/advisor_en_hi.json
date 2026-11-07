@@ -1,0 +1,432 @@
+{
+ "en": {
+  "greet": "Hello! I'll suggest the right plan for your business in 6 quick questions.",
+  "q_type": "What kind of business do you run?",
+  "chips_type": [
+   "Shop or small service",
+   "Clinic or office",
+   "Chain with branches",
+   "Factory or workshop"
+  ],
+  "q_team": "How many people work in your business?",
+  "q_team_chain": "How many branches do you have, and about how many people in total?",
+  "chips_team": [
+   "1-5 people",
+   "6-20 people",
+   "21-50 people",
+   "More than 50"
+  ],
+  "chips_team_chain": [
+   "2-3 branches, up to 20 people",
+   "4-7 branches, 20-60 people",
+   "8+ branches, 60+ people"
+  ],
+  "q_city": "Which city is your business in?",
+  "chips_city_other": [
+   "Other big city",
+   "Other smaller city"
+  ],
+  "q_gst": "Do you have a GST number? Type it here, or pick an option.",
+  "chips_gst": [
+   "No GST yet",
+   "I'll add it later"
+  ],
+  "gst_invalid": "That GST number doesn't look right. Please check all 15 characters, or tap \"I'll add it later\".",
+  "gst_found": "Found {name}. GST status: {status}.",
+  "gst_not_active": "Your GST registration shows as {status}, so plans that need GST won't be offered.",
+  "gst_not_found": "I couldn't find that GST number in the records. You can add it later.",
+  "q_internet": "What internet do you use for the business today?",
+  "chips_internet": [
+   "Mobile hotspot",
+   "Home broadband",
+   "Business broadband",
+   "Leased line",
+   "Nothing yet"
+  ],
+  "q_needs": "What would you like to do? Pick all that apply, then tap Done.",
+  "chips_needs": [
+   "UPI and billing",
+   "WhatsApp for customers",
+   "CCTV cameras",
+   "Business email",
+   "Guest Wi-Fi",
+   "Data backup",
+   "Website",
+   "Phone lines",
+   "Toll-free number",
+   "Virus protection"
+  ],
+  "chip_done": "Done",
+  "retry": "Sorry, I didn't catch that. You can tap one of the options below.",
+  "handoff": "I'll connect you with {agent}, who will call you by {eta}.",
+  "handoff_queue": "A specialist will call you by {eta}.",
+  "ready": "Thanks! Here's what I'd suggest for you.",
+  "explain": "For a {segment} with {employees} people, {link} keeps everyone connected and {extras}. It all comes to Rs {total} a month, with no hidden charges.",
+  "explain_noextras": "For a {segment} with {employees} people, {link} keeps everyone connected and the mobile lines keep you reachable. It all comes to Rs {total} a month, with no hidden charges.",
+  "and": "and",
+  "segment": {
+   "micro": "shop",
+   "prof": "office",
+   "multi": "business with {sites} branches",
+   "mfg": "factory"
+  },
+  "unlock": {
+   "GSTIN_REQUIRED": "Add an active GST number to unlock this.",
+   "CITY_TIER": "Not available in your city yet.",
+   "MIN_EMPLOYEES": "Available for teams of {min} or more.",
+   "MIN_SITES": "Available for businesses with {min} or more locations.",
+   "DEPENDENCY": "Needs a broadband connection that supports it in the same plan."
+  },
+  "why": {
+   "link": "fast internet for the whole team",
+   "mobile": "business calls and data on the move",
+   "P19": "take UPI and card payments with GST bills",
+   "P15": "talk to customers on WhatsApp",
+   "P23": "watch your premises from your phone",
+   "P16": "professional email on your own name",
+   "P22": "free Wi-Fi for customers, kept separate",
+   "P17": "your files backed up automatically",
+   "P18": "get found online",
+   "P12": "proper phone lines with call menus",
+   "P13": "a free number customers can call",
+   "P20": "protection from viruses and ransomware",
+   "P09": "stays online when the main line drops",
+   "P10": "all branches managed as one network",
+   "P14": "send alerts and offers by SMS",
+   "P21": "a managed firewall for the site",
+   "P24": "track machine uptime and energy",
+   "P25": "track your vehicles live",
+   "P11": "a fixed address for cameras or servers"
+  },
+  "products": {
+   "P01": "Fast office internet, 100 Mbps, unlimited",
+   "P02": "Faster office internet, 300 Mbps, unlimited",
+   "P03": "Very fast 1 Gbps internet with priority support",
+   "P04": "Wireless 5G internet, works where there is no fibre",
+   "P05": "Dedicated internet line with guaranteed uptime",
+   "P06": "Large dedicated internet line for heavy use",
+   "P07": "Business mobile number with 50 GB data",
+   "P08": "Business mobile number with 150 GB data and roaming",
+   "P09": "Backup internet that switches on if the main line fails",
+   "P10": "Runs all your branch connections as one network",
+   "P11": "Fixed internet address for cameras or servers",
+   "P12": "Office phone lines over the internet with call menus",
+   "P13": "A 1800 number your customers can call free",
+   "P14": "10,000 SMS a month for alerts and offers",
+   "P15": "Verified WhatsApp account for your customers",
+   "P16": "Email on your own domain, documents and meetings",
+   "P17": "Automatic backup of computers and phones",
+   "P18": "Your own website with domain and hosting",
+   "P19": "Billing and UPI or card payments on a tablet",
+   "P20": "Antivirus and ransomware protection",
+   "P21": "A firewall at your site, managed for you",
+   "P22": "Business Wi-Fi with a separate guest network",
+   "P23": "HD camera you can watch from your phone",
+   "P24": "Sensors that track machine uptime and power",
+   "P25": "GPS tracker for your vehicles"
+  },
+  "keywords": {
+   "micro": [
+    "shop",
+    "store",
+    "kirana",
+    "salon",
+    "boutique",
+    "bakery",
+    "repair",
+    "pharmacy",
+    "stationery",
+    "retail",
+    "service"
+   ],
+   "prof": [
+    "clinic",
+    "office",
+    "doctor",
+    "dental",
+    "lab",
+    "law",
+    "lawyer",
+    "ca ",
+    "chartered",
+    "coaching",
+    "agency",
+    "consult",
+    "architect",
+    "insurance"
+   ],
+   "multi": [
+    "chain",
+    "branch",
+    "branches",
+    "outlets",
+    "multiple",
+    "locations",
+    "stores"
+   ],
+   "mfg": [
+    "factory",
+    "manufactur",
+    "workshop",
+    "plant",
+    "unit",
+    "industrial",
+    "mill"
+   ],
+   "no": [
+    "no",
+    "nope",
+    "not yet",
+    "none",
+    "don't have",
+    "dont have",
+    "do not have",
+    "don't have one",
+    "haven't got",
+    "not registered",
+    "no gstin",
+    "not applicable"
+   ],
+   "later": [
+    "later",
+    "skip"
+   ],
+   "human": [
+    "person",
+    "human",
+    "agent",
+    "call me",
+    "talk to someone"
+   ],
+   "people": [
+    "people",
+    "staff",
+    "employees",
+    "workers",
+    "persons"
+   ],
+   "sites": [
+    "branch",
+    "branches",
+    "location",
+    "locations",
+    "outlets",
+    "sites",
+    "offices",
+    "shops"
+   ]
+  },
+  "lock_link": "Every plan needs an internet connection.",
+  "lock_needed_by": "Needed by {names}.",
+  "and_list": "and"
+ },
+ "hi": {
+  "greet": "नमस्ते! 6 छोटे सवालों में मैं आपके व्यवसाय के लिए सही प्लान बताऊँगा।",
+  "q_type": "आपका व्यवसाय किस तरह का है?",
+  "chips_type": [
+   "दुकान या छोटी सेवा",
+   "क्लिनिक या ऑफिस",
+   "कई ब्रांच वाला व्यवसाय",
+   "फैक्ट्री या वर्कशॉप"
+  ],
+  "q_team": "आपके व्यवसाय में कितने लोग काम करते हैं?",
+  "q_team_chain": "आपकी कितनी ब्रांच हैं, और कुल लगभग कितने लोग काम करते हैं?",
+  "chips_team": [
+   "1-5 लोग",
+   "6-20 लोग",
+   "21-50 लोग",
+   "50 से ज़्यादा"
+  ],
+  "chips_team_chain": [
+   "2-3 ब्रांच, 20 लोग तक",
+   "4-7 ब्रांच, 20-60 लोग",
+   "8+ ब्रांच, 60+ लोग"
+  ],
+  "q_city": "आपका व्यवसाय किस शहर में है?",
+  "chips_city_other": [
+   "कोई और बड़ा शहर",
+   "कोई और छोटा शहर"
+  ],
+  "q_gst": "क्या आपके पास GST नंबर है? यहाँ लिखें, या कोई विकल्प चुनें।",
+  "chips_gst": [
+   "अभी GST नहीं है",
+   "बाद में जोड़ूँगा"
+  ],
+  "gst_invalid": "यह GST नंबर सही नहीं लग रहा। कृपया सभी 15 अक्षर जाँचें, या \"बाद में जोड़ूँगा\" दबाएँ।",
+  "gst_found": "{name} मिला। GST स्थिति: {status}।",
+  "gst_not_active": "आपका GST रजिस्ट्रेशन {status} दिख रहा है, इसलिए GST वाले प्लान नहीं दिखाए जाएँगे।",
+  "gst_not_found": "यह GST नंबर रिकॉर्ड में नहीं मिला। आप इसे बाद में जोड़ सकते हैं।",
+  "q_internet": "अभी व्यवसाय के लिए कौन सा इंटरनेट इस्तेमाल करते हैं?",
+  "chips_internet": [
+   "मोबाइल हॉटस्पॉट",
+   "घर का ब्रॉडबैंड",
+   "बिज़नेस ब्रॉडबैंड",
+   "लीज़्ड लाइन",
+   "अभी कुछ नहीं"
+  ],
+  "q_needs": "आप क्या करना चाहते हैं? जितने चाहें चुनें, फिर \"हो गया\" दबाएँ।",
+  "chips_needs": [
+   "UPI और बिलिंग",
+   "ग्राहकों के लिए WhatsApp",
+   "CCTV कैमरे",
+   "बिज़नेस ईमेल",
+   "ग्राहकों के लिए Wi-Fi",
+   "डेटा बैकअप",
+   "वेबसाइट",
+   "फ़ोन लाइनें",
+   "टोल-फ़्री नंबर",
+   "वायरस से सुरक्षा"
+  ],
+  "chip_done": "हो गया",
+  "retry": "माफ़ कीजिए, समझ नहीं पाया। नीचे दिए विकल्पों में से चुन सकते हैं।",
+  "handoff": "मैं आपको {agent} से जोड़ रहा हूँ, वे {eta} तक कॉल करेंगे।",
+  "handoff_queue": "हमारे विशेषज्ञ {eta} तक कॉल करेंगे।",
+  "ready": "धन्यवाद! आपके लिए मेरा सुझाव यह है।",
+  "explain": "{employees} लोगों वाली {segment} के लिए {link} सबको जोड़े रखेगा और {extras}। सब मिलाकर हर महीने Rs {total}, कोई छुपा चार्ज नहीं।",
+  "explain_noextras": "{employees} लोगों वाली {segment} के लिए {link} सबको जोड़े रखेगा और मोबाइल लाइनों से आप हमेशा संपर्क में रहेंगे। सब मिलाकर हर महीने Rs {total}, कोई छुपा चार्ज नहीं।",
+  "and": "और",
+  "segment": {
+   "micro": "दुकान",
+   "prof": "ऑफिस",
+   "multi": "{sites} ब्रांच वाले व्यवसाय",
+   "mfg": "फैक्ट्री"
+  },
+  "unlock": {
+   "GSTIN_REQUIRED": "इसे पाने के लिए सक्रिय GST नंबर जोड़ें।",
+   "CITY_TIER": "आपके शहर में अभी उपलब्ध नहीं।",
+   "MIN_EMPLOYEES": "{min} या ज़्यादा लोगों वाली टीम के लिए।",
+   "MIN_SITES": "{min} या ज़्यादा जगहों वाले व्यवसाय के लिए।",
+   "DEPENDENCY": "इसके लिए उसी प्लान में सही ब्रॉडबैंड कनेक्शन चाहिए।"
+  },
+  "why": {
+   "link": "पूरी टीम के लिए तेज़ इंटरनेट",
+   "mobile": "चलते-फिरते बिज़नेस कॉल और डेटा",
+   "P19": "GST बिल के साथ UPI और कार्ड से पेमेंट",
+   "P15": "ग्राहकों से WhatsApp पर बात",
+   "P23": "फ़ोन से दुकान पर नज़र",
+   "P16": "अपने नाम का प्रोफ़ेशनल ईमेल",
+   "P22": "ग्राहकों के लिए अलग मुफ़्त Wi-Fi",
+   "P17": "फ़ाइलों का अपने-आप बैकअप",
+   "P18": "ऑनलाइन पहचान",
+   "P12": "कॉल मेन्यू वाली फ़ोन लाइनें",
+   "P13": "ग्राहकों के लिए मुफ़्त नंबर",
+   "P20": "वायरस और रैनसमवेयर से सुरक्षा",
+   "P09": "मुख्य लाइन बंद हो तो भी इंटरनेट चालू",
+   "P10": "सभी ब्रांच एक नेटवर्क की तरह",
+   "P14": "SMS से अलर्ट और ऑफ़र",
+   "P21": "साइट के लिए मैनेज्ड फ़ायरवॉल",
+   "P24": "मशीनों का अपटाइम और बिजली ट्रैक",
+   "P25": "गाड़ियों की लाइव ट्रैकिंग",
+   "P11": "कैमरों या सर्वर के लिए फ़िक्स्ड पता"
+  },
+  "products": {
+   "P01": "तेज़ ऑफिस इंटरनेट, 100 Mbps, अनलिमिटेड",
+   "P02": "और तेज़ ऑफिस इंटरनेट, 300 Mbps, अनलिमिटेड",
+   "P03": "बहुत तेज़ 1 Gbps इंटरनेट, प्राथमिकता सपोर्ट के साथ",
+   "P04": "वायरलेस 5G इंटरनेट, जहाँ फ़ाइबर नहीं वहाँ भी",
+   "P05": "पक्के अपटाइम वाली अलग इंटरनेट लाइन",
+   "P06": "भारी इस्तेमाल के लिए बड़ी अलग इंटरनेट लाइन",
+   "P07": "50 GB डेटा वाला बिज़नेस मोबाइल नंबर",
+   "P08": "150 GB डेटा और रोमिंग वाला बिज़नेस मोबाइल नंबर",
+   "P09": "मुख्य लाइन बंद हो तो चालू होने वाला बैकअप इंटरनेट",
+   "P10": "सभी ब्रांच के कनेक्शन एक नेटवर्क की तरह चलाता है",
+   "P11": "कैमरों या सर्वर के लिए फ़िक्स्ड इंटरनेट पता",
+   "P12": "इंटरनेट पर ऑफिस फ़ोन लाइनें, कॉल मेन्यू के साथ",
+   "P13": "1800 नंबर, जिस पर ग्राहक मुफ़्त कॉल करें",
+   "P14": "हर महीने 10,000 SMS, अलर्ट और ऑफ़र के लिए",
+   "P15": "ग्राहकों के लिए वेरिफ़ाइड WhatsApp अकाउंट",
+   "P16": "अपने डोमेन पर ईमेल, डॉक्यूमेंट और मीटिंग",
+   "P17": "कंप्यूटर और फ़ोन का अपने-आप बैकअप",
+   "P18": "डोमेन और होस्टिंग के साथ अपनी वेबसाइट",
+   "P19": "टैबलेट पर बिलिंग और UPI या कार्ड पेमेंट",
+   "P20": "एंटीवायरस और रैनसमवेयर से सुरक्षा",
+   "P21": "आपकी साइट पर फ़ायरवॉल, हम संभालेंगे",
+   "P22": "ग्राहकों के लिए अलग नेटवर्क वाला बिज़नेस Wi-Fi",
+   "P23": "HD कैमरा, जिसे फ़ोन पर देख सकें",
+   "P24": "मशीनों का अपटाइम और बिजली मापने वाले सेंसर",
+   "P25": "गाड़ियों के लिए GPS ट्रैकर"
+  },
+  "keywords": {
+   "micro": [
+    "दुकान",
+    "किराना",
+    "सैलून",
+    "बुटीक",
+    "बेकरी",
+    "रिपेयर",
+    "मेडिकल",
+    "dukaan",
+    "dukan",
+    "kirana"
+   ],
+   "prof": [
+    "क्लिनिक",
+    "ऑफिस",
+    "दफ़्तर",
+    "डॉक्टर",
+    "लैब",
+    "वकील",
+    "कोचिंग",
+    "एजेंसी",
+    "clinic",
+    "office"
+   ],
+   "multi": [
+    "ब्रांच",
+    "शाखा",
+    "चेन",
+    "कई",
+    "branch",
+    "chain"
+   ],
+   "mfg": [
+    "फैक्ट्री",
+    "कारखाना",
+    "वर्कशॉप",
+    "यूनिट",
+    "factory",
+    "workshop"
+   ],
+   "no": [
+    "नहीं",
+    "नही",
+    "nahi",
+    "nahin",
+    "अभी नहीं"
+   ],
+   "later": [
+    "बाद में",
+    "baad"
+   ],
+   "human": [
+    "इंसान",
+    "किसी से बात",
+    "कॉल करें",
+    "एजेंट",
+    "baat karni",
+    "किसी व्यक्ति से बात करें",
+    "व्यक्ति से बात",
+    "इंसान से बात",
+    "एजेंट से बात"
+   ],
+   "people": [
+    "लोग",
+    "कर्मचारी",
+    "स्टाफ़",
+    "स्टाफ",
+    "log",
+    "staff"
+   ],
+   "sites": [
+    "ब्रांच",
+    "शाखा",
+    "जगह",
+    "दुकानें",
+    "branch"
+   ]
+  },
+  "lock_link": "हर प्लान में इंटरनेट कनेक्शन ज़रूरी है।",
+  "lock_needed_by": "{names} के लिए ज़रूरी है।",
+  "and_list": "और"
+ }
+}

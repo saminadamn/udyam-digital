@@ -1,0 +1,16 @@
+{
+ "_prefix": "Accel Business: ",
+ "quote_ready": "உங்கள் ஆர்டர் {display_id} பதிவாகிவிட்டது: மாதம் ₹{total}. அடுத்து, உங்கள் ஆவணங்களை அனுப்புங்கள். {link}",
+ "kyc_reminder_24h.QUOTE_ACCEPTED": "ஆர்டர் {display_id}: உங்கள் ஆவணங்களுக்காகக் காத்திருக்கிறோம். 2 நிமிடத்தில் முடிக்கலாம்: {link}",
+ "kyc_reminder_24h.CONSENT_GIVEN": "ஆர்டர் {display_id}: உங்கள் 4 ஆவணங்களைப் பதிவேற்ற வேண்டும். இங்கே செய்யுங்கள்: {link}",
+ "kyc_reminder_24h.KYC_FLAGGED": "ஆர்டர் {display_id}: ஒரு ஆவணத்தைச் சரிசெய்ய வேண்டும். இங்கே செய்யுங்கள்: {link}",
+ "kyc_verified": "ஆர்டர் {display_id}: உங்கள் ஆவணங்கள் சரிபார்க்கப்பட்டன. இப்போது நிறுவலை முன்பதிவு செய்கிறோம்.",
+ "kyc_fix_needed": "ஆர்டர் {display_id}: ஒரு ஆவணத்தைச் சரிசெய்ய வேண்டும். {fix} {link}",
+ "kyc_review": "ஆர்டர் {display_id}: எங்கள் KYC நிபுணர் உங்கள் ஆவணங்களைப் பார்க்கிறார். {message}",
+ "install_booked": "ஆர்டர் {display_id}: நிறுவல் முன்பதிவு செய்யப்பட்டது. {slot}. {link}",
+ "delay_escalated": "ஆர்டர் {display_id} தாமதமாகிறது, மன்னிக்கவும். {message}",
+ "agent_assigned": "ஆர்டர் {display_id}: {message}",
+ "agent_assigned.no_order": "{message}",
+ "live": "ஆர்டர் {display_id}: உங்கள் Accel Business சேவை தொடங்கிவிட்டது. வரவேற்கிறோம்!",
+ "advisor_link": "எங்களுடன் பேசியதற்கு நன்றி. உங்கள் திட்டத்தை இங்கே முடிக்கவும்: {link}"
+}

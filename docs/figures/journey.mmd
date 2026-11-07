@@ -1,0 +1,20 @@
+flowchart TD
+    D[Discovery: link from WhatsApp, website, partner QR or referral] --> R[Registration: phone + OTP, language choice]
+    R --> A[AI Advisor: 5-6 questions by chat or voice]
+    A -->|advisor stuck twice / asks for human| H1[Human agent with chat context]
+    A --> REC[Recommendation: rules-checked bundle + plain-language why]
+    REC --> P[Pricing: monthly total, add-on toggles, setup, contract]
+    P -->|multi-site or manufacturer| H2[Account manager + site survey]
+    P --> C[Consent: what we collect, why, retention, withdraw]
+    C --> K[KYC: GSTIN and Udyam lookup, upload 4 documents]
+    K --> V{Verification}
+    V -->|blurry, missing, stale| K
+    V -->|mismatch or GSTIN differs| H3[KYC specialist review]
+    V -->|cancelled or suspended GSTIN| NG[Offer non-GST bundle]
+    V -->|all pass| O[Order placed + first payment]
+    H3 -->|resolved| O
+    NG --> P
+    O --> I[Installation booked: date from install days]
+    I -->|late vs expected date| H4[Escalation: named agent, WhatsApp update]
+    I --> ACT[Activation: live, single bill]
+    H4 --> I

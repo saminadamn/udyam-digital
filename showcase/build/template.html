@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Udyam Digital · small businesses go digital in one sitting</title>
+<meta name="description" content="Udyam Digital: a phone-first, multilingual acquisition and onboarding journey for small businesses. Problem, data, approach, build, results, competition, impact, privacy.">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%229%22%20fill%3D%22%23e40000%22/%3E%3Cpath%20d%3D%22M10%209.5v7.5a6%206%200%200%200%2012%200v-1.5%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%2210%22%20r%3D%222.3%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e40000;--red-d:#b40000;--red-s:#fff1f1;--red-l:#ffd9d9;
+  --ink:#16161a;--ink2:#3d3d45;--muted:#74747e;--line:#ececf0;--bg:#ffffff;--soft:#f7f7f9;
+  --amber:#f08a8a;--amber-s:#fff3ec;--green:#e40000;--green-s:#eef7f2;--purple:#b50000;--pink:#f26b6b;--sky:#8a8a93;--orange:#f26b6b;--peach:#fff3ec;--mint:#eef7f2;--sky-s:#edf4fb;--lilac:#f3f0fa;--butter:#fff9e8;
+  --f:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bar:58px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--bar)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+a{color:var(--red-d)}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:6px}
+
+/* top bar */
+.top{position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:20;display:flex;align-items:center;gap:14px;padding:0 24px;background:rgba(255,255,255,.96);box-shadow:0 2px 14px rgba(0,0,0,.05);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background .4s,border-color .4s}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;white-space:nowrap;background:none;border:0;cursor:pointer;padding:0}
+.brand .logo{width:28px;height:28px;flex:none}
+.wm{font-size:17px;font-weight:400;letter-spacing:-.02em;color:var(--muted)}
+.wm b{font-weight:700;color:var(--ink);margin-right:1px}
+body.dark .wm{color:rgba(255,255,255,.6)}body.dark .wm b{color:#fff}
+.tabs{display:flex;gap:2px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{position:relative;padding:8px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-radius:8px}
+.tabs a:hover{color:var(--red)}
+.tabs a.on{color:var(--red);font-weight:600}
+.tabs a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px;background:var(--red)}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.now{display:none;font-size:14px;font-weight:600;margin-left:auto}
+body.dark .top{background:rgba(11,11,13,.6);border-color:rgba(255,255,255,.08);box-shadow:none}
+body.dark .brand,body.dark .now{color:#fff}
+body.dark .tabs a{color:rgba(255,255,255,.78)}
+body.dark .tabs a:hover,body.dark .tabs a.on{color:#fff}
+.prog{position:fixed;top:var(--bar);left:0;height:3px;background:var(--red);z-index:21;transition:width .1s;box-shadow:0 0 10px rgba(228,0,0,.6)}
+
+/* page sections */
+.slide{position:relative;padding:96px 0;background:#fff}
+.slide.alt{background:#f5f5f6}
+.part+.part{margin-top:88px}
+.btn.sm{padding:8px 14px;font-size:13px;box-shadow:none}
+.in{max-width:1220px;margin:0 auto;padding:0 32px}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+.kick::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--red)}
+.kick b{color:var(--red);font-weight:700;letter-spacing:.04em}
+h1,h2,h3{margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3vw,40px);line-height:1.15;font-weight:700;max-width:34ch;letter-spacing:-.02em;color:#1a1a1a}
+h2 em{font-style:normal;color:var(--red)}
+h3{font-size:17px;font-weight:600;line-height:1.3}
+p{line-height:1.6;margin:0}
+.lede{color:var(--ink2);font-size:15.5px;max-width:78ch;margin-top:10px}
+.muted{color:var(--muted)} .small{font-size:13px}
+.mt{margin-top:22px}.mt-s{margin-top:12px}
+.card{background:#fff;border:1px solid #efeff2;border-radius:20px;padding:22px;box-shadow:0 6px 24px rgba(20,20,30,.05)}
+.card.red{border-color:var(--red-l);background:linear-gradient(180deg,#fff, var(--red-s))}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.g31{grid-template-columns:minmax(0,3fr) minmax(0,1fr)}.g64{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.g46{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.stat{border-left:4px solid var(--red);padding:4px 0 4px 14px}
+.stat b{display:block;font-size:clamp(24px,2.4vw,32px);font-weight:700;color:var(--red);line-height:1.1}
+.stat span{display:block;font-size:14px;font-weight:500;margin-top:4px}
+.stat small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.callout{border-left:4px solid var(--red);background:var(--red-s);border-radius:0 14px 14px 0;padding:14px 18px;font-weight:600;font-size:15.5px;line-height:1.5}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--red-s);color:var(--red-d)}
+.pill.g{background:var(--mint);color:#3d5a4b}.pill.a{background:var(--peach);color:#7a4a32}.pill.p{background:var(--lilac);color:#4d4466}.pill.k{background:#f1f1f3;color:#3d3d45}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:var(--red);color:#fff;font-weight:600;text-align:left;padding:9px 12px;font-size:12.5px}
+th:first-child{border-top-left-radius:10px}th:last-child{border-top-right-radius:10px}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fcfcfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.hs{overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.strip,input[type=range]{touch-action:pan-x pan-y}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 20px;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;background:var(--red);color:#fff;box-shadow:0 6px 20px rgba(228,0,0,.3)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);box-shadow:none}
+.btn.line{background:#fff;color:var(--red-d);border:1.5px solid var(--red-l);box-shadow:none}
+.seg{display:inline-flex;background:var(--soft);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:none;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink2)}
+.seg button.on{background:#fff;color:var(--red-d);box-shadow:0 1px 4px rgba(0,0,0,.08);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink2)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+svg text{font-family:var(--f)}
+
+/* cover */
+.cover{background:#0b0b0d;color:#fff;display:flex;align-items:center;min-height:100vh;min-height:100svh;padding:calc(var(--bar) + 30px) 0 60px;overflow:hidden}
+.cover canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.cover .in{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:center;width:100%}
+.cover .kick{color:#ff6b6b}
+.cover h1{font-size:clamp(44px,6.4vw,88px);font-weight:800;line-height:.98;letter-spacing:-.03em;background:linear-gradient(180deg,#fff 30%,#ffb3b3);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 40px rgba(228,0,0,.25)}
+.cover h1 span{display:block;color:var(--red);-webkit-text-fill-color:var(--red);text-shadow:0 0 28px rgba(228,0,0,.75)}
+.cover .tag{font-size:clamp(17px,1.7vw,22px);font-weight:500;margin-top:16px}
+.cover .tag b{color:#ff6b6b}
+.cover .sub{color:rgba(255,255,255,.7);margin-top:10px;max-width:56ch;font-size:15px}
+.cover .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cover .chips span{border:1px solid rgba(255,90,90,.45);background:rgba(228,0,0,.12);border-radius:999px;padding:6px 12px;font-size:13px}
+.cover .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cover .fine{font-size:11.5px;color:rgba(255,255,255,.45);margin-top:22px}
+.globe{width:100%;max-width:440px;margin:0 auto;filter:drop-shadow(0 0 40px rgba(228,0,0,.45))}
+.globe .spin{animation:spin 30s linear infinite;transform-origin:200px 200px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.globe .pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+
+/* problem */
+.journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.jstep{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;border-top:4px solid var(--red)}
+.jstep h4{margin:0;font-size:14px;font-weight:600}
+.jstep p{font-size:12.5px;color:var(--ink2);line-height:1.45;margin-top:6px}
+.jstep .loss{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;color:var(--red-d);background:var(--red-s);border-radius:999px;padding:2px 9px}
+.jstep:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:8px;border-top:2px solid var(--red);border-right:2px solid var(--red);transform:translateY(-50%) rotate(45deg);z-index:1}
+.takeaways{counter-reset:t;list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.takeaways li{counter-increment:t;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:13.5px;line-height:1.5;color:var(--ink2)}
+.takeaways li::before{content:counter(t);width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.takeaways b{color:var(--ink)}
+
+/* charts */
+.chart{width:100%}
+.ins{display:flex;flex-direction:column}.ins .pill{align-self:flex-start}
+.ins .big{font-size:28px;font-weight:700;color:var(--red);line-height:1.1;margin-top:6px}
+.ins p{font-size:13px;color:var(--ink2);margin-top:6px}
+.prio{display:inline-block;font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px;color:#3d3d45}
+
+/* approach */
+.princ{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.princ div{border-radius:18px;padding:16px;background:#fff;color:var(--ink2);font-size:12.5px;line-height:1.5;border:1px solid #efeff2;border-top:3px solid var(--red);box-shadow:0 6px 24px rgba(20,20,30,.05)}
+.princ b{display:block;font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+.princ b::before{content:"";display:block;width:30px;height:30px;border-radius:10px;background:var(--red-s);border:1.5px solid #ffd0d0;margin-bottom:10px}
+.flow{display:flex;flex-wrap:wrap;gap:7px;align-items:center;align-content:flex-start}
+.flow .st{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 6px;font-size:13px;font-weight:500;cursor:pointer}
+.flow .st:hover,.flow .st.on{border-color:var(--red);background:var(--red-s)}
+.flow .st b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#fff;background:var(--red)}
+.flow .ar{color:var(--red);font-weight:700}
+.flow .st.h b{background:#ffd6d6;color:var(--red-d)}
+.opt{display:grid;grid-template-columns:120px 1fr 44px;gap:10px;align-items:center;margin-top:10px;font-size:13.5px}
+.opt .bar{height:12px;background:var(--soft);border-radius:999px;overflow:hidden}
+.opt .bar i{display:block;height:100%;background:#c9c9d1;border-radius:999px;transition:width .4s}
+.opt.win .bar i{background:var(--red)}
+.opt.win{font-weight:600}
+.wrow{display:grid;grid-template-columns:1fr 110px 40px;gap:10px;align-items:center;font-size:12.5px;margin-top:8px}
+input[type=range]{accent-color:var(--red);width:100%}
+.jwrap{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:16px;align-items:start}
+.preview{text-align:left}
+.preview img{width:100%;border-radius:16px;border:5px solid #16161a;box-shadow:0 8px 24px rgba(0,0,0,.12);display:block}
+.preview h3{font-size:14px;margin-top:6px}
+.preview p{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* build */
+.ptabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.ptabs button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;text-align:left;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink)}
+.ptabs button small{display:block;font-size:10.5px;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.ptabs button.on{border-color:var(--red);background:var(--red);color:#fff}
+.ptabs button.on small{color:rgba(255,255,255,.8)}
+.phase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;margin-top:14px}
+.phase ul{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink2);line-height:1.55}
+.phase li{margin:3px 0}
+.res{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.res span{background:var(--red-s);border-radius:10px;padding:7px 11px;font-size:12.5px;color:var(--ink2)}
+.res b{color:var(--red-d);font-size:15px;margin-right:4px}
+.shots{display:flex;gap:12px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.shot{margin:0;flex:0 1 210px;text-align:center}
+.shot.wide{flex:1 1 100%}
+.shot img{width:100%;border-radius:18px;border:6px solid #16161a;box-shadow:0 12px 30px rgba(0,0,0,.15);display:block;background:#fff}
+.shot.wide img{border-radius:12px;border-width:4px;max-height:330px;object-fit:cover;object-position:top}
+.shot figcaption{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.4}
+.strip{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory}
+.strip figure{margin:0;flex:0 0 160px;scroll-snap-align:start}
+.strip img{width:100%;border-radius:14px;border:5px solid #16161a;display:block}
+.strip figcaption{font-size:11.5px;color:var(--ink2);margin-top:6px;line-height:1.35}
+.strip figcaption b{color:var(--red);margin-right:4px}
+
+/* architecture */
+.arch img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);background:#fff}
+.keys{display:grid;gap:10px}
+.key{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:13px;line-height:1.5;color:var(--ink2)}
+.key i{width:14px;height:14px;border-radius:4px;margin-top:3px}
+.key b{color:var(--ink)}
+
+/* demo */
+.video{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#0b0b0d;color:#fff;display:grid;place-items:center;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .ph{text-align:center;padding:20px}
+.video .play{width:76px;height:76px;border-radius:50%;background:var(--red);display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 0 0 12px rgba(228,0,0,.18),0 0 40px rgba(228,0,0,.6)}
+.video .play::after{content:"";border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
+.script{display:grid;gap:6px;max-height:min(62vh,560px);overflow-y:auto;padding-right:4px}
+.row{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;text-align:left}
+.row:hover,.row.on{border-color:var(--red);background:var(--red-s)}
+.row .t{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--red-d)}
+.row h4{margin:0;font-size:13.5px}
+.row .a{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+.row .v{font-size:12.5px;color:var(--ink2);margin-top:5px;line-height:1.5;font-style:italic}
+.tl{display:flex;height:8px;border-radius:999px;overflow:hidden;gap:2px;margin-top:12px}
+.tl i{display:block;height:100%}
+
+/* results */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.kpi{border-radius:18px;padding:16px;background:#fff;border:1px solid #efeff2;position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(20,20,30,.05)}
+.kpi::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--c,var(--red))}
+.kpi b{display:block;font-size:26px;font-weight:700;color:var(--c,var(--red));line-height:1.1}
+.kpi span{display:block;font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.35}
+.panel{margin-top:14px}
+.kyc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.k{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;font-size:12px}
+.k h4{margin:0;display:flex;justify-content:space-between;font-size:13px}
+.k .v{display:inline-block;margin:6px 0 4px;font-weight:600;font-size:11.5px;border-radius:999px;padding:2px 9px}
+.v.Verified{background:var(--mint);color:#3d5a4b}.v.Re-upload{background:var(--butter);color:#6e5a26}.v.Human{background:var(--lilac);color:#4d4466}.v.Blocked{background:var(--red-s);color:var(--red-d)}
+.k p{color:var(--ink2);line-height:1.4;margin:0}
+.ok{color:var(--red);font-weight:700}
+
+/* competition */
+.who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.who div{border-radius:12px;padding:9px 12px;font-size:12.5px;line-height:1.45;border:1px solid var(--line);background:#fff}
+.who b{display:block;font-size:14px;margin-bottom:2px}
+.who .us{border-color:var(--red);background:var(--red-s)}
+.cmp{min-width:860px}.cmp td{padding:7px 12px}
+.cmp td:first-child,.cmp th:first-child{position:sticky;left:0;z-index:1;background:#fff}
+.cmp th:first-child{background:var(--red)}
+.cmp tr:nth-child(even) td:first-child{background:#fcfcfd}
+.cmp td.c,.cmp th.c{text-align:center}
+.cmp th.us{background:var(--red-d)}
+.cmp td.us{background:var(--red-s)!important}
+.cmp th.today{background:#8a8a93}
+.cmp th small{display:block;font-weight:400;opacity:.85;font-size:11px}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle}
+.dot.full{background:var(--red)}.dot.part{background:linear-gradient(90deg,#f26b6b 50%,#ffe1e1 50%)}.dot.none{background:#fff;border:2px solid #d0d0d8}.dot.np{background:#fff;border:2px dashed #b5b5bf}
+.win{font-size:12.5px;color:var(--ink2);line-height:1.5}
+.win b{color:var(--ink)}
+
+/* impact */
+.calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px}
+.ctrl{margin-top:10px}
+.ctrl label{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)}
+.ctrl label b{color:var(--red-d)}
+.outs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.out{border-radius:18px;padding:16px;background:#fff;color:var(--ink);border:1px solid #efeff2;border-left:4px solid var(--red);box-shadow:0 6px 24px rgba(20,20,30,.05)}
+.out b{color:var(--red)}
+.out span{color:var(--ink2)}.out small{color:var(--muted)}
+.out b{display:block;font-size:24px;font-weight:700;line-height:1.1}
+.out span{display:block;font-size:12.5px;margin-top:4px;opacity:.95}
+.out small{display:block;font-size:11.5px;margin-top:6px;opacity:.8}
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lists ul{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--ink2);line-height:1.5}
+
+/* privacy pipeline */
+.pipe{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;position:relative}
+.node{position:relative;background:#fff;border:1px solid #efeff2;border-radius:16px;padding:12px;font-size:12px;line-height:1.45;color:var(--ink2);border-top:3px solid var(--c);box-shadow:0 6px 24px rgba(20,20,30,.05)}
+.node .n{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px}
+.node h4{margin:8px 0 4px;font-size:13.5px;color:var(--ink)}
+.node .col{font-size:11.5px;color:var(--muted);margin-top:6px;border-top:1px dashed var(--line);padding-top:6px}
+.node .col b{color:var(--ink2)}
+.node:not(:last-child)::after{content:"";position:absolute;right:-12px;top:22px;width:12px;height:2px;background:var(--c)}
+.node:not(:last-child)::before{content:"";position:absolute;right:-13px;top:18px;border-left:7px solid var(--c);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.rails{display:flex;flex-wrap:wrap;gap:8px}
+.rails span{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:500;background:var(--red-s);color:var(--ink)}
+.rails span i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.dpdp{display:flex;flex-wrap:wrap;gap:6px}
+.dpdp span{font-size:12px;border:1px solid var(--red-l);background:var(--red-s);color:var(--red-d);border-radius:8px;padding:4px 9px}
+.road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.road .card{border-top:3px solid var(--c)}
+.road ul{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--ink2);line-height:1.55}
+
+/* close */
+.close{background:#0b0b0d;color:#fff;padding-bottom:72px}
+.close h2{color:#fff}
+.close .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#fff}
+.close .card p,.close .card li{color:rgba(255,255,255,.75)}
+.close a{color:#ff8080}.close a.btn{color:#fff}
+.close details{margin-top:16px}
+.close summary{cursor:pointer;font-weight:600}
+.close ol{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.7);padding-left:20px}
+
+@media (max-width:1100px){
+  .tabs{display:none}.now{display:block}
+  .g5,.princ{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pipe{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ptabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .kyc{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  :root{--bar:52px}
+  .top{padding:0 14px}
+  .kick{letter-spacing:.08em;font-size:11.5px}
+  .in{padding:0 16px}
+  .slide{padding:60px 0}
+  .part+.part{margin-top:60px}
+  .top .btn.sm{padding:7px 11px}
+  .g2,.g3,.g4,.g31,.g64,.g46,.jwrap,.calc,.lists,.road,.who,.phase,.cover .in{grid-template-columns:minmax(0,1fr)}
+  .g5,.princ,.kpis,.outs,.kyc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .journey{grid-template-columns:minmax(0,1fr)}
+  .jstep:not(:last-child)::after{right:50%;top:auto;bottom:-9px;transform:translateX(50%) rotate(135deg)}
+  .pipe{grid-template-columns:minmax(0,1fr)}
+  .node:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-12px;width:2px;height:12px}
+  .node:not(:last-child)::before{right:auto;left:20px;top:auto;bottom:-14px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--c);border-bottom:0}
+  .ptabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cover{align-items:flex-start}
+  .globe{max-width:220px;order:-1}
+  .preview img{max-width:170px}
+  .tapnote{display:block!important}
+  .shot{flex:0 1 150px}
+  .row{grid-template-columns:52px 1fr}
+  .script{max-height:none}
+  .opt{grid-template-columns:96px 1fr 40px}
+  .wrow{grid-template-columns:1fr 90px 36px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.globe .spin,.globe .pulse{animation:none}}
+@media print{.top,.prog{display:none}.slide{break-inside:avoid-page}}
+</style>
+</head>
+<body class="dark">
+<header class="top">
+  <a class="brand" href="#cover" aria-label="Back to the top"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#e40000"/><path d="M10 9.5v7.5a6 6 0 0 0 12 0v-1.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="22" cy="10" r="2.3" fill="#fff"/></svg><span class="wm"><b>udyam</b>digital</span></a>
+  <nav class="tabs" id="tabs" aria-label="Slides"></nav>
+  <span class="now" id="now"></span>
+  <a class="btn sm" href="#demo" data-go-id="demo">▶ Demo</a>
+</header>
+<div class="prog" id="prog"></div>
+
+<main id="main">
+
+<section class="slide cover" id="cover" data-label="Cover" aria-label="Cover">
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="in">
+    <div>
+      <p class="kick">YTL Hackathon 2026 · Enterprise Track A</p>
+      <h1>Udyam<span>Digital</span></h1>
+      <p class="tag">Small businesses go digital <b>in one sitting</b>.</p>
+      <p class="sub">A phone-first journey for Accel Business: a voice advisor in 8 languages, one monthly price, KYC in minutes, a live tracker, and a person on every exception.</p>
+      <div class="chips"><span>Advisor · voice · 8 languages</span><span>Rules-checked bundles</span><span>DPDP consent first</span><span>192 / 192 tests</span></div>
+      <div class="cta"><a class="btn" href="#problem" data-go-id="problem">Start the tour ↓</a><a class="btn ghost" href="#demo" data-go-id="demo">▶ Watch the demo</a></div>
+      <p class="fine">Accel Telecom and Accel Business are the case's fictional operator. All data is synthetic. Scroll to explore.</p>
+    </div>
+    <svg class="globe" viewBox="0 0 400 400" aria-hidden="true">
+      <defs><radialGradient id="gg" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ff4d4d" stop-opacity=".55"/><stop offset=".55" stop-color="#8a0000" stop-opacity=".35"/><stop offset="1" stop-color="#1a0000" stop-opacity=".1"/></radialGradient></defs>
+      <circle cx="200" cy="200" r="150" fill="url(#gg)" stroke="#ff3b3b" stroke-opacity=".7"/>
+      <g class="spin" fill="none" stroke="#ff4d4d" stroke-opacity=".45">
+        <ellipse cx="200" cy="200" rx="150" ry="52"/><ellipse cx="200" cy="200" rx="150" ry="104"/>
+        <ellipse cx="200" cy="200" rx="52" ry="150"/><ellipse cx="200" cy="200" rx="104" ry="150"/>
+        <line x1="50" y1="200" x2="350" y2="200"/><line x1="200" y1="50" x2="200" y2="350"/>
+      </g>
+      <g fill="none" stroke="#ff6b6b" stroke-width="1.6">
+        <path d="M120 160 Q200 80 290 150" stroke-dasharray="4 5"/><path d="M110 250 Q210 320 300 240" stroke-dasharray="4 5"/><path d="M150 120 Q250 200 160 290" stroke-dasharray="4 5"/>
+      </g>
+      <g fill="#fff">
+        <circle class="pulse" cx="120" cy="160" r="5"/><circle cx="290" cy="150" r="5"/><circle class="pulse" cx="110" cy="250" r="4"/><circle cx="300" cy="240" r="5"/><circle class="pulse" cx="150" cy="120" r="4"/><circle cx="160" cy="290" r="5"/><circle cx="215" cy="205" r="7" fill="#ff3b3b"/>
+      </g>
+      <ellipse cx="200" cy="378" rx="120" ry="12" fill="#e40000" opacity=".35"/>
+    </svg>
+  </div>
+</section>
+
+<section class="slide" id="problem" data-label="Problem" aria-label="Problem and data">
+  <div class="in">
+    <div class="part" id="p-problem">
+    <p class="kick"><b>01</b> The problem</p>
+    <h2>Buying business connectivity takes a visit, a slow quote, paper KYC and <em>17.6 days</em>.</h2>
+    <div class="callout mt">Design and build a digital-first journey that lets a small business owner discover the right bundle, buy it and get it activated with minimal human effort, on a phone, in their preferred language.</div>
+    <div class="grid g4 mt">
+      <div class="stat"><b>7.4%</b><span>of leads become customers</span><small>368 of 5,000 · Apr–Jun 2026</small></div>
+      <div class="stat"><b>17.6 days</b><span>from lead to live</span><small>9.0 of them before a quote is accepted</small></div>
+      <div class="stat"><b>Rs 15,053</b><span>to acquire one customer</span><small>2.2× the median monthly bill</small></div>
+      <div class="stat"><b>3.0</b><span>status-chase calls each</span><small>churn climbs 6% → 28% with chasing</small></div>
+    </div>
+    <h3 class="mt">What the owner goes through today</h3>
+    <div class="journey mt-s">
+      <div class="jstep"><h4>1 · Contact</h4><p>Waits for a call that may come at a bad time.</p><span class="loss">1,594 lost</span></div>
+      <div class="jstep"><h4>2 · Needs</h4><p>Has to make time for a salesperson's visit.</p><span class="loss">1,432 lost</span></div>
+      <div class="jstep"><h4>3 · Quote</h4><p>Waits 3–5 days for a PDF full of product codes.</p><span class="loss">1,113 lost</span></div>
+      <div class="jstep"><h4>4 · KYC</h4><p>Hunts for documents; problems surface late.</p><span class="loss">273 lost</span></div>
+      <div class="jstep"><h4>5 · Install</h4><p>No visibility; chases status 3 times.</p><span class="loss">220 lost</span></div>
+    </div>
+      </div>
+
+    <div class="part" id="p-data">
+    <p class="kick"><b>01</b> Data · where the leads leak</p>
+    <h2>The quote is the bottleneck, and <em>speed</em> loses more deals than price.</h2>
+    <div class="grid g2 mt">
+      <div class="card">
+        <h3>Funnel, 5,000 leads → 368 live</h3>
+        <p class="small muted">Bar length = leads remaining · label = % of the previous stage that got through</p>
+        <div id="c-funnel" class="chart mt-s"></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+          <h3>Why 4,632 leads dropped</h3>
+          <div class="seg" data-for="drops"><button class="on" data-v="g" type="button">By cause</button><button data-v="r" type="button">Top reasons</button></div>
+        </div>
+        <div id="c-drops" class="chart mt-s"></div>
+      </div>
+    </div>
+    <ol class="takeaways mt">
+      <li><span><b>The quote is the bottleneck.</b> Only 43.6% of assessed leads accept it, 32% for micro businesses. An instant, plain price is the most valuable screen.</span></li>
+      <li><span><b>Speed beats price.</b> 41.2% of drops are about reach and speed; 23.9% about price or understanding; only 5.9% about paperwork.</span></li>
+      <li><span><b>The advisor must enforce the rules.</b> 56 of 368 customers were sold bundles the catalogue forbids.</span></li>
+    </ol>
+      </div>
+  </div>
+</section>
+
+<section class="slide alt" id="approach" data-label="Approach" aria-label="Approach: who to win first and how">
+  <div class="in">
+    <div class="part" id="p-seg">
+    <p class="kick"><b>02</b> Approach · who to win first</p>
+    <h2>Start where conversion and retention are already strong, and keep micro shops <em>self-serve</em>.</h2>
+    <div class="card mt hs">
+      <table style="min-width:720px">
+        <thead><tr><th>Segment</th><th class="n">Share</th><th class="n">Converts</th><th class="n">Median bundle</th><th class="n">6-mo churn</th><th class="n">CAC</th><th class="n">Has GSTIN</th><th>Plan</th></tr></thead>
+        <tbody id="t-seg"></tbody>
+      </table>
+    </div>
+    <div class="grid g3 mt">
+      <div class="card ins"><span class="pill">GSTIN</span><div class="big"><span id="gst-y"></span> vs <span id="gst-n" style="color:var(--muted)"></span></div><p>Leads with a GSTIN convert almost 5× better, so the advisor asks for it at question 3 and checks it live.</p><div id="c-gst" class="chart mt-s"></div></div>
+      <div class="card ins"><span class="pill p">Propensity model</span><div class="big" id="prop-big"></div><p>High-bucket leads convert at <b id="prop-hi"></b>, Low at <b id="prop-lo"></b>. The dashboard sorts the call list by it.</p><div id="c-prop" class="chart mt-s"></div></div>
+      <div class="card ins"><span class="pill a">Chasing</span><div class="big">6% → 28%</div><p>6-month churn by status-chase calls. The tracker and WhatsApp updates are a retention feature.</p><div id="c-chase" class="chart mt-s"></div></div>
+    </div>
+      </div>
+
+    <div class="part" id="p-how">
+    <p class="kick"><b>02</b> Approach · how we win them</p>
+    <h2>AI handles acquisition. <em>Humans handle exceptions.</em></h2>
+    <div class="princ mt">
+      <div style="--c:var(--red)"><b>Rules decide, AI explains</b>Eligibility, quantities and prices come only from code. The LLM words the "why".</div>
+      <div style="--c:var(--red)"><b>People on exceptions</b>KYC judgement calls, late steps, a stuck chat or "talk to a person" go to a named agent.</div>
+      <div style="--c:var(--red)"><b>Consent first</b>DPDP consent before any document; minimum data; IDs encrypted and masked.</div>
+      <div style="--c:var(--red)"><b>Status, not chasing</b>Expected dates, a live tracker and WhatsApp updates.</div>
+      <div style="--c:var(--red)"><b>Field force included</b>Scored leads and an assisted mode, so sales and partners close more, not less.</div>
+    </div>
+    <div class="grid g64 mt">
+      <div class="card">
+        <h3>The journey, 11 screens on a phone</h3>
+        <p class="small muted">Tap a step to preview it. Amber = a person can step in.</p>
+        <div class="jwrap mt-s"><div class="flow" id="flow"></div><div class="preview" id="preview"></div></div>
+      </div>
+      <div class="card">
+        <h3>Why the hybrid won</h3>
+        <p class="small muted">Weighted score out of 5. Move a weight to test it.</p>
+        <div id="options"></div>
+        <div id="weights" class="mt-s"></div>
+      </div>
+    </div>
+      </div>
+  </div>
+</section>
+
+<section class="slide" id="build" data-label="Build" aria-label="Build, architecture and demo">
+  <div class="in">
+    <div class="part" id="p-build">
+    <p class="kick"><b>03</b> Build · six phases</p>
+    <h2>A working prototype, built and tested <em>phase by phase</em>.</h2>
+    <div class="ptabs mt" id="ptabs" role="tablist"></div>
+    <div id="phase"></div>
+      </div>
+
+    <div class="part" id="p-arch">
+    <p class="kick"><b>03</b> Build · architecture</p>
+    <h2>One API, six services, one database, and <em>a person in the loop</em>.</h2>
+    <div class="grid g31 mt">
+      <div><a class="arch" href="img/architecture.svg" target="_blank" rel="noopener"><img src="img/architecture.svg" alt="Architecture: business owner, staff and WhatsApp reach the Next.js customer app and admin console, then a FastAPI gateway that masks IDs; services (advisor, pricing, smart KYC, notifications, orders and tracker, admin analytics) read and write an encrypted SQLite database and an auto-deleting document store; flagged, late or stuck cases go to a human agent queue; LLM, GSTIN/Udyam registries, Twilio and speech are swappable providers."></a><p class="small muted tapnote" style="display:none;margin-top:6px">Tap the diagram to open it full size.</p></div>
+      <div class="keys">
+        <div class="key"><i style="background:var(--red-s);border:2px dashed var(--red)"></i><span><b>Personal data protected.</b> The API masks IDs in responses and logs; KYC encrypts documents and ID numbers; SQLite encrypts PII columns; documents auto-delete.</span></div>
+        <div class="key"><i style="background:#fff3ec;border:2px solid #f0b48a"></i><span><b>A person steps in.</b> KYC review, late installs, a stuck advisor or "talk to a person" land in the agent queue with full context.</span></div>
+        <div class="key"><i style="background:#f4f4f6;border:2px dashed #b5b5bf"></i><span><b>Swappable providers.</b> LLM, registries, Twilio and Sarvam/Bhashini sit behind one interface each; mocks run the demo.</span></div>
+        <div class="key"><i style="background:#e6e6ea"></i><span><b>Stack.</b> Next.js 15 · FastAPI · SQLAlchemy + SQLite · Tesseract OCR · scikit-learn · Docker on Render, Vercel.</span></div>
+        <p class="small dl">Download: <a href="img/architecture.svg" download>SVG</a> · <a href="img/architecture.png" download>PNG</a> · <a href="img/architecture.drawio" download>draw.io</a> · <a href="img/architecture.mmd" download>Mermaid</a></p>
+      </div>
+    </div>
+      </div>
+
+    <div class="part" id="demo">
+    <p class="kick"><b>03</b> Build · demo, 3 minutes</p>
+    <h2>Language to <em>live</em>, on a phone, in one take.</h2>
+    <div class="grid g64 mt">
+      <div>
+        <div class="video" id="video">
+          <div class="ph"><div class="play" aria-hidden="true"></div><b style="font-size:18px">Demo video</b><p class="small" style="color:rgba(255,255,255,.65);margin-top:6px">3:00 · Hindi voice advisor, quote, KYC, tracker, escalation, leads dashboard</p></div>
+        </div>
+        <div class="tl" id="tl" aria-hidden="true"></div>
+        <p class="small muted mt-s">The script is the shot list: time, what's on screen and the voiceover. With the video loaded, tap a row to jump there.</p>
+      </div>
+      <div class="script" id="script"></div>
+    </div>
+      </div>
+  </div>
+</section>
+
+<section class="slide alt" id="results" data-label="Results" aria-label="Results">
+  <div class="in">
+    <div class="part" id="p-res">
+    <p class="kick"><b>04</b> Results</p>
+    <h2>Every claim is <em>tested</em>, including the judges' scenarios.</h2>
+    <div class="kpis mt">
+      <div class="kpi"><b>192/192</b><span>automated tests pass</span></div>
+      <div class="kpi"><b>15/15</b><span>judge-style advisor scenarios</span></div>
+      <div class="kpi"><b>12/12</b><span>KYC verdicts match the planted problems</span></div>
+      <div class="kpi"><b>0</b><span>ineligible bundles sold (56 today)</span></div>
+      <div class="kpi"><b>0</b><span>raw GSTINs or IDs on screen or in logs</span></div>
+      <div class="kpi"><b>exact</b><span>pilot baselines recomputed live from the DB</span></div>
+    </div>
+    <div class="card panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <div class="seg" data-for="res"><button class="on" data-v="sc" type="button">Advisor scenarios</button><button data-v="kyc" type="button">KYC answer key</button><button data-v="tests" type="button">Test suite</button></div>
+        <div class="seg" id="subseg" data-for="sub"></div>
+      </div>
+      <div id="res-body" class="mt-s"></div>
+    </div>
+      </div>
+  </div>
+</section>
+
+<section class="slide" id="competition" data-label="Competition" aria-label="Competition">
+  <div class="in">
+    <div class="part" id="p-comp">
+    <p class="kick"><b>05</b> Competition</p>
+    <h2>Everyone sells to small businesses. <em>Nobody sells the whole journey.</em></h2>
+    <div class="who mt">
+      <div><b>Accel Telecom</b>The case's fictional operator (a top-2 telco).</div>
+      <div><b>Accel Business</b>Its B2B arm: the seller. Today it sells one product at a time through field sales.</div>
+      <div class="us"><b>Udyam Digital = our product</b>The digital journey Accel Business launches. Compared below with Accel Business's current process and with rivals.</div>
+    </div>
+    <div class="card mt-s hs" style="padding:0">
+      <table class="cmp">
+        <thead><tr><th>Capability</th><th class="c us">Udyam Digital<small>our product</small></th><th class="c today">Accel Business today<small>field-led</small></th><th class="c">JioBusiness</th><th class="c">Vi Business</th><th class="c">Tata Tele Business</th><th class="c">BSNL / ACT</th><th class="c">KYC vendors<small>IDfy · Signzy · HyperVerge</small></th></tr></thead>
+        <tbody id="cmp"></tbody>
+      </table>
+    </div>
+    <div class="legend mt-s"><span><i class="dot full"></i>Yes, publicly evidenced</span><span><i class="dot part"></i>Partly</span><span><i class="dot none"></i>Not offered</span><span><i class="dot np"></i>Not public / unclear</span><span class="muted">Rivals rated from public sources (see the last slide); they may understate unpublicised features.</span></div>
+    <div class="grid g3 mt">
+      <div class="card win"><span class="pill k">JioBusiness</span><p class="mt-s">Cheapest bundles (Business Broadband from Rs 801), but buying still starts with "Want a callback?".</p><p class="mt-s"><b>We win:</b> purchase and KYC finish in one session, eligibility enforced.</p></div>
+      <div class="card win"><span class="pill k">Vi Business</span><p class="mt-s">Ready for Next: a 10-minute maturity check taken by 1.9 lakh MSMEs. It diagnoses, but doesn't sell.</p><p class="mt-s"><b>We win:</b> six questions end in a priced, rules-checked plan.</p></div>
+      <div class="card win"><span class="pill k">Tata Tele Business</span><p class="mt-s">100% SMB-focused; announced an AI stack with voice agents in July 2026. The rival to watch.</p><p class="mt-s"><b>We win:</b> a working end-to-end journey today, KYC and tracking built in.</p></div>
+    </div>
+      </div>
+  </div>
+</section>
+
+<section class="slide alt" id="impact" data-label="Impact" aria-label="Impact, privacy and next steps">
+  <div class="in">
+    <div class="part" id="p-impact">
+    <p class="kick"><b>06</b> Impact</p>
+    <h2>What a 6-month pilot could change, <em>per quarter of leads</em>.</h2>
+    <div class="calc mt">
+      <div class="card">
+        <h3>Try the pilot targets</h3>
+        <div class="ctrl"><label>Leads per quarter <b id="v-leads"></b></label><input type="range" id="i-leads" min="1000" max="50000" step="1000" value="5000"></div>
+        <div class="ctrl"><label>Lead-to-activation <b id="v-conv"></b></label><input type="range" id="i-conv" min="7.4" max="15" step="0.1" value="11"></div>
+        <div class="ctrl"><label>Cost per activation <b id="v-cac"></b></label><input type="range" id="i-cac" min="4000" max="15053" step="100" value="8000"></div>
+        <div class="ctrl"><label>Chase calls per customer <b id="v-chase"></b></label><input type="range" id="i-chase" min="0" max="3" step="0.1" value="0.5"></div>
+        <div class="ctrl"><label>6-month churn <b id="v-churn"></b></label><input type="range" id="i-churn" min="5" max="15.2" step="0.1" value="11"></div>
+        <button class="btn line mt-s" id="reset" type="button">Reset to pilot targets</button>
+      </div>
+      <div>
+        <div class="outs" id="outs"></div>
+        <div class="card mt-s"><h3>Five pilot metrics: baseline → target</h3><div id="c-metrics" class="chart mt-s"></div></div>
+      </div>
+    </div>
+    <div class="lists mt">
+      <div class="card"><span class="pill g">Proven in the build</span><ul><li>Zero ineligible bundles: the rules engine has the final say.</li><li>One-session journey on a phone, language to live, with real uploads.</li><li>Bad documents caught at upload with a specific fix.</li><li>Late steps escalate on their own to the right agent.</li></ul></div>
+      <div class="card"><span class="pill a">To validate in the pilot</span><ul><li>How many drops self-serve recovers: 32% (direct) to 69% (incl. partly).</li><li>A 50/50 self-serve / assisted mix, assisted deals 40% cheaper.</li><li>KYC completion 68.3% → 85%; first response to escalations within 4 business hours.</li><li>Whether regional-language voice closes the quote gap (40% vs 45%).</li></ul></div>
+    </div>
+      </div>
+
+    <div class="part" id="p-priv">
+    <p class="kick"><b>06</b> Impact · privacy &amp; security</p>
+    <h2>Collect the minimum, protect it, and <em>delete it when the purpose ends</em>.</h2>
+    <div class="pipe mt" id="pipe"></div>
+    <div class="grid g2 mt">
+      <div class="card"><h3>Controls on every step</h3><div class="rails mt-s"><span><i></i>HTTPS only</span><span><i></i>Fernet-encrypted PII + files</span><span><i></i>Phone as keyed hash</span><span><i></i>Masked IDs in UI and logs</span><span><i></i>Role-based access</span><span><i></i>Audit log of every view</span><span><i></i>Rate limits</span><span><i></i>Secrets from env only</span></div></div>
+      <div class="card"><h3>Maps to the DPDP Act 2023</h3><div class="dpdp mt-s"><span>s.5 Notice</span><span>s.6 Consent</span><span>s.6(4) Withdrawal</span><span>Purpose limitation</span><span>Data minimisation</span><span>s.8(5) Security safeguards</span><span>s.8(7) Erasure</span><span>s.11 Right to information</span><span>s.13 Grievance redressal</span></div><p class="small dl mt-s"><a href="privacy_security_note.pdf" download>Download the 1-page privacy note (PDF)</a></p></div>
+    </div>
+    <h3 class="mt">Next steps</h3>
+    <div class="road mt-s">
+      <div class="card" style="--c:var(--red)"><span class="pill">0–3 months · Pilot</span><ul><li>Pilot with professional offices in 2 tier-1 cities</li><li>Real GSTN / Udyam lookups through a GSP or KYC vendor</li><li>DigiLocker pull for documents, Aadhaar e-sign for the order form</li><li>Name a grievance officer; publish the privacy notice</li></ul></div>
+      <div class="card" style="--c:#f26b6b"><span class="pill a">3–6 months · Scale</span><ul><li>WhatsApp Business API in production, real SMS OTP</li><li>Postgres with keys in a cloud KMS; key rotation</li><li>Partner and field-force portal: scored leads, assisted mode, shared credit</li><li>Micro-retail wave with the lean Dukaan Digital bundle</li></ul></div>
+      <div class="card" style="--c:#f7a6a6"><span class="pill g">6+ months · Later</span><ul><li>Plug into a DPDP consent manager</li><li>Voice-first flow on WhatsApp</li><li>Retrain propensity on live outcomes; monitor bias by segment and language</li><li>Single bill and one support number across products</li></ul></div>
+    </div>
+      </div>
+  </div>
+</section>
+
+<section class="slide close" id="sources" data-label="Sources" aria-label="Summary and sources">
+  <div class="in">
+    <p class="kick" style="color:#ff6b6b"><b>07</b> Summary &amp; sources</p>
+    <h2>A plan in minutes. A target of 8 days to live, not 17.6.</h2>
+    <div class="grid g3 mt">
+      <div class="card"><h3>For the owner</h3><p class="small mt-s">Six questions in their language, one monthly price, documents checked as they upload, and dates instead of chasing.</p></div>
+      <div class="card"><h3>For Accel Business</h3><p class="small mt-s">Conversion 7.4% → 11%, CAC Rs 15,053 → 8,000, churn 15.2% → 11%, with zero ineligible sales.</p></div>
+      <div class="card"><h3>For the field force</h3><p class="small mt-s">Scored leads with reasons, an assisted mode for complex sites, and exceptions handed over with full context.</p></div>
+    </div>
+    <p class="mt dl"><a class="btn" href="Udyam_Digital_Approach_Competition_Impact.pdf" download>Download the full PDF</a> <a class="btn ghost" href="demo_script.md" download>Demo script</a></p>
+    <details>
+      <summary>Data and sources</summary>
+      <p class="small" style="color:rgba(255,255,255,.7);margin-top:8px">Project figures come from the case dataset (smb_leads.csv, product_catalogue.csv, the mock GSTIN and Udyam registries and 47 KYC images) and the project's own analysis and test runs. Market and competitor facts:</p>
+      <ol id="src"></ol>
+    </details>
+  </div>
+</section>
+
+</div>
+</main>
+
+
+<script>
+const D = __DATA__;
+// Demo video: put demo.mp4 next to index.html, or paste a YouTube link here.
+const DEMO_VIDEO = "";
+const $ = s => document.querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+const fmt = n => n.toLocaleString("en-IN");
+const P = ["#e40000", "#f26b6b", "#f7a6a6", "#fbd0d0", "#b50000", "#c9c9cf", "#8a8a93"];
+function el(t, a = {}, p) { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
+function txt(p, x, y, s, a = {}) { const t = el("text", Object.assign({ x, y, "font-size": 12.5, fill: "#3d3d45" }, a), p); t.textContent = s; return t; }
+function tip(g, s) { const t = el("title", {}, g); t.textContent = s; }
+
+/* ---------- charts ---------- */
+function hbar(host, items, o = {}) {
+  host.innerHTML = "";
+  const W = Math.max(host.clientWidth || 460, 260), lw = Math.min(o.labelW || 150, W * .45), h = o.h || 26, gap = o.gap || 8, vw = o.valueW || 70;
+  const H = items.length * (h + gap); const max = o.max || Math.max(...items.map(i => i.value));
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: H, role: "img", "aria-label": o.aria || "" }, host);
+  items.forEach((it, i) => {
+    const y = i * (h + gap), w = Math.max(2, (it.value / max) * (W - lw - vw - 8));
+    const g = el("g", {}, svg); tip(g, it.tip || `${it.label}: ${it.value}`);
+    txt(g, lw - 8, y + h / 2 + 4, it.label, { "text-anchor": "end", "font-size": o.fs || 12.5 });
+    el("rect", { x: lw, y, width: w, height: h, rx: 6, fill: it.color || P[0] }, g);
+    txt(g, lw + w + 6, y + h / 2 + 4, it.vl ?? it.value, { "font-weight": 600, fill: "#16161a" });
+    if (it.sub) txt(g, W - 2, y + h / 2 + 4, it.sub, { "text-anchor": "end", fill: "#74747e", "font-size": 11.5 });
+  });
+}
+function vbar(host, items, o = {}) {
+  host.innerHTML = "";
+  const W = Math.max(host.clientWidth || 260, 200), H = o.H || 120, b = 22, t = 18, max = o.max || Math.max(...items.map(i => i.value));
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: H, role: "img" }, host);
+  const bw = Math.min(56, (W / items.length) * .55);
+  items.forEach((it, i) => {
+    const cx = (W / items.length) * (i + .5), bh = (it.value / max) * (H - b - t);
+    const g = el("g", {}, svg); tip(g, it.tip || `${it.label}: ${it.value}`);
+    el("rect", { x: cx - bw / 2, y: H - b - bh, width: bw, height: bh, rx: 6, fill: it.color }, g);
+    txt(g, cx, H - b - bh - 5, it.vl, { "text-anchor": "middle", "font-weight": 600, fill: "#16161a", "font-size": 12 });
+    txt(g, cx, H - 6, it.label, { "text-anchor": "middle", "font-size": 11.5, fill: "#74747e" });
+  });
+}
+function drawFunnel() {
+  hbar($("#c-funnel"), D.funnel.map((f, i) => ({ label: f.stage, value: f.n, vl: fmt(f.n), sub: f.pass == null ? "" : f.pass + "%", color: f.stage === "Quote accepted" ? "#e40000" : `rgba(228,0,0,${0.85 - i * 0.1})`, tip: `${f.stage}: ${fmt(f.n)} leads${f.pass == null ? "" : ", " + f.pass + "% of the previous stage"}` })), { labelW: 120, valueW: 92, h: 28, gap: 9 });
+}
+let dropMode = "g";
+const GC = { "Reach & speed": "#e40000", "Understanding & price": "#f26b6b", "Paperwork": "#f7a6a6", "Other": "#d5d5da" };
+function drawDrops() {
+  if (dropMode === "g") hbar($("#c-drops"), D.drop_groups.map(g => ({ label: g.group, value: g.n, vl: g.pct + "%", sub: fmt(g.n), color: GC[g.group], tip: `${g.group}: ${fmt(g.n)} drops (${g.pct}%)` })), { labelW: 150, valueW: 90, h: 34, gap: 14 });
+  else hbar($("#c-drops"), D.drops.slice(0, 8).map(d => ({ label: d.reason, value: d.n, vl: fmt(d.n), color: GC[d.group], tip: `${d.reason}: ${fmt(d.n)} (${d.group})` })), { labelW: 200, valueW: 50, h: 20, gap: 7, fs: 11.5 });
+}
+const PLAN = { "Professional offices": ["Wave 1", "#ffe1e1"], "Small multi-site businesses": ["Wave 1", "#ffe1e1"], "Micro retail & services": ["Wave 2 · self-serve", "var(--peach)"], "Small manufacturers": ["Assisted", "var(--sky-s)"] };
+function drawSeg() {
+  $("#t-seg").innerHTML = D.segments.map(s => `<tr><td><b>${s.segment}</b></td><td class="n">${s.share}%</td><td class="n"><b style="color:${s.conv > 10 ? "var(--red)" : "#8a8a93"}">${s.conv}%</b></td><td class="n">Rs ${fmt(s.bundle)}</td><td class="n">${s.churn}%</td><td class="n">Rs ${fmt(s.cac)}</td><td class="n">${s.gstin}%</td><td><span class="prio" style="background:${PLAN[s.segment][1]}">${PLAN[s.segment][0]}</span></td></tr>`).join("");
+  $("#gst-y").textContent = D.gstin_conv.Y + "%"; $("#gst-n").textContent = D.gstin_conv.N + "%";
+  const hi = D.propensity.find(p => p.bucket === "High"), lo = D.propensity.find(p => p.bucket === "Low");
+  $("#prop-hi").textContent = hi.conv + "%"; $("#prop-lo").textContent = lo.conv + "%"; $("#prop-big").textContent = (hi.conv / lo.conv).toFixed(1) + "× lift";
+}
+function drawSmall() {
+  vbar($("#c-gst"), [{ label: "Has GSTIN", value: D.gstin_conv.Y, vl: D.gstin_conv.Y + "%", color: P[0] }, { label: "No GSTIN", value: D.gstin_conv.N, vl: D.gstin_conv.N + "%", color: "#c9c9d1" }], { max: 12 });
+  vbar($("#c-prop"), D.propensity.map((p, i) => ({ label: p.bucket, value: p.conv, vl: p.conv + "%", color: ["#e40000", "#f26b6b", "#fbd0d0"][i], tip: `${p.bucket}: ${fmt(p.leads)} leads, ${p.conv}% converted` })), { max: 18 });
+  vbar($("#c-chase"), D.chase.map((c, i) => ({ label: c.calls + (c.calls === "1" ? " call" : ""), value: c.churn, vl: Math.round(c.churn) + "%", color: ["#fde3e3", "#fbc9c9", "#f7a6a6", "#f26b6b", "#e40000"][i], tip: `${c.calls} chase calls: ${c.churn}% churn, NPS ${c.nps}` })), { max: 32 });
+}
+
+/* ---------- approach ---------- */
+const STEPS = ["Pick a language", "OTP login, WhatsApp opt-in", "Six questions to the advisor", "A rules-checked plan", "One monthly price", "DPDP consent", "GSTIN registry lookup", "Four documents, checked on upload", "Verified, install booked", "Tracker with the visit", "Live, every update listed"];
+const HUMAN = new Set([2, 7, 9]);
+function drawFlow(sel = 3) {
+  $("#flow").innerHTML = STEPS.map((s, i) => `<button type="button" class="st ${HUMAN.has(i) ? "h" : ""} ${i === sel ? "on" : ""}" data-i="${i}"><b>${i + 1}</b>${s}</button>${i < STEPS.length - 1 ? '<span class="ar" aria-hidden="true">›</span>' : ""}`).join("");
+  $("#preview").innerHTML = `<img src="img/j${String(sel + 1).padStart(2, "0")}.jpg" alt="Screen ${sel + 1}: ${STEPS[sel]}"><h3>${sel + 1} · ${STEPS[sel]}</h3><p>${HUMAN.has(sel) ? "Flagged or unclear? A named agent takes over with full context." : "Self-serve: no call, no visit."}</p>`;
+}
+$("#flow").addEventListener("click", e => { const b = e.target.closest(".st"); if (b) drawFlow(+b.dataset.i); });
+const CRIT = [["Fit to the case", 25, [4, 5, 2]], ["Fixes observed drops", 25, [3, 5, 3]], ["Feasible to build", 20, [4, 3, 4]], ["Business value", 15, [4, 5, 3]], ["Risk", 15, [2, 4, 3]]];
+const OPTS = ["A · AI-first", "B · Hybrid", "C · Agent tool"];
+function drawMatrix() {
+  $("#weights").innerHTML = CRIT.map((c, i) => `<div class="wrow"><span>${c[0]} <span class="muted">(A ${c[2][0]} · B ${c[2][1]} · C ${c[2][2]})</span></span><input type="range" min="0" max="50" value="${c[1]}" data-i="${i}" aria-label="Weight for ${c[0]}"><output>${c[1]}%</output></div>`).join("");
+  $("#weights").addEventListener("input", e => { const i = e.target.dataset.i; if (i == null) return; CRIT[+i][1] = +e.target.value; e.target.nextElementSibling.textContent = e.target.value + "%"; score(); });
+  score();
+}
+function score() {
+  const tw = CRIT.reduce((a, c) => a + c[1], 0) || 1, s = OPTS.map((_, j) => CRIT.reduce((a, c) => a + c[1] * c[2][j], 0) / tw), best = Math.max(...s);
+  $("#options").innerHTML = OPTS.map((o, j) => `<div class="opt ${s[j] === best ? "win" : ""}"><span>${o}</span><div class="bar"><i style="width:${s[j] / 5 * 100}%"></i></div><b>${s[j].toFixed(2)}</b></div>`).join("");
+}
+
+/* ---------- build ---------- */
+const PH = __PHASES__;
+let phI = 0;
+function drawPhases() {
+  $("#ptabs").innerHTML = PH.map((p, i) => `<button type="button" role="tab" aria-selected="${i === phI}" class="${i === phI ? "on" : ""}" data-i="${i}"><small>${p.n.toUpperCase()}</small>${p.t}</button>`).join("");
+  const p = PH[phI];
+  $("#phase").innerHTML = `<div class="phase"><div class="card"><p class="kick" style="margin:0">${p.n}</p><h3>${p.t}</h3><p class="small muted">${p.s}</p><ul>${p.b.map(x => `<li>${x}</li>`).join("")}</ul><div class="res">${p.r.map(r => `<span><b>${r[0]}</b>${r[1]}</span>`).join("")}</div></div>
+  <div class="shots">${p.img.map(([f, c, w]) => `<figure class="shot ${w ? "wide" : ""}"><img src="img/${f}.jpg" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join("")}</div></div>`;
+}
+$("#ptabs").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; phI = +b.dataset.i; drawPhases(); });
+
+/* ---------- demo ---------- */
+const DEMO = __DEMO__;
+const sec = t => { const [m, s] = t.split(":"); return +m * 60 + +s; };
+let player = null;
+function drawScript() {
+  $("#script").innerHTML = DEMO.map((r, i) => `<button type="button" class="row" data-t="${sec(r.t)}"><span class="t">${r.t}<br><span style="color:var(--muted);font-weight:400">${r.end}</span></span><span><h4>${r.title}</h4><div class="a">${r.action}</div><div class="v">“${r.vo}”</div></span></button>`).join("");
+  $("#tl").innerHTML = DEMO.map((r, i) => `<i style="flex:${sec(r.end) - sec(r.t)};background:${i % 2 ? "#fbd0d0" : "#e40000"}" title="${r.t} ${r.title}"></i>`).join("");
+}
+$("#script").addEventListener("click", e => { const b = e.target.closest(".row"); if (!b) return; document.querySelectorAll(".row").forEach(x => x.classList.toggle("on", x === b)); if (player && player.tagName === "VIDEO") { player.currentTime = +b.dataset.t; player.play(); } else if (player) { player.src = player.dataset.base + "&start=" + b.dataset.t + "&autoplay=1"; } });
+function mountVideo(src) {
+  const v = $("#video");
+  const yt = src.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+  if (yt) { const base = `https://www.youtube-nocookie.com/embed/${yt[1]}?rel=0`; v.innerHTML = `<iframe title="Udyam Digital demo" src="${base}" data-base="${base}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`; player = v.querySelector("iframe"); }
+  else { v.innerHTML = `<video controls playsinline preload="metadata" src="${src}"></video>`; player = v.querySelector("video"); player.addEventListener("timeupdate", () => { const t = player.currentTime; document.querySelectorAll(".row").forEach(x => { const s = +x.dataset.t; x.classList.toggle("on", t >= s && t < s + 40 && [...document.querySelectorAll(".row")].filter(y => +y.dataset.t <= t).pop() === x); }); }); }
+}
+if (DEMO_VIDEO) mountVideo(DEMO_VIDEO);
+else fetch("demo.mp4", { method: "HEAD" }).then(r => { if (r.ok && (r.headers.get("content-type") || "").includes("video")) mountVideo("demo.mp4"); }).catch(() => {});
+
+/* ---------- results ---------- */
+let resMode = "sc", sub = "all";
+const SUBS = { sc: [["all", "All 15"], ["refused", "With a refusal"], ["lang", "Not English"]], kyc: [["all", "All 12"], ["Verified", "Verified"], ["Re-upload", "Re-upload"], ["Human", "Human review"], ["Blocked", "Blocked"]], tests: [] };
+function drawRes() {
+  $("#subseg").innerHTML = SUBS[resMode].map(([v, l]) => `<button type="button" data-v="${v}" class="${v === sub ? "on" : ""}">${l}</button>`).join("");
+  $("#subseg").style.display = SUBS[resMode].length ? "" : "none";
+  const host = $("#res-body");
+  if (resMode === "sc") {
+    const rows = D.scenarios.filter(s => sub === "all" || (sub === "refused" ? s.refused !== "-" : s.lang !== "en"));
+    const name = id => id.slice(3).replace(/_/g, " ");
+    host.innerHTML = `<div class="hs" style="max-height:44vh;overflow:auto"><table style="min-width:760px"><thead><tr><th>Scenario</th><th>Lang</th><th>Bundle</th><th class="n">Monthly</th><th>Refused, with reason</th><th>Pass</th></tr></thead><tbody>${rows.map(s => `<tr><td><b>${name(s.id)}</b><br><span class="muted" style="font-size:12px">${s.tests}</span></td><td><span class="pill k">${s.lang}</span></td><td style="font-size:12.5px">${s.bundle.split(":")[0]}</td><td class="n"><b>${s.monthly}</b></td><td style="font-size:12.5px">${s.refused === "-" ? "—" : s.refused.split(":")[0]}</td><td class="ok">✓</td></tr>`).join("")}</tbody></table></div>`;
+  } else if (resMode === "kyc") {
+    host.innerHTML = `<div class="kyc">${D.kyc.filter(k => sub === "all" || k.verdict.startsWith(sub)).map(k => `<div class="k"><h4>${k.id}<span class="${k.match ? "ok" : ""}" title="matches the answer key">${k.match ? "✓ match" : "✗"}</span></h4><div class="muted">${k.biz}</div><span class="v ${k.verdict.split(" ")[0]}">${k.verdict}</span><p>${k.why.replace(/^\w+: /, "").slice(0, 120)}${k.why.length > 120 ? "…" : ""}</p></div>`).join("")}</div>`;
+  } else {
+    host.innerHTML = `<div class="grid g46"><div><div class="stat"><b>192</b><span>tests, all passing</span><small>pytest for rules, pricing, GSTIN, KYC, state machine, escalation, privacy · Playwright happy path on a Pixel 5 viewport</small></div></div><div id="c-tests"></div></div>`;
+    hbar($("#c-tests"), D.tests.map(([l, n], i) => ({ label: l, value: n, color: i % 2 ? "#f7a6a6" : "#e40000", tip: `${l}: ${n} tests` })), { labelW: 200, h: 16, gap: 5, valueW: 34, fs: 11.5 });
+  }
+}
+$("#subseg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; sub = b.dataset.v; drawRes(); });
+
+/* ---------- competition ---------- */
+const F = "full", Pa = "part", N = "none", U = "np";
+const CMP = [
+  ["Self-serve purchase, start to finish", F, N, Pa, N, N, Pa, N],
+  ["Guided discovery that ends in a bundle", F, Pa, N, Pa, U, N, N],
+  ["Eligibility rules enforced at sale", F, N, U, U, U, U, N],
+  ["Instant, transparent quote with add-ons", F, N, Pa, N, U, Pa, N],
+  ["Digital KYC with GSTIN / Udyam checks", F, N, U, U, U, Pa, F],
+  ["Live order tracker with expected dates", F, N, Pa, U, U, Pa, N],
+  ["Vernacular voice in the buying journey", F, N, U, Pa, Pa, N, N],
+  ["Named person on exceptions, full context", F, Pa, Pa, Pa, Pa, N, N],
+  ["Lead scoring for the sales team", F, N, U, U, U, U, N],
+];
+const LBL = { full: "Yes", part: "Partly", none: "No", np: "Not public" };
+$("#cmp").innerHTML = CMP.map(r => `<tr><td>${r[0]}</td>${r.slice(1).map((v, i) => `<td class="c ${i === 0 ? "us" : ""}"><span class="dot ${v}" role="img" aria-label="${LBL[v]}" title="${LBL[v]}"></span></td>`).join("")}</tr>`).join("");
+
+/* ---------- impact ---------- */
+const B = { conv: 7.4, cac: 15053, chase: 3.0, churn: 15.2, bundle: 6900 };
+const IN = { leads: $("#i-leads"), conv: $("#i-conv"), cac: $("#i-cac"), chase: $("#i-chase"), churn: $("#i-churn") };
+const crore = v => v >= 1e7 ? "Rs " + (v / 1e7).toFixed(2) + " cr" : "Rs " + (v / 1e5).toFixed(1) + " lakh";
+function calc() {
+  const L = +IN.leads.value, cv = +IN.conv.value, cac = +IN.cac.value, ch = +IN.chase.value, chu = +IN.churn.value;
+  $("#v-leads").textContent = fmt(L); $("#v-conv").textContent = cv.toFixed(1) + "%"; $("#v-cac").textContent = "Rs " + fmt(cac); $("#v-chase").textContent = ch.toFixed(1); $("#v-churn").textContent = chu.toFixed(1) + "%";
+  const a0 = Math.round(L * B.conv / 100), a1 = Math.round(L * cv / 100), spend0 = a0 * B.cac, spend1 = a1 * cac;
+  const kept = a1 * (1 - chu / 100) - a0 * (1 - B.churn / 100), calls = Math.round(a0 * B.chase - a1 * ch);
+  $("#outs").innerHTML = [
+    [fmt(a1), "activations per quarter", `${a1 - a0 >= 0 ? "+" : ""}${fmt(a1 - a0)} vs ${fmt(a0)} today`, P[0]],
+    [crore(Math.max(kept, 0) * B.bundle * 12), "added yearly revenue", `${fmt(Math.round(kept))} more customers still paying at 6 months × Rs 6,900`, P[2]],
+    [crore(Math.abs(spend0 - spend1)), spend1 <= spend0 ? "less acquisition spend / quarter" : "more acquisition spend / quarter", `${crore(spend1)} vs ${crore(spend0)} today`, P[3]],
+    [fmt(Math.max(calls, 0)), "fewer status-chase calls / quarter", `${fmt(Math.round(a1 * ch))} vs ${fmt(Math.round(a0 * B.chase))} today`, P[6]],
+  ].map(([b, s, m, c]) => `<div class="out" style="--c:${c}"><b>${b}</b><span>${s}</span><small>${m}</small></div>`).join("");
+}
+Object.values(IN).forEach(i => i.addEventListener("input", calc));
+$("#reset").addEventListener("click", () => { IN.leads.value = 5000; IN.conv.value = 11; IN.cac.value = 8000; IN.chase.value = .5; IN.churn.value = 11; calc(); });
+function drawMetrics() {
+  const host = $("#c-metrics"); host.innerHTML = "";
+  const M = [["Lead-to-activation", 7.4, 11, "%", 15], ["Days, lead to live", 17.6, 8, " d", 20], ["CAC (Rs '000)", 15.053, 8, "k", 16], ["6-month churn", 15.2, 11, "%", 20], ["Chase calls", 3.0, .5, "", 3.5]];
+  const W = Math.max(host.clientWidth || 460, 260), rh = 36, H = M.length * rh + 6, lw = Math.min(140, W * .36), pr = 26;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: H, role: "img", "aria-label": "Baseline to target for five metrics" }, host);
+  M.forEach(([l, b, t, u, mx], i) => {
+    const y = i * rh + 22, X = v => lw + (v / mx) * (W - lw - pr), f = v => u === "k" ? "Rs " + fmt(Math.round(v * 1000)) : v + u;
+    const g = el("g", {}, svg); tip(g, `${l}: baseline ${f(b)} → target ${f(t)}`);
+    txt(g, lw - 10, y + 4, l, { "text-anchor": "end", "font-size": 12 });
+    el("line", { x1: lw, x2: W - pr, y1: y, y2: y, stroke: "#ececf0", "stroke-width": 2 }, g);
+    el("line", { x1: X(b), x2: X(t), y1: y, y2: y, stroke: "#e40000", "stroke-width": 3 }, g);
+    el("circle", { cx: X(b), cy: y, r: 6, fill: "#fff", stroke: "#74747e", "stroke-width": 2 }, g);
+    el("circle", { cx: X(t), cy: y, r: 7, fill: "#e40000", stroke: "#fff", "stroke-width": 2 }, g);
+    txt(g, X(b), y - 10, f(b), { "text-anchor": "middle", "font-size": 11, fill: "#74747e" });
+    txt(g, X(t), y - 10, f(t), { "text-anchor": "middle", "font-size": 11, "font-weight": 700, fill: "#16161a" });
+  });
+}
+
+/* ---------- privacy pipeline ---------- */
+const PIPE = [
+  ["Notice & consent", "Plain notice in 8 languages (kyc-v1.0): what, why, how long, how to withdraw. No upload without it.", "Login collects", "phone, language, WhatsApp yes/no", "#e40000"],
+  ["Collect the minimum", "Each step asks only what it needs. Voice audio becomes text and is discarded.", "Advisor collects", "type, size, city, needs; GSTIN optional", "#e40000"],
+  ["Verify", "GSTIN / Udyam lookups, OCR and 13 cross-checks, used only for KYC.", "KYC collects", "GSTIN, Udyam, 4 documents", "#e40000"],
+  ["Encrypt & mask", "Fernet on PII columns and every file; phone as a keyed hash; IDs masked everywhere.", "Shown as", "27•••••••••1Z5 · ••••••4321", "#e40000"],
+  ["Access by role", "Customer sees own data; agent only assigned cases; admin the rest.", "Logged", "who viewed what, and when", "#e40000"],
+  ["Retain", "Kept only while the purpose runs. Cases under review are held until decided.", "How long", "90 days after verify · 30 if abandoned", "#e40000"],
+  ["Delete", "Hourly purge job. Withdrawal cancels the case and deletes files at once.", "Withdraw", "one tap in the app", "#e40000"],
+];
+$("#pipe").innerHTML = PIPE.map((p, i) => `<div class="node" style="--c:${p[4]}"><span class="n">${i + 1}</span><h4>${p[0]}</h4>${p[1]}<div class="col"><b>${p[2]}:</b> ${p[3]}</div></div>`).join("");
+
+/* ---------- sources ---------- */
+$("#src").innerHTML = __SOURCES__.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`).join("");
+
+/* ---------- page ---------- */
+const slides = [...document.querySelectorAll(".slide")];
+let coverOn = true;
+$("#tabs").innerHTML = slides.map(s => s.id === "cover" ? "" : `<a href="#${s.id}" data-id="${s.id}">${s.dataset.label}</a>`).join("");
+function jump(id) { const t = document.getElementById(id); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }
+document.addEventListener("click", e => { const b = e.target.closest("[data-go-id]"); if (b) { e.preventDefault(); jump(b.dataset.goId); } });
+function onScroll() {
+  const y = scrollY, bar = 70;
+  let curS = slides[0];
+  slides.forEach(s => { if (s.offsetTop - bar - 1 <= y) curS = s; });
+  if (innerHeight + y >= document.documentElement.scrollHeight - 4) curS = slides[slides.length - 1];
+  document.querySelectorAll("#tabs a").forEach(a => a.classList.toggle("on", a.dataset.id === curS.id));
+  $("#now").textContent = curS.id === "cover" ? "" : curS.dataset.label;
+  const max = document.documentElement.scrollHeight - innerHeight;
+  $("#prog").style.width = (max > 0 ? y / max * 100 : 0) + "%";
+  document.body.classList.toggle("dark", curS.classList.contains("cover") || curS.classList.contains("close"));
+  coverOn = y < slides[0].offsetHeight;
+  const t = $("#tabs .on"); if (t && t !== onScroll.last) { onScroll.last = t; t.scrollIntoView({ block: "nearest", inline: "center" }); }
+}
+addEventListener("scroll", onScroll, { passive: true });
+document.querySelectorAll(".seg[data-for]").forEach(seg => seg.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || seg.id === "subseg") return;
+  seg.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+  if (seg.dataset.for === "drops") { dropMode = b.dataset.v; drawDrops(); }
+  if (seg.dataset.for === "res") { resMode = b.dataset.v; sub = "all"; drawRes(); }
+}));
+
+/* cover rain */
+(function () {
+  const c = $("#rain"), x = c.getContext("2d"); if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let cols = [], fs = 15, raf;
+  function size() { c.width = c.clientWidth * devicePixelRatio; c.height = c.clientHeight * devicePixelRatio; x.scale(devicePixelRatio, devicePixelRatio); cols = Array(Math.ceil(c.clientWidth / (fs * 1.6))).fill(0).map(() => Math.random() * -40); }
+  function tick() {
+    if (coverOn) {
+      x.fillStyle = "rgba(11,11,13,.12)"; x.fillRect(0, 0, c.clientWidth, c.clientHeight);
+      x.font = `${fs}px ui-monospace,monospace`;
+      cols.forEach((y, i) => { x.fillStyle = Math.random() > .96 ? "#ffd0d0" : "rgba(228,0,0,.75)"; x.fillText(Math.random() > .5 ? "1" : "0", i * fs * 1.6, y * fs); cols[i] = y * fs > c.clientHeight && Math.random() > .975 ? 0 : y + .35; });
+    }
+    raf = setTimeout(() => requestAnimationFrame(tick), 50);
+  }
+  size(); addEventListener("resize", size); tick();
+})();
+
+function drawAll() { drawFunnel(); drawDrops(); drawSmall(); drawMetrics(); if (resMode === "tests") drawRes(); }
+drawSeg(); drawFlow(); drawMatrix(); drawPhases(); drawScript(); drawRes(); calc(); drawAll();
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
+onScroll();
+</script>
+</body>
+</html>

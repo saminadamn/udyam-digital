@@ -1,0 +1,12 @@
+language: ok (/)
+otp: ok (/login)
+advisor: ok (/advisor)
+recommendation: ok (/advisor/recommendation?c=cnv_01a1b68c108374c79ab938f396bafd26)
+quote: ok (/quote/quo_01a1b68c1ad1752fbfcf41dec2b73b74)
+consent: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f/consent)
+gstin_found: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f/kyc)
+uploads: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f/kyc)
+kyc_verified: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f/kyc)
+tracker_booked: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f)
+tracker_live: ok (/order/ord_01a1b68c1b857cdbbbd6cfdaf887ee5f)
+page errors: none

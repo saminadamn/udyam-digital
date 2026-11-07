@@ -1,0 +1,41 @@
+flowchart LR
+    subgraph Client
+        C[Customer app<br/>Next.js mobile-first<br/>text + mic]
+        AD[Admin / agent console<br/>Next.js /admin]
+    end
+    subgraph API[FastAPI backend]
+        GW[API layer<br/>JWT, validation, rate limits,<br/>PII-safe logging]
+        ADV[Advisor service]
+        RUL[Rules engine<br/>final say on eligibility]
+        PRI[Pricing service]
+        KYC[KYC service<br/>consent, lookups, OCR, checks]
+        ORD[Order and tracker service<br/>state machine]
+        ESC[Escalation service<br/>+ SLA job every 5 min]
+        NOT[Notification service]
+        VOI[Voice adapter]
+        PRO[Propensity model]
+    end
+    subgraph External[Swappable providers]
+        LLM[(LLM provider)]
+        OCR[(Tesseract / PaddleOCR)]
+        TW[(Twilio sandbox<br/>or mock outbox)]
+        STT[(Speech provider)]
+    end
+    DB[(SQLite<br/>encrypted PII columns)]
+    FS[(Encrypted document store<br/>auto-delete)]
+
+    C --> GW
+    AD --> GW
+    GW --> ADV & PRI & KYC & ORD & ESC & NOT & VOI & PRO
+    ADV --> RUL
+    ADV --> LLM
+    PRI --> RUL
+    KYC --> OCR
+    KYC --> FS
+    KYC --> ESC
+    ORD --> ESC
+    ORD --> NOT
+    ESC --> NOT
+    NOT --> TW
+    VOI --> STT
+    ADV & RUL & PRI & KYC & ORD & ESC & NOT & PRO --> DB

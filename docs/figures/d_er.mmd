@@ -1,0 +1,25 @@
+erDiagram
+    users ||--o{ businesses : owns
+    users ||--o| agents : "is (staff)"
+    users ||--o{ conversations : has
+    businesses ||--o{ conversations : about
+    conversations ||--o{ messages : contains
+    conversations ||--o{ recommendations : produces
+    recommendations ||--o{ quotes : priced_as
+    quotes ||--|{ quote_items : has
+    products ||--o{ quote_items : in
+    quotes ||--o| orders : becomes
+    orders ||--o{ order_events : logs
+    orders ||--o| kyc_cases : needs
+    consents ||--o{ kyc_cases : authorises
+    kyc_cases ||--o{ kyc_documents : has
+    kyc_cases ||--o{ kyc_checks : results
+    orders ||--o{ escalations : may_raise
+    kyc_cases ||--o{ escalations : may_raise
+    agents ||--o{ escalations : handles
+    leads ||--o{ call_logs : called
+    leads ||--o{ lead_notes : noted
+    businesses ||--o| leads : tracked_as
+    users ||--o{ notifications : receives
+    gstin_registry ||--o{ businesses : "looked up"
+    udyam_registry ||--o{ businesses : "looked up"

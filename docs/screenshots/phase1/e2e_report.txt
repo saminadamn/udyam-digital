@@ -1,0 +1,13 @@
+C1 language: scrollWidth=360 viewport=360 OK
+C1 language: tap targets under 44px: none
+C2 login: scrollWidth=360 viewport=360 OK
+C2 login: tap targets under 44px: none
+C3 advisor (start): scrollWidth=360 viewport=360 OK
+C3 advisor (start): tap targets under 44px: none
+C3 advisor (done): scrollWidth=360 viewport=360 OK
+C3 advisor (done): tap targets under 44px: none
+C4 recommendation: scrollWidth=360 viewport=360 OK
+C4 recommendation: tap targets under 44px: none
+C4 has product code: False
+C4 text excerpt: आपके लिए सुझाया गया प्लान |  | OFFICE PRO |  | 12 लोगों वाली ऑफिस के लिए Biz Fibre 300 सबको जोड़े रखेगा और अपने नाम का प्रोफ़ेशनल ईमेल, वायरस और रैनसमवेयर से सुरक्षा और फ़ाइलों का अपने-आप बैकअप। सब मिलाकर हर महीने Rs 9,805, कोई छुपा चार्ज नहीं। |  | इसमें क्या शामिल है | 📶 |  | Biz Fibre 300 |  | पूरी टीम के लिए तेज़ इंटरनेट |  | और तेज़ ऑफिस इंटरनेट, 300 Mbps, अनलिमिटेड |  | 📱 |  | Business Postpaid 599 |  | × 3 |  | चलते-फिरते बिज़नेस क
+JS errors: none

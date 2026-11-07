@@ -1,0 +1,16 @@
+{
+ "_prefix": "Accel Business: ",
+ "quote_ready": "તમારો ઓર્ડર {display_id} થઈ ગયો છે: દર મહિને ₹{total}. હવે તમારા દસ્તાવેજો મોકલો. {link}",
+ "kyc_reminder_24h.QUOTE_ACCEPTED": "ઓર્ડર {display_id}: તમારા દસ્તાવેજોની રાહ જોઈએ છીએ. 2 મિનિટમાં પૂરું કરો: {link}",
+ "kyc_reminder_24h.CONSENT_GIVEN": "ઓર્ડર {display_id}: તમારા 4 દસ્તાવેજો અપલોડ કરવાના બાકી છે. અહીં કરો: {link}",
+ "kyc_reminder_24h.KYC_FLAGGED": "ઓર્ડર {display_id}: એક દસ્તાવેજ સુધારવાનો બાકી છે. અહીં કરો: {link}",
+ "kyc_verified": "ઓર્ડર {display_id}: તમારા દસ્તાવેજો ચકાસાઈ ગયા છે. હવે અમે ઇન્સ્ટોલેશન બુક કરી રહ્યા છીએ.",
+ "kyc_fix_needed": "ઓર્ડર {display_id}: એક દસ્તાવેજ સુધારવાનો છે. {fix} {link}",
+ "kyc_review": "ઓર્ડર {display_id}: અમારા KYC નિષ્ણાત તમારા દસ્તાવેજો જોઈ રહ્યા છે. {message}",
+ "install_booked": "ઓર્ડર {display_id}: ઇન્સ્ટોલેશન બુક થઈ ગયું છે. {slot}. {link}",
+ "delay_escalated": "ઓર્ડર {display_id} માં મોડું થઈ રહ્યું છે, માફ કરશો. {message}",
+ "agent_assigned": "ઓર્ડર {display_id}: {message}",
+ "agent_assigned.no_order": "{message}",
+ "live": "ઓર્ડર {display_id}: તમારી Accel Business સેવા શરૂ થઈ ગઈ છે. સ્વાગત છે!",
+ "advisor_link": "અમારી સાથે વાત કરવા બદલ આભાર. તમારો પ્લાન અહીં પૂરો કરો: {link}"
+}
