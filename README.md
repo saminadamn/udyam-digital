@@ -6,6 +6,7 @@ Built for [Airtel Sync 2026 · Digital Track](https://unstop.com/competitions/cr
 
 | | |
 |---|---|
+| **Live app** | [udyam-digital-frontend.vercel.app](https://udyam-digital-frontend.vercel.app): log in with any mobile number (the code is shown on screen); admin 9000000001 |
 | **Website** | [udyam-digital-phi.vercel.app](https://udyam-digital-phi.vercel.app): problem, approach, results, competition, impact |
 | **Demo video** (2:40) | [Watch](https://udyam-digital-phi.vercel.app/demo.mp4) |
 | **Business case** (10 slides) | [PDF](showcase/site/img/Udyam_Digital_Business_Case.pdf) |
