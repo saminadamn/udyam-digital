@@ -39,9 +39,10 @@ def _rgb(data: bytes) -> Image.Image:
 
 
 def _clean(img: Image.Image, threshold: int = 150) -> Image.Image:
-    a = np.asarray(img).astype(int)
+    a = np.asarray(img).astype(np.int16)  # int16 is enough for these differences and uses 1/4 of int64's memory
     pink = (a[..., 0] - a[..., 1] > 25) & (a[..., 0] - a[..., 2] > 15)
-    g = np.asarray(ImageOps.grayscale(img)).astype(int)
+    del a
+    g = np.asarray(ImageOps.grayscale(img)).astype(np.int16)
     g[pink] = 255
     return Image.fromarray(np.where(g < threshold, 0, 255).astype(np.uint8))
 
@@ -84,12 +85,16 @@ def _gstin_line(img: Image.Image, angle: float) -> str | None:
     if not box:
         return None
     x, y, w, h = box
-    g = np.asarray(ImageOps.grayscale(base)).astype(int)
-    a = np.asarray(base).astype(int)
+    # work on the strip to the right of "GSTIN" only, not the whole page (same pixels, far less memory)
+    left, top, right, bottom = x + int(w * 1.6), max(0, y - h // 2), min(base.width, x + w * 9), y + h + h // 2
+    strip = base.crop((left, top, right, bottom))
+    g = np.asarray(ImageOps.grayscale(strip)).astype(np.int16)
+    a = np.asarray(strip).astype(np.int16)
     g[(a[..., 0] - a[..., 1] > 25) & (a[..., 0] - a[..., 2] > 15)] = 255
+    del a
     reads = []
     for thr, scale, mf in [(140, 3, 3), (170, 3, 0), (120, 4, 0), (200, 2, 0), (150, 5, 3)]:
-        crop = Image.fromarray(np.where(g < thr, 0, 255).astype(np.uint8)).crop((x + int(w * 1.6), max(0, y - h // 2), min(base.width, x + w * 9), y + h + h // 2))
+        crop = Image.fromarray(np.where(g < thr, 0, 255).astype(np.uint8))
         crop = crop.resize((crop.width * scale, crop.height * scale), Image.LANCZOS)
         if mf:
             crop = crop.filter(ImageFilter.MinFilter(mf))

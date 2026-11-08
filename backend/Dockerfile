@@ -16,7 +16,8 @@ COPY data/ /srv/data/
 ENV DATA_DIR=/srv/data \
     DATABASE_URL=sqlite:////srv/db/udyam.db \
     UPLOAD_DIR=/srv/storage \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    OMP_THREAD_LIMIT=1
 RUN mkdir -p /srv/db /srv/storage && chmod +x start.sh
 
 EXPOSE 8000
