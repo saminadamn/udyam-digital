@@ -37,6 +37,6 @@ services:
       - key: TWILIO_AUTH_TOKEN
         sync: false
       - key: VOICE_PROVIDER
-        value: browser           # sarvam to use your Sarvam key below
+        value: sarvam            # falls back to the phone's own speech if VOICE_API_KEY is empty
       - key: VOICE_API_KEY
         sync: false
