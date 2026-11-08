@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #c8102e;
+  --color-brand-dark: #9e0c24;
+  --color-brand-soft: #fdecee;
+  --color-ink: #1a1a1a;
+  --color-ink-2: #52514e;
+  --color-muted: #8a8984;
+  --color-line: #e6e5e1;
+  --color-surface: #ffffff;
+  --color-canvas: #f7f6f4;
+  --color-ok: #1e7f4f;
+  --color-warn: #b35c00;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil",
+    "Noto Sans Bengali", "Noto Sans Kannada", "Noto Sans Gujarati", "Noto Sans Telugu", Arial, sans-serif;
+  --radius-card: 16px;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+[role="button"],
+a.btn {
+  min-height: 44px;
+}
+
+.btn-primary {
+  @apply inline-flex w-full items-center justify-center rounded-xl bg-brand px-5 text-base font-semibold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-50;
+  min-height: 48px;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl border border-line bg-white px-4 text-sm font-medium text-ink hover:border-brand;
+  min-height: 44px;
+}
+
+.card {
+  @apply rounded-[var(--radius-card)] border border-line bg-white;
+}
+
+.field {
+  @apply w-full rounded-xl border border-line bg-white px-4 text-base outline-none focus:border-brand focus:ring-2 focus:ring-brand/20;
+  min-height: 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

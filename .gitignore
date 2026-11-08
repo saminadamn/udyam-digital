@@ -7,3 +7,6 @@ __pycache__/
 .pytest_cache/
 backend/storage/
 backend/test_storage/
+
+.venv/
+showcase/build/_demo_work/
