@@ -202,3 +202,24 @@ def test_single_site_connection_has_no_stepper(client):
     assert item(q, "P02")["qty_editable"] is False
     assert client.patch(f"/api/v1/quotes/{q['quote_id']}/items/P02", json={"qty": 1}, headers=h).json()["error"]["code"] == "QTY_NOT_EDITABLE"
     assert item(q, "P16")["qty_editable"] is True
+
+
+def test_recommend_offers_plan_options_and_any_option_opens_a_matching_quote(client):
+    h = login(client, "+919811100077", "en")
+    cid, _, _ = run_conversation(client, h, "en", PROF)
+    rec = client.post("/api/v1/advisor/recommend", json={"conversation_id": cid}, headers=h).json()
+    opts = {o["key"]: o for o in rec["options"]}
+    assert opts["recommended"]["recommendation_id"] == rec["recommendation_id"]
+    assert opts["recommended"]["monthly_total_inr"] == rec["monthly_total_inr"]
+    assert len(opts) >= 4 and len({o["recommendation_id"] for o in opts.values()}) == len(opts)
+    for key in ("essential", "complete"):
+        o = opts[key]
+        q = client.post("/api/v1/quotes", json={"recommendation_id": o["recommendation_id"]}, headers=h)
+        assert q.status_code == 201, q.text
+        q = q.json()
+        assert q["monthly_total_inr"] == o["monthly_total_inr"]
+        assert {i["product_id"] for i in q["items"] if i["selected"]} == {i["product_id"] for i in o["items"]}
+    # reloading the conversation still shows the main recommendation, not an alternative
+    conv = client.get(f"/api/v1/advisor/conversations/{cid}", headers=h)
+    if conv.status_code == 200 and conv.json().get("recommendation"):
+        assert conv.json()["recommendation"]["recommendation_id"] == rec["recommendation_id"]

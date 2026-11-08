@@ -1,6 +1,6 @@
 # Track A: Project Udyam Digital - Synthetic dataset
 
-All businesses, people, identifiers, documents and figures in this pack are **fictional** and generated for the Accel YTL Hackathon. They do not describe any real company or customer.
+All businesses, people, identifiers, documents and figures in this pack are **fictional** and generated for Airtel Sync 2026 (Digital Track). They do not describe any real company or customer.
 
 ## What's in the pack
 

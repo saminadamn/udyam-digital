@@ -165,3 +165,57 @@ def test_small_manufacturer_falls_back_from_leased_line(catalogue):
     b = build_bundle(Profile(SEGS[3], 2, 6, 1, "Active", True), catalogue)
     links = [pid for pid, _ in b["core"] if pid in {"P01", "P02", "P03", "P04", "P05", "P06"}]
     assert links and links[0] != "P05" and "P05" not in {pid for pid, _ in b["core"]}
+
+
+# ---- plan options (essential / recommended / quick / grow / secure / complete) ----
+from app.advisor.rules import plan_options  # noqa: E402
+
+PROFILES = [
+    dict(city_tier=1, employees=3, sites=1, gst_status="Active", gstin_valid=True),
+    dict(city_tier=2, employees=2, sites=1, gst_status="None", gstin_valid=False),
+    dict(city_tier=2, employees=13, sites=1, gst_status="Active", gstin_valid=True),
+    dict(city_tier=2, employees=61, sites=7, gst_status="Active", gstin_valid=True),
+    dict(city_tier=3, employees=74, sites=1, gst_status="Active", gstin_valid=True),
+    dict(city_tier=2, employees=74, sites=1, gst_status="Active", gstin_valid=True),
+]
+
+
+@pytest.mark.parametrize("seg", SEGS)
+@pytest.mark.parametrize("p", PROFILES)
+def test_every_plan_option_passes_the_rules_and_options_are_distinct(seg, p, catalogue):
+    prof = Profile(seg, **p)
+    bundle = build_bundle(prof, catalogue)
+    if not bundle["core"]:
+        pytest.skip("no plan is sold here; the advisor hands this business to a person")
+    opts = plan_options(prof, catalogue, bundle)
+    keys = [o["key"] for o in opts]
+    assert "recommended" in keys and len(keys) == len(set(keys))
+    assert next(o for o in opts if o["key"] == "recommended")["core"] == bundle["core"]
+    cores = [frozenset(o["core"]) for o in opts]
+    assert len(cores) == len(set(cores)), "two options with the same plan"
+    elig = eligible_products(prof, catalogue)["eligible"]
+    for o in opts:
+        assert validate_bundle(prof, o["core"] + o["addons"], catalogue) == [], o["key"]
+        assert all(pid in elig for pid, _ in o["core"] + o["addons"]), o["key"]
+
+
+def test_options_cover_price_speed_and_scope(catalogue):
+    prof = Profile("Professional offices", **PROFILES[2])
+    opts = {o["key"]: o for o in plan_options(prof, catalogue, build_bundle(prof, catalogue))}
+    assert {"essential", "recommended", "quick", "grow", "secure", "complete"} <= set(opts)
+    cost = {k: price(o["core"], prof.key, catalogue) for k, o in opts.items()}
+    assert cost["essential"]["monthly_total_inr"] < cost["recommended"]["monthly_total_inr"] < cost["complete"]["monthly_total_inr"]
+    assert cost["quick"]["max_install_days"] < cost["recommended"]["max_install_days"]
+
+
+def test_no_gstin_means_no_gstin_only_products_in_any_option(catalogue):
+    prof = Profile("Micro retail & services", **PROFILES[1])
+    for o in plan_options(prof, catalogue, build_bundle(prof, catalogue)):
+        assert not any(catalogue[pid].requires_gstin for pid, _ in o["core"] + o["addons"]), o["key"]
+
+
+def test_leased_line_is_never_swapped_for_5g(catalogue):
+    prof = Profile("Small manufacturers", **PROFILES[5])
+    bundle = build_bundle(prof, catalogue)
+    assert any(pid in ("P05", "P06") for pid, _ in bundle["core"]), "expected a leased line for this factory"
+    assert "quick" not in {o["key"] for o in plan_options(prof, catalogue, bundle)}

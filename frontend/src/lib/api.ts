@@ -40,7 +40,22 @@ export type MessageResponse = { message: Question; profile: Profile; status: str
 
 export type BundleItem = { product_id: string; name: string; qty: number; role: "core" | "addon"; why: string; what_it_does: string; monthly_inr?: number };
 
+export type PlanOptionKey = "essential" | "recommended" | "quick" | "grow" | "secure" | "complete";
+
+export type PlanOption = {
+  key: PlanOptionKey;
+  recommended: boolean;
+  recommendation_id: string;
+  items: BundleItem[];
+  addons: BundleItem[];
+  monthly_total_inr: number;
+  setup_total_inr: number;
+  contract_months: number;
+  max_install_days: number;
+};
+
 export type Recommendation = {
+  options?: PlanOption[];
   recommendation_id: string;
   bundle_key: string;
   bundle_name: string;

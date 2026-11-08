@@ -178,7 +178,7 @@ _unused2 = "".join(f'<text x="{(i*41)%600}" y="{(i*29)%840}" fill-opacity="{0.08
 
 cover = f"""<section class="page cover"><div class="bg"><svg viewBox="0 0 600 840" preserveAspectRatio="xMidYMid slice"><g font-family="monospace" font-size="14" fill="#e40000">{COVER_BIN}</g></svg></div>{GLOBE}
 <div class="inner"><div class="brand">{LOGO}<span><b>udyam</b>digital</span></div>
-<p class="kc2">YTL Hackathon 2026 · Enterprise Track A</p>
+<p class="kc2">Airtel Sync 2026 · Digital Track</p>
 <h1>Udyam<span>Digital</span></h1>
 <p class="tag">Small businesses go digital <b>in one sitting</b>.</p>
 <p class="sub">Approach, competitive analysis and impact of a phone-first journey for Accel Business: a voice advisor in 8 languages, one monthly price, KYC in minutes, a live tracker and a person on every exception.</p>

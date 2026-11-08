@@ -1,20 +1,64 @@
-# Udyam Digital (Accel Business) — YTL Hackathon 2026, Track A
+# Udyam Digital
 
-AI handles acquisition; humans handle exceptions. A mobile-first web app where a small business owner finds the right bundle in their own language, with every eligibility decision made by a deterministic rules engine.
+**A small business owner finds, buys and activates business connectivity on their phone, in their own language, in one sitting.**
 
-**Status: build Phases 1–6 done.** Phase 6: 15 judge-style advisor scenarios, unit tests for every core module, a mobile end-to-end run, a security pass, and deploy configs.
+Built for [Airtel Sync 2026 · Digital Track](https://unstop.com/competitions/crp-airtel-sync-2026-digital-track-airtel-sync-2026-airtel-1766609). "Accel Telecom" and "Accel Business" are the case's fictional operator, and all data is synthetic.
 
-- **Phase 1:** scaffold, theme, 8 languages, OTP login, rules engine, advisor chat, recommendation card.
-- **Phase 2:** pricing rule, quote screen with locks, toggles and steppers, the "compare with what you pay now" line, and accept → order.
-- **Phase 3:** consent first, GSTIN and Udyam lookups, OCR on 4 uploaded documents, 13 cross-check rules with readable reasons, and verdicts that move the order and open an escalation on any failure. Results on K01–K12: `docs/kyc_results.md`; rules and thresholds: `docs/KYC_CHECKS.md`.
+| | |
+|---|---|
+| **Website** | [udyam-digital-phi.vercel.app](https://udyam-digital-phi.vercel.app): problem, approach, results, competition, impact |
+| **Demo video** (2:40) | [Watch](https://udyam-digital-phi.vercel.app/demo.mp4) |
+| **Business case** (10 slides) | [PDF](showcase/site/img/Udyam_Digital_Business_Case.pdf) |
+| **Full report** (12 pages) | [PDF](docs/Udyam_Digital_Approach_Competition_Impact.pdf) |
+| **Privacy & security** (1 page) | [PDF](docs/privacy_security_note.pdf) |
+| **Architecture** | [Diagram below](#how-it-works) · [SVG](docs/architecture/architecture.svg) · [draw.io](docs/architecture/architecture.drawio) |
 
-- **Phase 4:** order tracker with expected and actual dates, automatic install booking, an SLA job that escalates late orders to the least-loaded agent who speaks the customer's language, "Talk to a person", an agent console with full case context, and an order simulator for the demo.
+## The problem, in 30 seconds
 
-- **Phase 5:** voice in the advisor (hold the mic; replies read back short in the chosen language; Web Speech API first, Sarvam/Bhashini server adapter behind `/voice/*`), WhatsApp updates for opted-in owners (quote accepted, KYC verified/fix/review, install booked, delay/escalation, live, 24 h KYC reminder) through the Twilio sandbox or a mock outbox, the admin leads dashboard (imported + app leads, propensity bucket and reasons, "Advisor could not close" and "High propensity, not contacted", Call with outcome) and a live metrics strip with the 5 pilot metrics.
+Today, buying business internet means waiting for a salesperson's visit, a quote that takes days, and paper KYC.
 
-**Phase 5 demo:** log in as admin (9000000001) → `/admin/leads`. Outbox: `/admin/notifications`. Server speech with Sarvam: in `backend/.env` set `VOICE_PROVIDER=sarvam` and `VOICE_API_KEY=<your key>`. Real WhatsApp: set `NOTIFY_PROVIDER=twilio` plus `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` (and `PUBLIC_API_URL` for delivery callbacks); the owner's phone must have joined your sandbox. Server speech: `VOICE_PROVIDER=sarvam` or `bhashini` with `VOICE_API_KEY` (needs `ffmpeg`). With nothing set, everything runs on the mock outbox and the phone's own speech.
+- Only **7.4%** of leads become customers.
+- It takes **17.6 days** from first contact to going live.
+- Each customer costs **Rs 15,053** to acquire, and makes **3 calls** just to chase their order's status.
+- **56 of 368** customers were sold bundles the catalogue doesn't allow.
 
-**Phase 5 notes:** the leads table and metrics read only the database; baselines are recomputed from the imported leads (7.4%, 17.6 d, Rs 15,053, 15.2%, 3.0) and the current column from app leads and orders. 6-month churn shows "—" until the first app customer has been live 6 months. An app lead counts as "advisor could not close" when it was handed to a person, or went quiet for `ADVISOR_ABANDON_MINUTES` (30) without an order. Imported leads have no phone number in the app, so their calls are always logged as mock calls. Logging in without the `whatsapp_opt_in` field now keeps the earlier choice (it used to withdraw consent). Fixed: the PII log filter broke uvicorn's access log.
+## What Udyam Digital does
+
+**AI handles acquisition. People handle exceptions.**
+
+1. **Ask:** a chat advisor asks at most six questions, by tap, typing or voice, in 8 Indian languages.
+2. **Recommend:** a rules engine picks a plan the business is actually eligible for. The owner can compare up to six options: Essential, Recommended, Quick start (5G), Grow online, Secure and Complete.
+3. **Price:** one clear monthly price, add-ons that switch on and off, and a comparison with what they pay today.
+4. **Verify:** consent comes first. The GSTIN lookup fills in the business details, and the four documents are read and checked as they upload, so a bad document is caught in seconds, not days.
+5. **Go live:** installation books itself. A tracker shows dates, WhatsApp sends updates, and if anything runs late, the right person is told automatically.
+
+Behind the scenes, staff get a leads dashboard with a likelihood-to-buy score for every lead, a queue of cases that need a person, and live pilot metrics.
+
+## How it works
+
+![Udyam Digital architecture](docs/architecture/architecture.svg)
+
+In plain words:
+
+- **Two front doors, one API.** Owners use a mobile web app and staff use an admin console. Both talk to one FastAPI backend, which checks every login, masks ID numbers in every response and scrubs them from every log line.
+- **Rules decide, the AI only explains.** Which products, how many and at what price always come from code: a rules engine and a pricing service. The language model only writes the friendly sentence explaining why. If it mentions a wrong product or amount, its text is thrown away.
+- **Smart KYC.** Nothing is uploaded before consent. Registry lookups fill in the details, OCR reads the four documents, and 13 checks give a verdict with a reason the owner can understand. Files are encrypted and deleted automatically after 90 days.
+- **People step in where judgment is needed.** A document needing review, a late installation, a stuck chat or a "talk to a person" request goes to the least-busy agent who speaks the customer's language, with the whole case in front of them.
+- **Everything swappable.** The AI model, government registries, WhatsApp (Twilio) and speech (Sarvam / Bhashini) each sit behind a small interface. The demo runs on built-in mock versions, so it needs no API keys.
+
+**Stack:** Next.js 15 · FastAPI · SQLAlchemy + SQLite · Tesseract OCR · scikit-learn · Docker (Render) · Vercel.
+
+## Results
+
+| | |
+|---|---|
+| Automated tests | **190+ pass**: rules, pricing, KYC, order states, escalation, privacy, plan options |
+| Judge-style advisor scenarios | **15 / 15** |
+| KYC verdicts on the 12 sample applicants | **12 / 12** match the planted problems |
+| Ineligible bundles sold | **0** (56 in today's process) |
+| Raw GSTINs or IDs on screen or in logs | **0** |
+
+Pilot targets: conversion 7.4% → 11%, cost per customer Rs 15,053 → 8,000, 17.6 → 8 days to go live, churn 15.2% → 11%.
 
 ## Demo login
 
@@ -134,7 +178,7 @@ Rules and thresholds: `docs/KYC_CHECKS.md`. Latest results: `docs/kyc_results.md
 ## Tests
 
 ```bash
-cd backend && pytest -q        # 192 tests, about 2 minutes
+cd backend && pytest -q        # 190+ tests, a few minutes
 ```
 
 | File | Covers |

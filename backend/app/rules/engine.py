@@ -255,6 +255,69 @@ def build_bundle(profile: Profile, catalogue: Catalogue, wanted: list[str] | Non
     }
 
 
+MOBILE_LINES = {"P07", "P08"}
+QUICK_LINK = "P04"  # 5G AirFiber: no trenching, the fastest install
+OPTION_EXTRAS = {
+    "grow": ["P18", "P15", "P14"],                # website, WhatsApp Business API, business SMS
+    "secure": ["P09", "P20", "P17", "P22", "P21"],  # failover, endpoint security, backup, secure Wi-Fi, firewall
+}
+OPTION_ORDER = ["essential", "recommended", "quick", "grow", "secure", "complete"]
+
+
+def plan_options(profile: Profile, catalogue: Catalogue, bundle: dict) -> list[dict]:
+    """Alternative plans around the recommended bundle, so the owner can choose by price, speed, growth or safety.
+
+    Every option is built only from products this business is eligible for, dependencies are re-checked,
+    and an option is dropped if it fails validate_bundle or duplicates another option's core.
+    Returns [{"key", "core", "addons"}] in OPTION_ORDER, always including "recommended".
+    """
+    elig = eligible_products(profile, catalogue)["eligible"]
+    core, addons = list(bundle["core"]), list(bundle["addons"])
+    qty = {p: q for p, q in core + addons}
+    wanted = {pid for need in profile.needs for pid in NEED_PRODUCTS.get(need, [])}
+    link = next((p for p, _ in core if p in BASE_LINKS), None)
+
+    def q(pid: str) -> int:
+        return qty.get(pid) or _need_qty(pid, profile, catalogue)
+
+    def with_extras(base: Items, extras: list[str]) -> Items:
+        ids = {p for p, _ in base}
+        return base + [(p, q(p)) for p in extras if p in elig and p not in ids]
+
+    raw: dict[str, Items] = {"recommended": core}
+    raw["essential"] = [(p, n) for p, n in core if p in BASE_LINKS or p in MOBILE_LINES or p in wanted]
+    # quick start swaps fibre for 5G AirFiber; a dedicated leased line (P05/P06) is a different class of service, so no swap there
+    if link and link not in (QUICK_LINK, "P05", "P06") and QUICK_LINK in elig:
+        n = profile.sites if catalogue[QUICK_LINK].quantity_basis == "per_site" else 1
+        raw["quick"] = [(QUICK_LINK, n) if p == link else (p, m) for p, m in core]
+    for key, extras in OPTION_EXTRAS.items():
+        raw[key] = with_extras(core, extras)
+    raw["complete"] = with_extras(core, [p for p, _ in addons])
+
+    out, seen = [], {frozenset(core)}
+    for key in OPTION_ORDER:
+        if key not in raw:
+            continue
+        opt_core = list(raw[key])
+        for _ in range(3):  # drop anything whose base product is no longer in the plan
+            ids = {p for p, _ in opt_core}
+            keep = [(p, n) for p, n in opt_core if not catalogue[p].requires_one_of or set(catalogue[p].requires_one_of) & ids]
+            if len(keep) == len(opt_core):
+                break
+            opt_core = keep
+        ids = {p for p, _ in opt_core}
+        pool = [(p, q(p)) for p in dict.fromkeys([p for p, _ in core + addons]) if p not in ids and p in elig]
+        opt_addons = [(p, n) for p, n in pool if not catalogue[p].requires_one_of or set(catalogue[p].requires_one_of) & ids]
+        sig = frozenset(opt_core)
+        if not ids & BASE_LINKS or validate_bundle(profile, opt_core, catalogue) or validate_bundle(profile, opt_core + opt_addons, catalogue):
+            continue
+        if key != "recommended" and sig in seen:
+            continue
+        seen.add(sig)
+        out.append({"key": key, "core": opt_core, "addons": opt_addons})
+    return out
+
+
 def rules_version() -> str:
     h = hashlib.sha256(Path(__file__).read_bytes() + BUNDLES_PATH.read_bytes())
     return h.hexdigest()[:10]

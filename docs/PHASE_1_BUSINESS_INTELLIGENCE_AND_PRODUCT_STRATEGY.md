@@ -1,6 +1,6 @@
 ---
 title: "Udyam Digital — Phase 1 Business Intelligence & Product Strategy"
-subtitle: "YTL Hackathon 2026 (Airtel SYNC) · Enterprise Track A · Project Udyam Digital"
+subtitle: "Airtel Sync 2026 · Digital Track · Project Udyam Digital"
 date: "Prepared after Phase 1 data analysis · data window Apr–Jun 2026 · 'today' for date checks = 2026-07-15"
 ---
 

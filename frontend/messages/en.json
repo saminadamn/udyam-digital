@@ -51,7 +51,36 @@
     "next": "See price and continue",
     "next_soon": "You can add or remove extras on the next screen.",
     "restart": "Start again",
-    "no_hidden": "No hidden charges"
+    "no_hidden": "No hidden charges",
+    "choose": "Choose your plan",
+    "recommended": "Recommended",
+    "live_days": "Live in about {n} days",
+    "opt": {
+      "essential": {
+        "name": "Essential",
+        "tagline": "Just internet and phone lines. The lowest price."
+      },
+      "recommended": {
+        "name": "Best fit",
+        "tagline": "Picked for your business by our rules."
+      },
+      "quick": {
+        "name": "Quick start",
+        "tagline": "5G AirFiber, no wiring. Live in days."
+      },
+      "grow": {
+        "name": "Grow online",
+        "tagline": "Adds a website, WhatsApp Business and SMS."
+      },
+      "secure": {
+        "name": "Secure & always-on",
+        "tagline": "Backup internet, security and safe Wi-Fi."
+      },
+      "complete": {
+        "name": "Complete",
+        "tagline": "Everything we suggested, in one plan."
+      }
+    }
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",

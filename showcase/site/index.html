@@ -319,7 +319,7 @@ input[type=range]{accent-color:var(--red);width:100%}
   <a class="brand" href="#cover" aria-label="Back to the top"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#e40000"/><path d="M10 9.5v7.5a6 6 0 0 0 12 0v-1.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="22" cy="10" r="2.3" fill="#fff"/></svg><span class="wm"><b>udyam</b>digital</span></a>
   <nav class="tabs" id="tabs" aria-label="Slides"></nav>
   <span class="now" id="now"></span>
-  <a class="btn sm" href="#demo" data-go-id="demo">▶ Demo</a>
+  <a class="btn sm" href="#demo" data-go-id="demo" id="hdr-demo">▶ Demo</a>
 </header>
 <div class="prog" id="prog"></div>
 
@@ -329,7 +329,7 @@ input[type=range]{accent-color:var(--red);width:100%}
   <canvas id="rain" aria-hidden="true"></canvas>
   <div class="in">
     <div>
-      <p class="kick">YTL Hackathon 2026 · Enterprise Track A</p>
+      <p class="kick"><a href="https://unstop.com/competitions/crp-airtel-sync-2026-digital-track-airtel-sync-2026-airtel-1766609" target="_blank" rel="noopener" style="color:inherit">Airtel Sync 2026</a> · Digital Track</p>
       <h1>Udyam<span>Digital</span></h1>
       <p class="tag">Small businesses go digital <b>in one sitting</b>.</p>
       <p class="sub">A phone-first journey for Accel Business: a voice advisor in 8 languages, one monthly price, KYC in minutes, a live tracker, and a person on every exception.</p>
@@ -482,6 +482,7 @@ input[type=range]{accent-color:var(--red);width:100%}
           <div class="ph"><div class="play" aria-hidden="true"></div><b style="font-size:18px">Demo video</b><p class="small" style="color:rgba(255,255,255,.65);margin-top:6px">2:40 · advisor, plan, quote, KYC, tracker, escalation, leads dashboard</p></div>
         </div>
       </div>
+      <p class="mt dl" id="live-app" hidden><a class="btn" id="live-app-btn" href="#" target="_blank" rel="noopener">▶ Try the live app ↗</a> <span class="small" style="margin-left:10px">Log in with any mobile number; the code is shown on screen. Admin: 9000000001.</span></p>
     </div>
       </div>
   </div>
@@ -626,6 +627,14 @@ const D = {"funnel": [{"stage": "Lead", "n": 5000, "pass": null}, {"stage": "Con
 const DEMO_VIDEO = "";
 // Code repository: paste the GitHub URL here; the link appears in "What we submitted" once set.
 const REPO_URL = "https://github.com/saminadamn/udyam-digital";
+// Live app: paste the hosted app's URL here; the header "Demo" button and a "Try the live app" button then open it.
+const APP_URL = "";
+if (APP_URL) {
+  const hd = document.getElementById("hdr-demo");
+  hd.href = APP_URL; hd.target = "_blank"; hd.rel = "noopener"; hd.removeAttribute("data-go-id"); hd.textContent = "▶ Try the app";
+  document.getElementById("live-app-btn").href = APP_URL;
+  document.getElementById("live-app").hidden = false;
+}
 if (REPO_URL) document.getElementById("repo-link").innerHTML = ` · <a href="${REPO_URL}" target="_blank" rel="noopener">Code on GitHub ↗</a>`;
 const $ = s => document.querySelector(s);
 const NS = "http://www.w3.org/2000/svg";

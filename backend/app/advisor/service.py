@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from app.admin import lead_sync
 from app.advisor import guards, parse
 from app.advisor.llm.base import get_provider
-from app.advisor.rules import Profile, build_bundle, eligible_products, rules_version, validate_bundle
+from app.advisor.rules import Profile, build_bundle, eligible_products, plan_options, rules_version, validate_bundle
 from app.config import get_settings
 from app.errors import ApiError
 from app.i18n import text
@@ -410,11 +410,16 @@ def recommend(db: Session, user: User, conversation_id: str) -> dict:
         lead.employee_count, lead.num_sites, lead.has_gstin = biz.employees, biz.sites, "Y" if biz.has_gstin else "N"
         lead.current_internet, lead.products_of_interest, lead.advisor_outcome = biz.current_internet, ";".join(sorted(set(wanted))), "quoted"
 
-    items_out = [{"product_id": p, "name": _name(p, catalogue), "qty": q, "role": "core", "why": _why(p, lang),
-                  "what_it_does": text(lang, "products")[p]} for p, q in bundle["core"]]
-    addons_out = [{"product_id": p, "name": _name(p, catalogue), "qty": q, "role": "addon", "why": _why(p, lang),
-                   "what_it_does": text(lang, "products")[p], "monthly_inr": price([(p, q)], profile.key, catalogue)["monthly_total_inr"]}
-                  for p, q in bundle["addons"]]
+    def core_out(core):
+        return [{"product_id": p, "name": _name(p, catalogue), "qty": q, "role": "core", "why": _why(p, lang),
+                 "what_it_does": text(lang, "products")[p]} for p, q in core]
+
+    def addon_out(addons):
+        return [{"product_id": p, "name": _name(p, catalogue), "qty": q, "role": "addon", "why": _why(p, lang),
+                 "what_it_does": text(lang, "products")[p], "monthly_inr": price([(p, q)], profile.key, catalogue)["monthly_total_inr"]}
+                for p, q in addons]
+
+    items_out, addons_out = core_out(bundle["core"]), addon_out(bundle["addons"])
     blocked_out = [{"product_id": pid, "name": _name(pid, catalogue), "reasons": [v["message"] for v in vs], "unlock": _unlock(vs[0], lang)}
                    for pid, vs in bundle["blocked"].items() if pid in bundle["wanted_blocked"]]
     rec = Recommendation(conversation_id=conv.id, business_id=biz.id, bundle_key=bundle["key"],
@@ -423,10 +428,32 @@ def recommend(db: Session, user: User, conversation_id: str) -> dict:
                          blocked=json.dumps([{"product_id": b["product_id"], "reasons": b["reasons"]} for b in blocked_out]),
                          explanation=explanation, rules_version=rules_version())
     db.add(rec)
+    db.flush()
+
+    # Alternative plans (cheaper, faster, growth, security, complete). Each is its own rules-checked
+    # Recommendation, so a quote can be opened from any of them; bundle_key "<segment>:<option>" keeps
+    # them apart from the main recommendation.
+    options = []
+    for opt in plan_options(profile, catalogue, bundle):
+        op = price(opt["core"], profile.key, catalogue)
+        if opt["key"] == "recommended":
+            oid = rec.id
+        else:
+            alt = Recommendation(conversation_id=conv.id, business_id=biz.id, bundle_key=f"{bundle['key']}:{opt['key']}",
+                                 items=json.dumps([{"product_id": p, "qty": q, "role": "core"} for p, q in opt["core"]] +
+                                                  [{"product_id": p, "qty": q, "role": "addon"} for p, q in opt["addons"]]),
+                                 blocked=rec.blocked, explanation="", rules_version=rec.rules_version)
+            db.add(alt)
+            db.flush()
+            oid = alt.id
+        options.append({"key": opt["key"], "recommended": opt["key"] == "recommended", "recommendation_id": oid,
+                        "items": core_out(opt["core"]), "addons": addon_out(opt["addons"]),
+                        "monthly_total_inr": op["monthly_total_inr"], "setup_total_inr": op["setup_total_inr"],
+                        "contract_months": op["contract_months"], "max_install_days": op["max_install_days"]})
     conv.status = "recommended"
     _msg(db, conv, "assistant", explanation, status=exp_status)
     db.commit()
-    return {"recommendation_id": rec.id, "bundle_key": bundle["key"], "bundle_name": bundle["name"], "items": items_out, "addons": addons_out,
+    return {"options": options, "recommendation_id": rec.id, "bundle_key": bundle["key"], "bundle_name": bundle["name"], "items": items_out, "addons": addons_out,
             "blocked": blocked_out, "explanation": explanation, "monthly_total_inr": total, "setup_total_inr": setup,
             "contract_months": priced["contract_months"], "max_install_days": priced["max_install_days"], "pricing_rule": priced["pricing_rule"],
             "rules_version": rec.rules_version, "source": source}
@@ -437,7 +464,8 @@ def get(db: Session, user: User, conversation_id: str) -> dict:
     if not conv or conv.user_id != user.id:
         raise ApiError(404, "CONVERSATION_NOT_FOUND", "This conversation was not found.")
     msgs = db.scalars(select(Message).where(Message.conversation_id == conv.id).order_by(Message.created_at, Message.id)).all()
-    rec = db.scalar(select(Recommendation).where(Recommendation.conversation_id == conv.id).order_by(Recommendation.created_at.desc()))
+    rec = db.scalar(select(Recommendation).where(Recommendation.conversation_id == conv.id, Recommendation.bundle_key.not_like("%:%"))
+                    .order_by(Recommendation.created_at.desc()))
     s = _state(conv)
     return {"conversation": {"id": conv.id, "status": conv.status, "language": conv.language, "questions_asked": conv.questions_asked,
                              "failed_turns": conv.failed_turns, "profile": public_profile(s)},

@@ -5,9 +5,10 @@ from app.rules.engine import (
     build_bundle,
     default_bundle,
     eligible_products,
+    plan_options,
     product_rules,
     rules_version,
     validate_bundle,
 )
 
-__all__ = ["Profile", "Violation", "build_bundle", "default_bundle", "eligible_products", "product_rules", "rules_version", "validate_bundle"]
+__all__ = ["Profile", "Violation", "build_bundle", "default_bundle", "eligible_products", "plan_options", "product_rules", "rules_version", "validate_bundle"]
