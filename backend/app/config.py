@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     advisor_max_questions: int = 6
     advisor_max_failed_turns: int = 2
     ocr_engine: str = "tesseract"
+    ocr_cache: bool = True               # the 47 case-pack sample images use precomputed OCR (app/kyc/ocr_cache.json); others run Tesseract
     kyc_today: str = "2026-07-15"
     kyc_address_proof_max_days: int = 90
     upload_dir: Path = BACKEND_DIR / "storage"

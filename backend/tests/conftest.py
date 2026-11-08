@@ -17,6 +17,7 @@ os.environ["LOOKUP_RATE_LIMIT"] = "1000"
 os.environ["OTP_IP_RATE_LIMIT"] = "100000"
 os.environ["NOTIFY_PROVIDER"] = "mock"
 os.environ["VOICE_PROVIDER"] = "browser"
+os.environ["OCR_CACHE"] = "false"  # the KYC tests exercise real OCR; tests/test_ocr_cache.py covers the cache
 TEST_STORAGE = BACKEND / "test_storage"
 os.environ["UPLOAD_DIR"] = str(TEST_STORAGE)
 

@@ -1,0 +1,727 @@
+{
+ "note": "Precomputed by scripts/build_ocr_cache.py for the case-pack sample images only.",
+ "results": {
+  "fc2e7e233d68ecb622cc1b9b1eb26ef8b725a1654e37d170812818fda9172658:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 4485717625\nBilled to Vindhya Tours & Travels\nSupply cdic.ess Shop/Unit 1, Tech Park Road, Visakhapatnam, A\n\nndhra Pradesh - 118383\n\nBill date 2026-06-26\n\nUnits consumed 2203\n\nAmount due (INR) 27.971\n\n",
+   "confidence": 90.3,
+   "sharpness": 1026.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Vindhya Tours & Travels",
+    "bill_date": "2026-06-26",
+    "address": "Shop/Unit 1, Tech Park Road, Visakhapatnam, A ndhra Pradesh - 118383"
+   },
+   "gstin_raw": null
+  },
+  "f30b5b4eca3069dbf0f37214ac60d09cc2330c4eb4d690d8204c1a7708dc30ea:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 37ITHKXV516/L12S\n\nLegal name Neha Kaur (Prop. Vindhya Tours & Travels)\n\nTrade avin: Vindhya Tours & Travels\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 1, Tech Park Road, ‘/:3¢ Knhapatnam, A\nplace of business ndhra Pradesh - 11+ 283\n\nDate of liability 2025-06-07\n\nType of registration Regular\n\n",
+   "confidence": 86.2,
+   "sharpness": 1270.8,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "37ITHKXV516/L12S",
+    "legal_name": "Neha Kaur (Prop. Vindhya Tours & Travels)",
+    "trade_name": "Vindhya Tours & Travels",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 1, Tech Park Road, ‘/:3¢ Knhapatnam, A"
+   },
+   "gstin_raw": "37ITHKXV5167L12S|STHKXV5167L1ZS|37ITHKXV5167L125S|STHKXV5167L1ZS|37IHKXVS5167L125|THKXV5167L1ZS5|37THKXV5167L12S|THKXV5167L1Z5|37IHKXV5167L12ZS|STHKXV5167L1ZS5"
+  },
+  "5f12a98907119f5df7c33cac976ec506eb5cfb9e3d55267e8eb9b8989ed5e15f:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nNeha Kaur\n\nDesignation\n\nOffice admin\n\nFor business\n\nVindhya Tours & Travels\n\nID no.\nSYN-ID-346190\n\nValid till\n2028-03-26\n\n",
+   "confidence": 94.5,
+   "sharpness": 1861.7,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Neha Kaur",
+    "designation": "Office admin",
+    "business": "Vindhya Tours & Travels",
+    "id_number": ".",
+    "valid_till": "2028-03-26"
+   },
+   "gstin_raw": null
+  },
+  "abe10634040d7d4b460b81efc415bbace9f374a5c281372df7645b59cec44816:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number\n\nEnterprise name Vindhya Tours & Travels\nMajor activity Services\n\nCity Visakhapatnam\n\nState Andhra Pradesh\n\nDate of registration 2024-03-24\n\n",
+   "confidence": 93.5,
+   "sharpness": 945.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": null,
+    "enterprise_name": "Vindhya Tours & Travels",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "087d0626f76cea87163ca9a7a19b4eeb4254ef3f51c4b8f3df85716204364094:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 4790713533\n\nBilled to Harmony Dental Care\n\nSupply cdic.ess Shop/Unit 199, Station Road, Kolkata, West Be\nngal - 347550\n\nBill date 2026-05-22\n\nUnits consumed 992\n\nAmount due (INR) 7,077\n\n",
+   "confidence": 90.2,
+   "sharpness": 990.8,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Harmony Dental Care",
+    "bill_date": "2026-05-22",
+    "address": "Shop/Unit 199, Station Road, Kolkata, West Be ngal - 347550"
+   },
+   "gstin_raw": null
+  },
+  "1d8666668792798132058c458f619596e5483dd451d89e4451f3eb486c0c565b:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 139EOGXH4115Y1ZL\nLegal name Joseph Shah (Prop. Harmony Dental Care)\nTrade ans Harmony Dental Care\n{| Constitution Proprietorship\nAddress of principal Shop/Unit 199, Station Road, ll.ata, West Be\nplace of business ngal - 347550\nDate of liability 2022-04-17\n\nType of registration Regular\n\n",
+   "confidence": 89.7,
+   "sharpness": 1258.8,
+   "skew_deg": 7.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "139EOGXH4115Y1ZL",
+    "legal_name": "Joseph Shah (Prop. Harmony Dental Care)",
+    "trade_name": "Harmony Dental Care",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 199, Station Road, ll.ata, West Be"
+   },
+   "gstin_raw": "13EOGXH4115Y1ZL|3B0GKHALISYIZL|13EQGXH41L15Y12L|30GKHATISYAZL|V3EQGXH4LI5Y1ZL|3B0GKHALESYIZL|13EOGXH4115Y12L|3E0GKHALISYIZL|V3IEOGXH41LL5Y1ZL|3E0GKHALISYAZL"
+  },
+  "e6d1251036a5aec22bd50ab4edf9a4c04ca05f0ea449f458fd14df73ff8f31f0:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nJoseph Shah\n\nDesignation\nManager\n\nFor business\nHarmony Dental Care\n\nID no.\nSYN-ID-816907\n\nValid till\n2028-09-10\n\n",
+   "confidence": 94.7,
+   "sharpness": 1822.5,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Joseph Shah",
+    "designation": "Manager",
+    "business": "Harmony Dental Care",
+    "id_number": ".",
+    "valid_till": "2028-09-10"
+   },
+   "gstin_raw": null
+  },
+  "81f5406c274d8de572c74de282f26fc3b5663e47adac7b598217579ed3f508f0:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-WB-00- 5053330\nEnterprise name Harmony Dental Care\nMajor activity Services\n\nCity Kolkata\n\nState West Bengal\n\nDate of registration 2023-01-11\n\n",
+   "confidence": 88.0,
+   "sharpness": 973.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-WB-00-5053330",
+    "enterprise_name": "Harmony Dental Care",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "88c0f3d6113240bdcb7aedc24cbf1b9cb64f2fd262a4c3de28f1d442ec19c5bd:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 3438517928\n\nBilled to Ganesh Woodcraft\n\nSupply cdic.ess Shop/Unit 80, Civil Lines, Nagpur, Maharashtr\na- 411231\n\nBill date 2026-05-30\n\nUnits consumed 231\n\nAmount due (INR) 33,515\n\n",
+   "confidence": 90.4,
+   "sharpness": 976.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Ganesh Woodcraft",
+    "bill_date": "2026-05-30",
+    "address": "Shop/Unit 80, Civil Lines, Nagpur, Maharashtr a- 411231"
+   },
+   "gstin_raw": null
+  },
+  "4e41f486c166d0fe808900adb49a8e4d35f1c6a715b4ccf88030013028173d4d:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 2 /XUIXGO0/6/D12P\n\nLegal name Joseph Singh (Prop. Ganesh Woodcraft)\n\nTrade ac.ns Ganesh Woodcraft\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 80, Civil Lines, Nag>.'r Maharashtr\nplace of business a- 411231\n\nDate of liability 2020-02-10\n\nType of registration Regular\n\n",
+   "confidence": 87.6,
+   "sharpness": 1224.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "2 /XUIXGO0/6/D12P",
+    "legal_name": "Joseph Singh (Prop. Ganesh Woodcraft)",
+    "trade_name": "Ganesh Woodcraft",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 80, Civil Lines, Nag>.'r Maharashtr"
+   },
+   "gstin_raw": "2XUIXGO767D12P|XUIXGO7G7D1ZP|27XUIXGO767D12ZP|XUTXGO7G7DIZP|Z2KXUIXGO767D12ZP|XUIXGO7G7DIZP|27XUIXGO767D17P|XUTXGO7E7D1ZP|2XUIXGO767D12ZP|FXUIXGO7G7D1ZP"
+  },
+  "d5d8a2684764d5885691b727f8345cfe4fee856855f0f2f56d2ef76934a765f5:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nJoseph Singh\n\nDesignation\nOwner\n\nFor business\n\nGanesh Woodcraft\n\nID no.\nSYN-ID-447889\n\nValid till\n2028-07-04\n\n",
+   "confidence": 93.9,
+   "sharpness": 1794.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Joseph Singh",
+    "designation": "Owner",
+    "business": "Ganesh Woodcraft",
+    "id_number": ".",
+    "valid_till": "2028-07-04"
+   },
+   "gstin_raw": null
+  },
+  "619440964425c58019fed96f987281e7da45c65c5c87ab82bce8d9ee9e08ac7a:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-MH-00-9516696\nEnterprise name Ganesh Woodcraft\nMajor activity Manufacturing\n\nCity Nagpur\n\nState Maharashtra\n\nDate of registration 2024-11-21\n\n",
+   "confidence": 92.8,
+   "sharpness": 983.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-MH-00-9516696",
+    "enterprise_name": "Ganesh Woodcraft",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "major_activity": "Manufacturing"
+   },
+   "gstin_raw": null
+  },
+  "38000bc5e1b78105049e4a4432c1dd85ec16cd752517492aa38ad6db47ce0646:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 7397844759\nBilled to Saffron Dental Care LLP\nSupply cdic.ess Shop/Unit 75, Lake View Colony, Nagpur, Mahar\n\nashtra - 137452\n\nBill date 2026-05-28\n\nUnits consumed 2295\n\nAmount due (INR) 20,712\n\n",
+   "confidence": 92.2,
+   "sharpness": 1007.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Saffron Dental Care LLP",
+    "bill_date": "2026-05-28",
+    "address": "Shop/Unit 75, Lake View Colony, Nagpur, Mahar ashtra - 137452"
+   },
+   "gstin_raw": null
+  },
+  "d65d3c966aed745ad39b46561a57d7f3982573069f7b14c730f3a396b823ae77:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nan a |\nSc@Qw -e~-<« =\na a hd\n\n' -—_et @ Bap =\n\nBae oer Sf ef = wo\n\nmer @ of Bo e—@eee\n\nCette ef tee 7,\n\n* seo of og <* ot=.-\n",
+   "confidence": 43.8,
+   "sharpness": 1.0,
+   "skew_deg": 0.0,
+   "readable": false,
+   "fields": {},
+   "gstin_raw": null
+  },
+  "91e94e630050e47eb7920e0b1b9b3b09997d3122f5182d0be95a9b4bb943caf2:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\nFatima Pillai\n\nDesignation\nPartner\n\nFor business\n\nSaffron Dental Care LLP\n\nID no.\nSYN-ID-609396\n\nValid till\n2028-08-03\n\n",
+   "confidence": 94.7,
+   "sharpness": 1834.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Fatima Pillai",
+    "designation": "Partner",
+    "business": "Saffron Dental Care LLP",
+    "id_number": ".",
+    "valid_till": "2028-08-03"
+   },
+   "gstin_raw": null
+  },
+  "02522751a7e096bc5770eb9921616e77ca9a6c6ddde2dddb81b30e1628ca8e33:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-MH-00-6131836\nEnterprise name Saffron Dental Care LLP\nMajor activity Services\n\nCity Nagpur\n\nState Maharashtra\n\nDate of registration 2025-05-17\n\n",
+   "confidence": 92.7,
+   "sharpness": 974.8,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-MH-00-6131836",
+    "enterprise_name": "Saffron Dental Care LLP",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "f02c19643334f34cb22bfab36ee5d7df0b21d81e2d5e2a0bd7fc8e68353f274b:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 4294969054\n\nBilled to Balaji Realty LLP\n\nSupply cdic.ess Shop/Unit 38, Civil Lines, Kochi, Kerala - 75\n2083\n\nBill date 2026-06-11\n\nUnits consumed 996\n\nAmount due (INR) 22,125\n\n",
+   "confidence": 91.8,
+   "sharpness": 955.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Balaji Realty LLP",
+    "bill_date": "2026-06-11",
+    "address": "Shop/Unit 38, Civil Lines, Kochi, Kerala - 75 2083"
+   },
+   "gstin_raw": null
+  },
+  "39551a5031ba4ae8e1c50591b221bb1a66347f246ca75bf4ea5b35f9a2fd3287:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 32T ZAXB5481U121\n\nLegal name Balaji Realty LLP\n\nTrade an: Balaji Realty LLP\n\nConstitution Limited Liability Partnership\n\nAddress of principal Shop/Unit 38, Civil Lines, Kaci+i, kerala - 75\nplace of business 2083\n\nDate of liability 2020-07-26\n\nType of registration Regular\n\n",
+   "confidence": 89.5,
+   "sharpness": 1181.4,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "32T ZAXB5481U121",
+    "legal_name": "Balaji Realty LLP",
+    "trade_name": "Balaji Realty LLP",
+    "constitution": "Limited Liability Partnership",
+    "address": "of principal Shop/Unit 38, Civil Lines, Kaci+i, kerala - 75"
+   },
+   "gstin_raw": "327TZAXB5481U121|2TZAXB5481U1Z1|32TZAXB5481U121|TZAXB5481U1Z1|321TZAXB5481U121|2TZAXB5481U1Z1|32TZAXB5481U171|2TZAXB5481U1Z1|327TZAXB5481U121|52TZAXB5481U1Z1"
+  },
+  "6c0020e20e7badccd864daeb05e8f5bcafe6fed3fd81414d05abcb31c5987a04:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nAnita Shah\n\nDesignation\nOwner\n\nFor business\n\nBalaji Realty LLP\n\nID no.\nSYN-ID-587234\n\nValid till\n2029-09-11\n\n",
+   "confidence": 94.8,
+   "sharpness": 1768.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Anita Shah",
+    "designation": "Owner",
+    "business": "Balaji Realty LLP",
+    "id_number": ".",
+    "valid_till": "2029-09-11"
+   },
+   "gstin_raw": null
+  },
+  "012f0ae7ae8751ad5525be185fc749305d01f60a390f0f4aec53ebb1d19359c1:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. $566781101\n\nBilled to Saffron Unisex Salon\n\nSupply cdic.ess Shop/Unit 71, Market Yard, Jaipur, Rajasthan\n- 194057\n\nBill date 2026-06-11\n\nUnits consumed 1280\n\nAmount due (INR) 27,352\n\n",
+   "confidence": 91.1,
+   "sharpness": 978.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Saffron Unisex Salon",
+    "bill_date": "2026-06-11",
+    "address": "Shop/Unit 71, Market Yard, Jaipur, Rajasthan - 194057"
+   },
+   "gstin_raw": null
+  },
+  "1364d92a676f59c68fb937bf20a710bb44c0dfc8665b346a9ea34e95c43bff47:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 63YKZXS8189L120\n\nLegal name Pooja Shah (Prop. Saffron Unisex Salon)\n\nTrade ain: Saffron Unisex Salon\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 71, Market Yard, lai>.'r- Rajasthan\nplace of business - 194057\n\nDate of liability 2019-09-25\n\nType of registration Regular\n\n",
+   "confidence": 89.2,
+   "sharpness": 1224.9,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "63YKZXS8189L120",
+    "legal_name": "Pooja Shah (Prop. Saffron Unisex Salon)",
+    "trade_name": "Saffron Unisex Salon",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 71, Market Yard, lai>.'r- Rajasthan"
+   },
+   "gstin_raw": "G3YKZXS8189L12Z0|8YKZXS8189L1Z0|G3YKZXS8189L12Z0|BYK2XSB189L1Z0|G3SYKZXS381E9L12Z0|83YK2XSB189L1Z0|63YK2XS8189L120|8YK2ZXS8189L1Z0|GSYKZXS8189L120|8YK2XS8189L1Z0"
+  },
+  "3187c6c19d9a19fb5121f781db65495e9c8c3764ed7e450cfb810a1b56eea9f3:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nPooja Shah\n\nDesignation\nOwner\n\nFor business\nSaffron Unisex Salon\n\nID no.\nSYN-ID-118354\n\nValid till\n2028-09-15\n\n",
+   "confidence": 94.8,
+   "sharpness": 1797.2,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Pooja Shah",
+    "designation": "Owner",
+    "business": "Saffron Unisex Salon",
+    "id_number": ".",
+    "valid_till": "2028-09-15"
+   },
+   "gstin_raw": null
+  },
+  "1063764bfeb9843cbe50abc64b0f0ffbbfaa1b1464dc50f885d535bc17366cd6:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-RJ-00-6577157\nEnterprise name Saffron Unisex Salon\nMajor activity Services\n\nCity Jaipur\n\nState Rajasthan\n\nDate of registration 2023-01-24\n\n",
+   "confidence": 92.6,
+   "sharpness": 954.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-RJ-00-6577157",
+    "enterprise_name": "Saffron Unisex Salon",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "7fe2c84aba606a2a600fc94c9232f64a99e415a1beadf40e580f8bf17f0a7564:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 7545812405\n\nBilled to Neelgiri Physio Clinic\n\nSupply cdic.ess Shop/Unit 52, Transport Nagar, Delhi, Delhi -\n334596\n\nBill date 2026-07-05\n\nUnits consumed 1652\n\nAmount due (INR) 10,592\n\n",
+   "confidence": 90.5,
+   "sharpness": 976.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Neelgiri Physio Clinic",
+    "bill_date": "2026-07-05",
+    "address": "Shop/Unit 52, Transport Nagar, Delhi, Delhi - 334596"
+   },
+   "gstin_raw": null
+  },
+  "261f470ecf7ef2335b5627a766c0198342c577d232ba90b08ee3997b16319f68:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 67CPCXNO398P12T\n\nLegal name Neha Banerjee (Prop. Shri Physio Clinic)\n\nTrade avin: Neelgiri Physio Clinic\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 52, Transport Naga’, Oalhi, Delhi -\nplace of business 334596\n\nDate of liability 2024-01-13\n\nType of registration Regular\n\n",
+   "confidence": 91.4,
+   "sharpness": 1218.4,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "67CPCXNO398P12T",
+    "legal_name": "Neha Banerjee (Prop. Shri Physio Clinic)",
+    "trade_name": "Neelgiri Physio Clinic",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 52, Transport Naga’, Oalhi, Delhi -"
+   },
+   "gstin_raw": "G67CPCXNO398P12ZT|EPEXNOZ39BP1ZT|G7CPCXNO398P1ZT|FEPCXNOZOBP1ZT|GCPCXNO39SPLZT|FEPEXNOZ9BP1ZT|67CPCXNO398P1ZT|FEPCXNOZOBP1ZT|6CPCXNO398P12T|FEPCXNOZ39BP1ZT"
+  },
+  "d1b2add7452522b5c2f9fc49a5398570f3647233267ad45613c4625190da369e:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\nNeha Banerjee\n\nDesignation\nManager\n\nFor business\nNeelgiri Physio Clinic\n\nID no.\nSYN-ID-178237\n\nValid till\n2030-05-05\n\n",
+   "confidence": 94.6,
+   "sharpness": 1861.7,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Neha Banerjee",
+    "designation": "Manager",
+    "business": "Neelgiri Physio Clinic",
+    "id_number": ".",
+    "valid_till": "2030-05-05"
+   },
+   "gstin_raw": null
+  },
+  "f3c289913441e8e941b650cf100c61dcd738a27d6b73d3db715e213cef4867ea:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-DL-@0-9565547\nEnterprise name Neelgiri Physio Clinic\nMajor activity Services\n\nCity Delhi\n\nState Delhi\n\nDate of registration 2024-07-14\n\n",
+   "confidence": 91.1,
+   "sharpness": 939.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-DL-00-9565547",
+    "enterprise_name": "Neelgiri Physio Clinic",
+    "city": "Delhi",
+    "state": "Delhi",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "47cd90e1c0f3842c6b695c180d880c6a0390fa73a53ad6c08b0f671d702de2b6:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 2568472785\n\nBilled to Green Leaf Legal Associates\n\nSupply cdic.ess Shop/Unit 238, Ring Road, Vadodara, Gujarat -\n348176\n\nBill date 2026-05-26\n\nUnits consumed 2219\n\nAmount due (INR) 33,35¢\n\n",
+   "confidence": 90.8,
+   "sharpness": 1009.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Green Leaf Legal Associates",
+    "bill_date": "2026-05-26",
+    "address": "Shop/Unit 238, Ring Road, Vadodara, Gujarat - 348176"
+   },
+   "gstin_raw": null
+  },
+  "6b3d66c7f107b7580e821cd69ffafa79b55249bae73cb3965cd6bf932df42fc0:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 2 IXORXG9365M1Z3\n\nLegal name Joseph Rao (Prop. Green Leaf Legal Associates)\n\nTrade an: Green Leaf Legal Associates\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 238, Ring Road, Va  oara, Gujarat -\nplace of business 348176\n\nDate of liability 2018-22-91\n\nType of registration Regular\n\n",
+   "confidence": 90.5,
+   "sharpness": 1274.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "2 IXORXG9365M1Z3",
+    "legal_name": "Joseph Rao (Prop. Green Leaf Legal Associates)",
+    "trade_name": "Green Leaf Legal Associates",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 238, Ring Road, Va  oara, Gujarat -"
+   },
+   "gstin_raw": "2XORXG9365M1Z3|KORKG93651Z3|24XORXG9365M123|8KORKG93651Z3|ZIXORXG9305M123|8KORKG9365N1Z3|2XORXG9365M12Z3|KORKG93651Z3|24XORXG9365M123|KORKG9365173"
+  },
+  "9040d41d65a9ba42b95f7d84d7d38eb55bc44d7c9eb535e797fe05721a2a7aa8:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nJoseph Rao\n\nDesignation\n\nOffice admin\n\nFor business\nGreen Leaf Legal Associates\n\nID no.\nSYN-ID-393148\n\nValid till\n2027-09-18\n\n",
+   "confidence": 94.7,
+   "sharpness": 1909.7,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Joseph Rao",
+    "designation": "Office admin",
+    "business": "Green Leaf Legal Associates",
+    "id_number": ".",
+    "valid_till": "2027-09-18"
+   },
+   "gstin_raw": null
+  },
+  "ac959a6ab58749a306f11bebfb76634ba44fa607fb87fa068f3388ba526e6dd5:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-GJ-00-8477445\nEnterprise name Green Leaf Legal Associates\nMajor activity Services\n\nCity Vadodara\n\nState Gujarat\n\nDate of registration 2022-11-12\n\n",
+   "confidence": 93.0,
+   "sharpness": 981.7,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-GJ-00-8477445",
+    "enterprise_name": "Green Leaf Legal Associates",
+    "city": "Vadodara",
+    "state": "Gujarat",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "5ca04d6c3c5c9d3c5f87f09f4ff77bef10301add3fe0950d4c06885c36788a5c:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. $375012581\nBilled to Kaveri Insurance Advisors\nSupply cdic.ess Shop/Unit 217, Civil Lines, Visakhapatnam, An\n\ndhra Pradesh - 405337\n\nBill date 2026-07-10\n\nUnits consumed 2026\n\nAmount due (INR) 28, 56°\n\n",
+   "confidence": 86.9,
+   "sharpness": 1025.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Kaveri Insurance Advisors",
+    "bill_date": "2026-07-10",
+    "address": "Shop/Unit 217, Civil Lines, Visakhapatnam, An dhra Pradesh - 405337"
+   },
+   "gstin_raw": null
+  },
+  "200ff261394fbce936c40a2a934eb99e0c1ecaf6f7a40b414379ee0d0eb69c08:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 3/LDYXKO9296F12B\n\nLegal name Anita Kulkarni (Prop. Kaveri Insurance Advisors)\n\nTrade ain: Kaveri Insurance Advisors\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 217, Civil Lines, Visa “rt apatnam, An\nplace of business dhra Pradesh - 405-37\n\nDate of liability 2023-09-20\n\nType of registration Regular\n\n",
+   "confidence": 89.0,
+   "sharpness": 1286.3,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "3/LDYXKO9296F12B",
+    "legal_name": "Anita Kulkarni (Prop. Kaveri Insurance Advisors)",
+    "trade_name": "Kaveri Insurance Advisors",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 217, Civil Lines, Visa “rt apatnam, An"
+   },
+   "gstin_raw": "37LDYXKO296F1ZB|STLDYXK8296F1ZB|37LDYXKO296F12B|STLDYXKO296F1ZB|37LDYXKO296F12B|ST7LDYXK0296F1ZB|37LDYXKO296F127B|STLDYXKO296F1ZB|37LDYXKO2Z96F17B|STLDYXKO296FIZB"
+  },
+  "dfeb0f24fa74b950f20bc8cf24a6da0c55ba334520d77693e6d23fd114d98978:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nAnita Kulkarni\n\nDesignation\n\nOffice admin\n\nFor business\nKaveri Insurance Advisors\n\nID no.\nSYN-ID-126040\n\nValid till\n2027-12-22\n\n",
+   "confidence": 94.8,
+   "sharpness": 1922.5,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Anita Kulkarni",
+    "designation": "Office admin",
+    "business": "Kaveri Insurance Advisors",
+    "id_number": ".",
+    "valid_till": "2027-12-22"
+   },
+   "gstin_raw": null
+  },
+  "f0e1bb788506d27ce71a18a4a9054a09994d4c23d37a61ef849ec320ef44f7dc:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM- AP-00-9751562\nEnterprise name Kaveri Insurance Advisors\nMajor activity Services\n\nCity Visakhapatnam\n\nState Andhra Pradesh\n\nDate of registration 2023-07-04\n\n",
+   "confidence": 92.3,
+   "sharpness": 1007.8,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-AP-00-9751562",
+    "enterprise_name": "Kaveri Insurance Advisors",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "fa323e2bf8383e80dbd47404d93fd7d5a6e8e7f90694ff6ec6af163b33119283:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 6310330901\n\nBilled to Kaveri Stays LLP\n\nSupply cdic.ess Shop/Unit 21, Sector 14, Mumbai, Maharashtra\n- 570043\n\nBill date 2026-06-18\n\nUnits consumed 675\n\nAmount due (INR) 23,712\n\n",
+   "confidence": 91.9,
+   "sharpness": 969.4,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Kaveri Stays LLP",
+    "bill_date": "2026-06-18",
+    "address": "Shop/Unit 21, Sector 14, Mumbai, Maharashtra - 570043"
+   },
+   "gstin_raw": null
+  },
+  "2331a714627354cfe5c6ec8d36f3fa74ec25572c04f439f1a66bab1b0a4463c6:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 2/QHIXKO658U12ZL\n\nLegal name Kaveri Stays LLP\n\nTrade ain: Kaveri Stays LLP\n\nConstitution Limited Liability Partnership\n\nAddress of principal Shop/Unit 21, Sector 14, Mun La, Maharashtra\nplace of business - 570043\n\nDate of liability 2022-07-13\n\nType of registration Regular\n\n",
+   "confidence": 91.3,
+   "sharpness": 1196.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "2/QHIXKO658U12ZL",
+    "legal_name": "Kaveri Stays LLP",
+    "trade_name": "Kaveri Stays LLP",
+    "constitution": "Limited Liability Partnership",
+    "address": "of principal Shop/Unit 21, Sector 14, Mun La, Maharashtra"
+   },
+   "gstin_raw": "2QHIXKO658U1ZL|QHIXKOG58U1ZL|2QHIXKO658U1ZL|FQHIXKOGSBULZL|2QHIXK96538ULZL|QHIXKOGSBUIZL|27QHIXKO658U17L|QHIXKOG58U1ZL|2QHIXKO658U1ZL|QHIXKOG5BU1ZL"
+  },
+  "fa85f282f5e64a224c6a82a5850e9515e3ac16f3640b4431677bf7ea454e7975:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\nNisha Arora\n\nDesignation\nOwner\n\nFor business\n\nKaveri Stays LLP\n\nID no.\nSYN-ID-247542\n\nValid till\n2029-06-01\n\n",
+   "confidence": 94.8,
+   "sharpness": 1766.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Nisha Arora",
+    "designation": "Owner",
+    "business": "Kaveri Stays LLP",
+    "id_number": ".",
+    "valid_till": "2029-06-01"
+   },
+   "gstin_raw": null
+  },
+  "901d6ccf3e8d3b1d56b6854591d6755a0aa705ef65533067d8c7df1cd9ac6989:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-MH-00- 7183141\nEnterprise name Kaveri Stays LLP\nMajor activity Services\n\nCity Mumbai\n\nState Maharashtra\n\nDate of registration 2024-01-09\n\n",
+   "confidence": 87.7,
+   "sharpness": 957.9,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-MH-00-7183141",
+    "enterprise_name": "Kaveri Stays LLP",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "303250a5472f8f6548fc3a1ddae8cc6c9e4d6a3f19a7dac1f37509670ba9040f:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 2710511786\nBilled to Trinity Bake House Pvt Ltd\nSupply cdic.ess Shop/Unit 188, Industrial Area Phase 2, Ludhi\n\nana, Punjab - 541498\n\nBill date 2025-10-31\n\nUnits consumed 981\n\nAmount due (INR) 2,758\n\n",
+   "confidence": 91.6,
+   "sharpness": 1014.0,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Trinity Bake House Pvt Ltd",
+    "bill_date": "2025-10-31",
+    "address": "Shop/Unit 188, Industrial Area Phase 2, Ludhi ana, Punjab - 541498"
+   },
+   "gstin_raw": null
+  },
+  "36b9aecc4ea59b8cee9b6f3f9b7c55d1b42cbdbcbfc83fa171efd686f45747e7:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 63KGZXT1320R122\n\nLegal name Trinity Bake House Pvt Ltd\n\nTrade avin: Trinity Bake House Pvt Ltd\n\nConstitution Private Limited Company\n\nAddress of principal Shop/Unit 188, Industrial Are: hase 2, Ludhi\nplace of business ana, Punjab - 5414+\n\nDate of liability 2019-08-19\n\nType of registration Regular\n\n",
+   "confidence": 88.2,
+   "sharpness": 1261.9,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "63KGZXT1320R122",
+    "legal_name": "Trinity Bake House Pvt Ltd",
+    "trade_name": "Trinity Bake House Pvt Ltd",
+    "constitution": "Private Limited Company",
+    "address": "of principal Shop/Unit 188, Industrial Are: hase 2, Ludhi"
+   },
+   "gstin_raw": "G3KGZXT1320R12ZZ|3KGXTI320RIZZ|G3KGZXT1320R122|3K6ZXT1320R1Z2|G3KGZXT1320R122|3K6ZXTI320RIZZ|63KGZXT1320R122|3K6ZXT1320R1Z2|63KGZXT1320R122|3KGZXT1320R1Z7"
+  },
+  "41a0b9aef1fd58783a2abcc71cae32f8a4f23df674bcc489141fb4382a59510d:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\n\nVikram Pillai\n\nDesignation\nOwner\n\nFor business\n\nTrinity Bake House Pvt Ltd\n\nID no.\nSYN-ID-440312\n\nValid till\n2028-12-23\n\n",
+   "confidence": 94.7,
+   "sharpness": 1858.2,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Vikram Pillai",
+    "designation": "Owner",
+    "business": "Trinity Bake House Pvt Ltd",
+    "id_number": ".",
+    "valid_till": "2028-12-23"
+   },
+   "gstin_raw": null
+  },
+  "f16aed63c80030d5d5bc48a9f72e1204b0bdeff60c2ea1ae3cbc7c87097ae3f6:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM-PB-00-9719478\nEnterprise name Trinity Bake House Pvt Ltd\nMajor activity Services\n\nCity Ludhiana\n\nState Punjab\n\nDate of registration 2025-09-15\n\n",
+   "confidence": 93.4,
+   "sharpness": 969.3,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-PB-00-9719478",
+    "enterprise_name": "Trinity Bake House Pvt Ltd",
+    "city": "Ludhiana",
+    "state": "Punjab",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  },
+  "7d735237fc648f17be59721bc4edadbe4f00f5c58e810cb4221679c135fcfe4a:address_proof": {
+   "doc_type": "address_proof",
+   "text": "Specimen: Electricity Bill\n\nFictional utility - address proof for OCR testing\n\nConsumer no. 6382457282\nBilled to Star Electronics\nSupply cdic.ess Shop/Unit 216, Nehru Nagar, Visakhapatnam, An\n\ndhra Pradesh - 762071\n\nBill date 2026-07-06\n\nUnits consumed 492\n\nAmount due (INR) 24,53e¢\n\n",
+   "confidence": 90.3,
+   "sharpness": 1009.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "billed_to": "Star Electronics",
+    "bill_date": "2026-07-06",
+    "address": "Shop/Unit 216, Nehru Nagar, Visakhapatnam, An dhra Pradesh - 762071"
+   },
+   "gstin_raw": null
+  },
+  "380df624f93cc55666bf0790dc4acea3424ab7509ae598bf11ebb54ce645a946:gst_certificate": {
+   "doc_type": "gst_certificate",
+   "text": "Specimen: GST Registration Certificate\n\nFormat for hackathon OCR testing only\n\nGSTIN 3/NBLXS1145E12U\n\nLegal name Pooja Agarwal (Prop. Star Electronics)\n\nTrade ain: Star Electronics\n\nConstitution Proprietorship\n\nAddress of principal Shop/Unit 216, Nehru Nagar, *4.57 kKnhapatnam, An\nplace of business dhra Pradesh - 7621 71\n\nDate of liability 2017-01-98\n\nType of registration Regular\n\n",
+   "confidence": 88.8,
+   "sharpness": 1245.7,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "gstin_text": "3/NBLXS1145E12U",
+    "legal_name": "Pooja Agarwal (Prop. Star Electronics)",
+    "trade_name": "Star Electronics",
+    "constitution": "Proprietorship",
+    "address": "of principal Shop/Unit 216, Nehru Nagar, *4.57 kKnhapatnam, An"
+   },
+   "gstin_raw": "3NBLXS1145E12ZU|JNBLXS1145E1ZU|37NBLXS1145E12ZU|JINBLXS1145E1ZU|3NBLXSI145E12ZU|NBLXS1145E1ZU|37NBLXS1145E12U|NBLXS1145E1ZU|3NBLXS1145E12ZU|JNBLXS1145E1ZU"
+  },
+  "970754fe9d9573b52776dc5a427e2808c96d2d32e52f055d45cf0b4c79b9c189:signatory_id": {
+   "doc_type": "signatory_id",
+   "text": "Specimen: Authorised Signatory ID\n\nName\nPooja Agarwal\n\nDesignation\nOwner\n\nFor business\nStar Electronics\n\nID no.\nSYN-ID-365512\n\nValid till\n2029-03-03\n\n",
+   "confidence": 94.6,
+   "sharpness": 1786.6,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "name": "Pooja Agarwal",
+    "designation": "Owner",
+    "business": "Star Electronics",
+    "id_number": ".",
+    "valid_till": "2029-03-03"
+   },
+   "gstin_raw": null
+  },
+  "31917be127618bfe38547f2f20d21e8b5f47307519c460fd8f9c8e5b53318de6:udyam_certificate": {
+   "doc_type": "udyam_certificate",
+   "text": "Specimen: Udyam Registration Certificate\n\nFormat for hackathon OCR testing only\n\nUdyam reg. number LOYAM- AP-00-5186772\nEnterprise name Star Electronics\n\nMajor activity Services\n\nCity Visakhapatnam\n\nState Andhra Pradesh\n\nDate of registration 2024-02-03\n\n",
+   "confidence": 90.1,
+   "sharpness": 984.1,
+   "skew_deg": 0.0,
+   "readable": true,
+   "fields": {
+    "udyam_number": "UDYAM-AP-00-5186772",
+    "enterprise_name": "Star Electronics",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "major_activity": "Services"
+   },
+   "gstin_raw": null
+  }
+ }
+}

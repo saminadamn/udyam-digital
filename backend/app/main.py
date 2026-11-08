@@ -55,3 +55,10 @@ ROUTERS = (auth.router, auth.me_router, advisor.router, voice.router, admin.rout
            consent.router, kyc.router, escalations.router, escalations.agents_router, admin_orders.router, system.router)
 for r in ROUTERS:
     app.include_router(r, prefix=PREFIX)
+
+
+@app.api_route("/", methods=["GET", "HEAD"], include_in_schema=False)
+def root():
+    """A friendly landing for anyone who opens the API's base URL (and for host health probes on "/")."""
+    return {"service": "Udyam Digital API", "status": "ok", "health": f"{PREFIX}/health", "docs": "/api/docs",
+            "app": get_settings().public_app_url}

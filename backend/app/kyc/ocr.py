@@ -6,8 +6,12 @@ because its monospace font and the watermark make it the hardest field to read.
 """
 from __future__ import annotations
 
+import hashlib
 import io
+import json
 import re
+from functools import lru_cache
+from pathlib import Path
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -143,7 +147,33 @@ def extract(doc_type: str, text: str) -> dict:
     raise ValueError(doc_type)
 
 
+CACHE_PATH = Path(__file__).with_name("ocr_cache.json")
+
+
+def cache_key(doc_type: str, data: bytes) -> str:
+    return f"{hashlib.sha256(data).hexdigest()}:{doc_type}"
+
+
+@lru_cache(maxsize=1)
+def _cache() -> dict:
+    try:
+        return json.loads(CACHE_PATH.read_text(encoding="utf-8"))["results"]
+    except (OSError, ValueError, KeyError):
+        return {}
+
+
 def run(doc_type: str, data: bytes) -> OcrResult:
+    """OCR one document. The case pack's sample images (byte-identical files only) reuse a result precomputed by
+    scripts/build_ocr_cache.py with this same function, which keeps a small free-tier server from running Tesseract
+    for the demo documents. Any other file, such as a phone photo, is read live."""
+    if get_settings().ocr_cache:
+        hit = _cache().get(cache_key(doc_type, data))
+        if hit:
+            return OcrResult(**hit)
+    return run_live(doc_type, data)
+
+
+def run_live(doc_type: str, data: bytes) -> OcrResult:
     if get_settings().ocr_engine != "tesseract":
         raise RuntimeError("Only the tesseract OCR engine is configured")
     img = _rgb(data)
