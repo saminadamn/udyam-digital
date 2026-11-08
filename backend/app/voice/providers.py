@@ -55,7 +55,7 @@ class _Http:
 
 
 class Sarvam(_Http):
-    """Sarvam AI: Saarika speech-to-text (multipart) and Bulbul text-to-speech (JSON, base64 WAV back)."""
+    """Sarvam AI: Saaras speech-to-text (multipart) and Bulbul text-to-speech (JSON, base64 WAV back)."""
     name = "sarvam"
 
     def __init__(self, settings, client: httpx.Client | None = None):
@@ -66,15 +66,17 @@ class Sarvam(_Http):
     def transcribe(self, audio_bytes: bytes, mime: str, lang: str) -> Transcript:
         if audio.ffmpeg_available():
             audio_bytes, mime = audio.to_wav16k(audio_bytes), "audio/wav"
+        mime = mime.split(";")[0].strip() or "audio/webm"  # Sarvam rejects "audio/webm;codecs=opus" but accepts "audio/webm"
         ext = "wav" if "wav" in mime else "webm" if "webm" in mime else "ogg"
         out = self._post(f"{self.base}/speech-to-text", headers={"api-subscription-key": self.key},
-                         data={"model": self.stt_model, "language_code": LOCALE.get(lang, "unknown")},
+                         data={"model": self.stt_model, "language_code": LOCALE.get(lang, "unknown"),
+                               **({"mode": "transcribe"} if self.stt_model.startswith("saaras") else {})},
                          files={"file": (f"speech.{ext}", audio_bytes, mime)})
         return Transcript(text=(out.get("transcript") or "").strip(), confidence=out.get("confidence"))
 
     def speak(self, text: str, lang: str) -> Speech:
         out = self._post(f"{self.base}/text-to-speech", headers={"api-subscription-key": self.key},
-                         json={"text": text, "target_language_code": LOCALE.get(lang, "hi-IN"), "speaker": self.speaker,
+                         json={"text": text, "language_code": LOCALE.get(lang, "hi-IN"), "speaker": self.speaker,
                                "model": self.tts_model})
         clips = out.get("audios") or []
         if not clips:

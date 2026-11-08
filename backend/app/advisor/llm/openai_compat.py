@@ -26,7 +26,7 @@ class OpenAICompatProvider:
         if json_mode:
             body["response_format"] = {"type": "json_object"}
         try:
-            r = httpx.post(self.url, headers={"Authorization": f"Bearer {self.key}"}, json=body, timeout=self.timeout)
+            r = httpx.post(self.url, headers={"Authorization": f"Bearer {self.key}", "api-subscription-key": self.key}, json=body, timeout=self.timeout)
             r.raise_for_status()
             return r.json()["choices"][0]["message"]["content"].strip()
         except Exception as e:

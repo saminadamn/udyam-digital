@@ -1,19 +1,23 @@
 /**
  * One voice interface for the advisor (DESIGN.md D1.1 Voice service, C3).
- * Listening: the phone's Web Speech API first; if the browser has none, record with MediaRecorder and send to POST /voice/transcribe
- * (Sarvam or Bhashini on the server). Speaking: the phone's voice when it has one for the language, otherwise POST /voice/speak.
+ * Server speech first when the API has a provider configured (Sarvam or Bhashini): listening records with MediaRecorder and sends
+ * to POST /voice/transcribe; speaking plays POST /voice/speak. Without one, or if a call fails, the phone's Web Speech API is used.
  * Audio is never stored (D2.8).
  */
 import { api } from "./api";
-import { hasVoiceFor, listen as browserListen, recognitionSupported, speak as browserSpeak, stopSpeaking as browserStop, synthesisSupported } from "./speech";
+import { listen as browserListen, recognitionSupported, speak as browserSpeak, stopSpeaking as browserStop } from "./speech";
 
 export type Engine = "browser" | "server";
 export type Listening = { stop: () => void };
 type Handlers = { onText: (text: string, final: boolean) => void; onBusy: (busy: boolean) => void; onDone: (error?: string) => void };
 
 const MAX_MS = 30_000;
+const SILENCE_MS = 1_200; // stop this long after the speaker goes quiet
+const NO_SPEECH_MS = 7_000; // stop if nothing is said at all
+const SPEECH_RMS = 0.02; // loudness that counts as speech
 let serverCheck: Promise<boolean> | null = null;
 let audioEl: HTMLAudioElement | null = null;
+let speakSeq = 0; // only the newest reply plays; an older one still loading is dropped
 
 export function serverVoice(): Promise<boolean> {
   if (!serverCheck) {
@@ -30,8 +34,9 @@ function canRecord(): boolean {
 }
 
 export async function listenEngine(): Promise<Engine | null> {
-  if (recognitionSupported()) return "browser";
+  // Server speech (Sarvam/Bhashini) first when it's configured: it handles Indian languages better than most phones.
   if (canRecord() && (await serverVoice())) return "server";
+  if (recognitionSupported()) return "browser";
   return null;
 }
 
@@ -39,11 +44,41 @@ function recordToServer(lang: string, h: Handlers): Listening {
   let rec: MediaRecorder | null = null;
   let stream: MediaStream | null = null;
   let timer: ReturnType<typeof setTimeout> | null = null;
+  let meter: ReturnType<typeof setInterval> | null = null;
+  let ctx: AudioContext | null = null;
   let stopped = false;
   const chunks: Blob[] = [];
   const finish = () => {
     if (timer) clearTimeout(timer);
+    if (meter) clearInterval(meter);
+    ctx?.close().catch(() => {});
     stream?.getTracks().forEach((t) => t.stop());
+  };
+  // Tap once to talk: watch the microphone level and stop by itself when the speaker pauses.
+  const watchSilence = (s: MediaStream, stopRec: () => void) => {
+    try {
+      ctx = new AudioContext();
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 1024;
+      ctx.createMediaStreamSource(s).connect(analyser);
+      const buf = new Float32Array(analyser.fftSize);
+      const started = Date.now();
+      let heard = false;
+      let lastLoud = started;
+      meter = setInterval(() => {
+        analyser.getFloatTimeDomainData(buf);
+        let sum = 0;
+        for (const v of buf) sum += v * v;
+        const now = Date.now();
+        if (Math.sqrt(sum / buf.length) > SPEECH_RMS) {
+          heard = true;
+          lastLoud = now;
+        }
+        if ((heard && now - lastLoud > SILENCE_MS) || (!heard && now - started > NO_SPEECH_MS)) stopRec();
+      }, 100);
+    } catch {
+      // no Web Audio: the user taps again to stop, or MAX_MS ends it
+    }
   };
   navigator.mediaDevices
     .getUserMedia({ audio: true })
@@ -69,7 +104,9 @@ function recordToServer(lang: string, h: Handlers): Listening {
         }
       };
       rec.start();
-      timer = setTimeout(() => rec?.state === "recording" && rec.stop(), MAX_MS);
+      const stopRec = () => rec?.state === "recording" && rec.stop();
+      timer = setTimeout(stopRec, MAX_MS);
+      watchSilence(s, stopRec);
     })
     .catch(() => {
       finish();
@@ -93,19 +130,21 @@ export function listen(engine: Engine, lang: string, h: Handlers): Listening {
 export async function speak(text: string, lang: string): Promise<void> {
   if (!text) return;
   stopSpeaking();
-  if (synthesisSupported() && hasVoiceFor(lang)) return browserSpeak(text, lang);
+  const mine = ++speakSeq;
   if (await serverVoice()) {
     try {
       const blob = await api.speakAudio(text, lang);
+      if (mine !== speakSeq) return;
       audioEl = new Audio(URL.createObjectURL(blob));
       await audioEl.play();
       return;
     } catch {}
   }
-  browserSpeak(text, lang);
+  if (mine === speakSeq) browserSpeak(text, lang);
 }
 
 export function stopSpeaking() {
+  speakSeq++; // a reply still loading won't start playing (e.g. the owner tapped the mic)
   browserStop();
   try {
     audioEl?.pause();

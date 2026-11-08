@@ -8,10 +8,10 @@ SITE = B.parent / "site"
 sys.path.insert(0, str(B))
 from pdf_sources import SOURCES  # noqa: E402
 
-d = json.load(open(B / "site_data.json"))
+d = json.load(open(B / "site_data.json", encoding="utf-8"))
 fmt = lambda n: f"{n:,}"
 RED, RED2, RED3, RED4, GREY, INK, INK2, MUTED, LINE = "#e40000", "#f26b6b", "#f7a6a6", "#fbd0d0", "#d5d5da", "#16161a", "#3d3d45", "#74747e", "#ececf0"
-ARCH = (SITE / "img" / "architecture.svg").read_text()
+ARCH = (SITE / "img" / "architecture.svg").read_text(encoding="utf-8")
 ARCH = ARCH[ARCH.index("<svg"):]
 LOGO = '<svg class="logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#e40000"/><path d="M10 9.5v7.5a6 6 0 0 0 12 0v-1.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="22" cy="10" r="2.3" fill="#fff"/></svg>'
 
@@ -352,13 +352,13 @@ pages.append(page("09", "Sources", f"""
 <ol class="src">{src_html}</ol>
 <div class="callout" style="margin-top:14pt">Interactive version: the Udyam Digital showcase website, with the demo video, live charts, the impact calculator and the architecture diagram.</div>""", "src"))
 
-html = f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Udyam Digital — Approach, Competitive Analysis and Impact</title><style>{css}</style></head><body>{"".join(pages)}</body></html>'
+html = f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Udyam Digital — Approach, Competitive Analysis and Impact</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=block" rel="stylesheet"><style>{css}</style></head><body>{"".join(pages)}</body></html>'
 (B / "pdf.html").write_text(html, encoding="utf-8")
 out = SITE / "Udyam_Digital_Approach_Competition_Impact.pdf"
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
     pg = b.new_page(viewport={"width": 794, "height": 1123})
-    pg.goto((B / "pdf.html").as_uri()); pg.wait_for_timeout(400)
+    pg.goto((B / "pdf.html").as_uri()); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(400)
     over = pg.evaluate("""[...document.querySelectorAll('.page')].map((p,i)=>{const f=p.querySelector('footer');let m=0;[...p.children].forEach(c=>{if(c.tagName!=='FOOTER'&&!c.classList.contains('wm')&&!c.classList.contains('bg')&&!c.classList.contains('globe')&&!c.classList.contains('inner')){m=Math.max(m,c.getBoundingClientRect().bottom)}});return [i+1, f? Math.round(f.getBoundingClientRect().top - m):null]})""")
     print("gap above footer (px, negative = overflow):", over)
     pg.pdf(path=str(out), print_background=True, prefer_css_page_size=True)

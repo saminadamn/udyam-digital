@@ -57,9 +57,9 @@ class Settings(BaseSettings):
     voice_api_key: str = ""
     voice_timeout_s: float = 15.0
     sarvam_base_url: str = "https://api.sarvam.ai"
-    sarvam_stt_model: str = "saarika:v2.5"
-    sarvam_tts_model: str = "bulbul:v2"
-    sarvam_speaker: str = "anushka"
+    sarvam_stt_model: str = "saaras:v4"       # saaras:v3 also works; saarika:v2.5 is deprecated
+    sarvam_tts_model: str = "bulbul:v3"       # all 8 app languages; bulbul:v2 is legacy
+    sarvam_speaker: str = "priya"           # a bulbul:v3 voice; others: ritu, kavya, neha, shubh, aditya, rahul
     bhashini_inference_url: str = "https://dhruva-api.bhashini.gov.in/services/inference/pipeline"
     bhashini_asr_service_ids: str = ""
     bhashini_tts_service_ids: str = ""

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { listen, listenEngine, type Engine, type Listening } from "@/lib/voice";
 
-/** Hold to talk (C3). Uses the phone's speech recognition, or records and sends to the server when the browser has none. */
+/** Tap to talk (C3): one tap starts listening, it stops by itself when the speaker pauses, and a second tap stops it early. */
 export function MicButton({
   lang,
   disabled,
@@ -12,6 +12,7 @@ export function MicButton({
   onFinal,
   onUnavailable,
   onBusy,
+  onListening,
 }: {
   lang: string;
   disabled?: boolean;
@@ -20,6 +21,7 @@ export function MicButton({
   onFinal: (text: string) => void;
   onUnavailable: () => void;
   onBusy?: (busy: boolean) => void;
+  onListening?: (on: boolean) => void;
 }) {
   const [active, setActive] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -44,6 +46,7 @@ export function MicButton({
     }
     lastRef.current = "";
     setActive(true);
+    onListening?.(true);
     ref.current = listen(engine, lang, {
       onText: (text, final) => {
         lastRef.current = text;
@@ -56,6 +59,7 @@ export function MicButton({
       },
       onDone: (error) => {
         setActive(false);
+        onListening?.(false);
         if (error && !["no-speech", "aborted"].includes(error)) onUnavailable();
         else if (engine === "browser" && lastRef.current.trim()) onFinal(lastRef.current.trim());
       },
@@ -72,12 +76,9 @@ export function MicButton({
       data-engine={engine ?? "none"}
       data-state={busy ? "busy" : active ? "listening" : "idle"}
       disabled={disabled || busy}
-      onPointerDown={start}
-      onPointerUp={stop}
-      onPointerLeave={() => active && stop()}
-      onKeyDown={(e) => (e.key === " " || e.key === "Enter") && !active && start()}
-      onKeyUp={(e) => (e.key === " " || e.key === "Enter") && stop()}
-      className={`flex h-12 w-12 shrink-0 touch-none items-center justify-center rounded-full border transition-colors disabled:opacity-40 ${
+      aria-pressed={active}
+      onClick={() => (active ? stop() : start())}
+      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors disabled:opacity-40 ${
         active ? "animate-pulse border-brand bg-brand text-white" : "border-line bg-white text-brand"
       }`}
     >

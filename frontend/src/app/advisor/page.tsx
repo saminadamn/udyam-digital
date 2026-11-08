@@ -8,7 +8,7 @@ import { MicButton } from "@/components/MicButton";
 import { api, auth, errorText, type Escalation, type Profile, type Question } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import { speak, stopSpeaking } from "@/lib/voice";
-import { session } from "@/lib/store";
+import { session, store } from "@/lib/store";
 
 type Line = { role: "assistant" | "user"; content: string; speak?: string };
 const maskIds = (s: string) =>
@@ -28,7 +28,16 @@ export default function AdvisorPage() {
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [readAloud, setReadAloud] = useState(false);
+  // Replies are read aloud by default; the owner can switch it off and the choice is remembered.
+  const [readAloud, setReadAloudState] = useState(() => store.get("read_aloud") !== "off");
+  const setReadAloud = (on: boolean) => {
+    setReadAloudState(on);
+    store.set("read_aloud", on ? "on" : "off");
+    if (!on) stopSpeaking();
+  };
+  const [listening, setListening] = useState(false);
+  const readAloudRef = useRef(readAloud);
+  readAloudRef.current = readAloud;
   const endRef = useRef<HTMLDivElement>(null);
 
   const say = useCallback((text: string) => speak(text, convLang || lang), [convLang, lang]);
@@ -50,6 +59,7 @@ export default function AdvisorPage() {
       } else {
         setLines([{ role: "assistant", content: r.message.content, speak: r.speak }]);
         setQuestion(r.message);
+        if (readAloudRef.current) speak(r.speak || r.message.content, language);
         setStatus("active");
       }
       setEscalation(null);
@@ -90,9 +100,8 @@ export default function AdvisorPage() {
       setProfile(r.profile);
       setStatus(r.status);
       if (r.escalation) setEscalation(r.escalation);
-      // Spoken answers get spoken replies, kept short by the API (`speak`); the screen shows the full text.
-      if (modality === "voice" && !readAloud) setReadAloud(true);
-      if (modality === "voice" || readAloud) say(r.speak || r.message.content);
+      // Every reply is spoken (short version from the API, `speak`) unless read-aloud is off; a spoken answer always gets one.
+      if (readAloud || modality === "voice") say(r.speak || r.message.content);
     } catch (e) {
       setError(errorText(e, t));
     } finally {
@@ -211,10 +220,11 @@ export default function AdvisorPage() {
             onTranscript={setInput}
             onFinal={(text) => send(text, "voice")}
             onUnavailable={() => setError(t("chat.mic_denied"))}
+            onListening={setListening}
           />
           <input
             className="field"
-            placeholder={t("chat.placeholder")}
+            placeholder={listening ? t("chat.listening") : t("chat.placeholder")}
             value={input}
             disabled={busy || done || escalated}
             onChange={(e) => setInput(e.target.value)}

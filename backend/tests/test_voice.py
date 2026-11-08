@@ -72,14 +72,15 @@ def test_sarvam_adapter(monkeypatch):
         return httpx.Response(200, json={"audios": [base64.b64encode(b"RIFFwav").decode()]})
 
     p = providers.Sarvam(_settings(), _client(handler))
-    t = p.transcribe(b"opus", "audio/webm", "hi")
+    t = p.transcribe(b"opus", "audio/webm;codecs=opus", "hi")  # what Chrome's MediaRecorder reports
+    assert b"Content-Type: audio/webm\r\n" in seen[0].content, "codec suffix must be stripped: Sarvam rejects it"
     assert t.text == "मेरी दुकान है"
     req = seen[0]
-    assert req.headers["api-subscription-key"] == "k" and b'name="language_code"\r\n\r\nhi-IN' in req.content and b"saarika" in req.content
+    assert req.headers["api-subscription-key"] == "k" and b'name="language_code"\r\n\r\nhi-IN' in req.content and b"saaras:v4" in req.content and b'name="mode"\r\n\r\ntranscribe' in req.content
     s = p.speak("नमस्ते", "ta")
     assert s.audio == b"RIFFwav" and s.mime == "audio/wav"
     body = json.loads(seen[1].content)
-    assert body["target_language_code"] == "ta-IN" and body["text"] == "नमस्ते"
+    assert body["language_code"] == "ta-IN" and body["model"] == "bulbul:v3" and body["speaker"] == "priya" and body["text"] == "नमस्ते"
     with pytest.raises(providers.VoiceUnavailable):
         providers.Sarvam(_settings(), _client(lambda r: httpx.Response(500))).speak("x", "hi")
 
